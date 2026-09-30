@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed": "#d6e3ff", "outline": "#6e7977", "primary-fixed-dim": "#80d5cb", "on-background": "#1c1c19", "surface-container-lowest": "#ffffff", "tertiary-fixed": "#ffdbca", "on-primary-fixed": "#00201d", "on-primary-container": "#a3faef", "on-primary-fixed-variant": "#00504a", "surface-container": "#f0ede9", "surface-container-low": "#f6f3ee", "surface": "#fcf9f4", "on-primary": "#ffffff", "on-secondary-container": "#4e607e", "on-secondary": "#ffffff", "inverse-on-surface": "#f3f0eb", "secondary-container": "#c8dbfe", "surface-container-highest": "#e5e2dd", "inverse-surface": "#31302d", "on-secondary-fixed": "#071c36", "surface-tint": "#006a63", "on-tertiary-fixed": "#341100", "primary-container": "#0f766e", "on-secondary-fixed-variant": "#364764", "outline-variant": "#bdc9c6", "on-tertiary": "#ffffff", "on-tertiary-container": "#ffe6da", "secondary-fixed-dim": "#b5c7ea", "secondary": "#4d5f7d", "on-tertiary-fixed-variant": "#783200", "surface-container-high": "#ebe8e3", "tertiary": "#893a00", "on-error-container": "#93000a", "error": "#ba1a1a", "tertiary-container": "#af4c00", "tertiary-fixed-dim": "#ffb690", "error-container": "#ffdad6", "on-surface": "#1c1c19", "background": "#fcf9f4", "surface-variant": "#e5e2dd", "on-error": "#ffffff", "surface-bright": "#fcf9f4", "primary": "#005c55", "surface-dim": "#dcdad5", "inverse-primary": "#80d5cb", "on-surface-variant": "#3e4947", "primary-fixed": "#9cf2e8" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "gutter-desktop": "2.5rem", "space-md": "1rem", "space-xs": "0.25rem", "margin": "1.25rem", "space-sm": "0.5rem", "margin-tablet": "2.5rem", "space-lg": "1.5rem", "margin-desktop": "5rem", "space-xl": "3rem" }, "fontFamily": { "headline-md": [ "Playfair Display" ], "caption-editorial": [ "Playfair Display" ], "body-sm": [ "Inter" ], "headline-lg-mobile": [ "Playfair Display" ], "headline-lg": [ "Playfair Display" ], "lead-paragraph": [ "Inter" ], "display-hero-mobile": [ "Playfair Display" ], "label-uppercase": [ "Inter" ], "body-lg": [ "Inter" ], "body-md": [ "Inter" ], "display-hero": [ "Playfair Display" ], "headline-sm": [ "Playfair Display" ] }, "fontSize": { "headline-md": [ "2rem", { "lineHeight": "2.5rem", "fontWeight": "500" } ], "caption-editorial": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "400" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "headline-lg-mobile": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg": [ "3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "lead-paragraph": [ "1.25rem", { "lineHeight": "2rem", "fontWeight": "400" } ], "display-hero-mobile": [ "2.75rem", { "lineHeight": "3.25rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "label-uppercase": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.12em", "fontWeight": "600" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "fontWeight": "400" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "display-hero": [ "4.5rem", { "lineHeight": "5rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-sm": [ "1.5rem", { "lineHeight": "2rem", "fontWeight": "500" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(11,31,58,0.06)]"><div class="h-20 w-full px-gutter md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md shrink-0"><img alt="ShonarTrail Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vip6dHBEyNRbtlPJ2TmRXITByeFqzrL5Zpg04DL-wGTx5kvtJuajDDtp1jp8rrMk4ioJLYwgtRk8awcaJtFuxfTIr4uQqGk487vf3PvsuJ7VoIfOVQFIuabE8z86ReznetPJTNTaWCAjc5M0McH7meQ57zw5xkdqdVKqzwgzt3nQa3OFVv235TtAclSFOBXLr3HoS0I3_lpjjNY5cU_aQTKJXsdsjaVkeqLzIYL5IV_Eqe82lal81s"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">SHONARTRAIL</span><span class="font-label-uppercase text-label-uppercase text-outline tracking-widest mt-1">Expeditions &amp; Journal</span></div></div><nav class="hidden xl:flex items-center gap-gutter" data-active-classes="text-primary font-bold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="home" href="#">Home</a><div class="relative group py-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs" data-path="explore-bangladesh" href="#"><span>Explore Bangladesh</span><span class="font-label-uppercase text-label-uppercase px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container">8 Divisions</span></a><div class="absolute top-full left-0 pt-space-xs hidden group-hover:block transition-all"><div class="w-64 p-space-md rounded-xl bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_12px_32px_-4px_rgba(11,31,58,0.12)] flex flex-col gap-space-xs"><span class="font-label-uppercase text-label-uppercase text-outline px-space-sm">Geographic Divisions</span><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Dhaka</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Chattogram</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Sylhet</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Khulna</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Barishal</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Rajshahi</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Rangpur</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Mymensingh</a></div></div></div><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="world-journeys" href="#">World Journeys</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="destinations-map" href="#">Destinations &amp; Map</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="travel-journal" href="#">Travel Journal &amp; Stories</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="categories" href="#">Categories</a></nav><div class="flex items-center gap-space-sm shrink-0"><button class="px-3 py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md text-on-surface font-label-uppercase text-label-uppercase hover:bg-surface-container-highest transition-all" type="button">EN | বাংলা</button><button class="px-3 py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest flex items-center gap-space-xs transition-all" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="hidden sm:inline font-body-sm text-body-sm">Search</span></button><button aria-label="Toggle Theme" class="w-8 h-8 rounded-full bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><a class="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container transition-all shadow-[0_4px_12px_-2px_rgba(11,31,58,0.08)]" data-path="admin-portal" href="#">Write / Admin</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full relative">
+<!-- Interactive Reading Progress Indicator -->
+<div class="fixed top-20 left-0 w-full h-1 bg-surface-container z-40 pointer-events-none" id="reading-progress-track">
+<div class="h-full bg-primary w-0 transition-all duration-150 ease-out shadow-sm" id="reading-progress-bar"></div>
+</div>
+<!-- Hero Header Container -->
+<section class="w-full px-gutter md:px-margin-tablet lg:px-margin-desktop pt-8 pb-12">
+<!-- Breadcrumb & Tag -->
+<div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+<nav aria-label="Breadcrumb" class="flex items-center gap-2 font-body-sm text-body-sm text-outline">
+<a class="hover:text-primary transition-colors" href="#">Home</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Explore Bangladesh</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Khulna</a>
+<span class="material-symbols-outlined text-[14px]">chevron_right</span>
+<span class="text-on-surface font-medium">Sundarbans Safari</span>
+</nav>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/10 text-primary">
+<span class="material-symbols-outlined text-[16px] text-tertiary">forest</span>
+<span class="font-label-uppercase text-label-uppercase font-semibold tracking-wider">Wildlife &amp; Deep Jungle Safari</span>
+</div>
+</div>
+<!-- Main Title Block -->
+<div class="max-w-5xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight leading-tight mb-6">
+        Silent Whispers of the Mangrove: An Intimate Expedition into the Heart of the Sundarbans
+      </h1>
+<p class="font-lead-paragraph text-lead-paragraph text-on-surface-variant max-w-4xl leading-relaxed mb-8">
+        Navigating the UNESCO World Heritage tidal waterways of Kotka and Jamtola beach where the Royal Bengal tiger rules between the sundari trees and mystical brackish currents.
+      </p>
+<!-- Author Bio & Social Row -->
+<div class="flex flex-wrap items-center justify-between gap-6 py-6 border-y border-outline-variant/30">
+<!-- Author Profile -->
+<div class="flex items-center gap-4">
+<div class="relative w-12 h-12 rounded-full overflow-hidden shadow-sm bg-surface-container-high shrink-0">
+<img class="w-full h-full object-cover" data-alt="Editorial close-up portrait of explorer Tanvir Ahmed wearing travel field gear with binoculars against lush rainforest backdrop, golden morning illumination." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmmYgH0g8zRvm1KQYQnwKn5sUYQ2xP5BYqPyE7GML_RPd5YNLQRgjdZCIEXDWcQTzW4Je-oWXUTaziY2qe1AWIn2VtzppyWz7uD1-r-PaIn5wurCuTddhrRag2cICZ5Jjgk_tuF8j9iUfQ7Jv7uC8ZxSLwPuc3xkBdy_oxh7aASywBeZ9Be6PsBWT7mn5SW_ZidLQCiQox2ufa1-9cihFgLrUS7rtPTb4yn21KdYlD7v-ggEhNvJs"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Tanvir Ahmed</span>
+<span class="material-symbols-outlined text-[16px] text-primary" title="Verified Editorial Explorer">verified</span>
+</div>
+<span class="font-caption-editorial text-caption-editorial text-outline">
+              NatGeo Contributor &amp; Lead Expedition Naturalist
+            </span>
+</div>
+</div>
+<!-- Meta stats -->
+<div class="flex flex-wrap items-center gap-6 font-body-sm text-body-sm text-outline">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+            Oct 14, 2024
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+            9 min read
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+            14,820 views
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">chat_bubble_outline</span>
+            38 comments
+          </span>
+</div>
+<!-- Social Action Pills -->
+<div class="flex items-center gap-2">
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all shadow-sm" title="Share to X">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all shadow-sm" title="Share via WhatsApp">
+<span class="material-symbols-outlined text-[18px]">forum</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-primary hover:text-on-primary transition-all shadow-sm" id="copy-link-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('Article URL copied to clipboard');" title="Copy Link">
+<span class="material-symbols-outlined text-[18px]">link</span>
+</button>
+<button class="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-on-surface-variant hover:bg-tertiary hover:text-on-tertiary transition-all shadow-sm" title="Bookmark Article">
+<span class="material-symbols-outlined text-[18px]">bookmark_border</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Cinematic Cover Media Section -->
+<section class="w-full px-gutter md:px-margin-tablet lg:px-margin-desktop mb-16">
+<div class="relative w-full rounded-2xl overflow-hidden shadow-xl bg-surface-container-highest aspect-[16/9] max-h-[720px]">
+<img class="w-full h-full object-cover" data-alt="Cinematic aerial panoramic photo of a traditional dark wooden motorboat cutting through tranquil misty river channels of the Sundarbans mangrove forest, dense sundari tree canopy with pneumatophores, soft atmospheric emerald and golden morning light, subtle fog layers reflecting serene water surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAy9q2dkjhDOtpNdfVZRbWItOU4amECl4VyssHZ4A7TdV6BqaUEXxm9bN3f6sQz6rTnv6XGeXalUVChA46moOlB4kLSAyOreB1OveJgmSzU0tGEaulXvpCkCPavxraQtznB9Zm47h5xx0V1LfWBozkQVQyW_952Hg2pzSXf4f-zswSFVJh6C0MCQ_0LZcL0Fuf1dXabbzNwZRRXq524_cqG0RvGrrM9tI-d_l6xHF30br9JJeyxQAg"/>
+<!-- Ambient Glass Coordinate Badge -->
+<div class="absolute bottom-6 right-6 px-4 py-2 rounded-xl backdrop-blur-md bg-inverse-surface/70 text-inverse-on-surface text-label-uppercase font-label-uppercase flex items-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-[16px] text-primary-fixed">explore</span>
+<span>21°51'42" N • 89°46'24" E • Kotka Wildlife Sanctuary</span>
+</div>
+</div>
+<p class="font-caption-editorial text-caption-editorial text-outline mt-3 italic flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">photo_camera</span>
+      Dawn patrol along the Katka canal, accompanied by certified forest rangers. Photo: ShonarTrail Expeditions.
+    </p>
+</section>
+<!-- Two-Column Editorial Main Body -->
+<section class="w-full px-gutter md:px-margin-tablet lg:px-margin-desktop pb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter lg:gap-gutter-desktop">
+<!-- LEFT COLUMN: Narrative & Interaction (8 cols) -->
+<article class="lg:col-span-8 flex flex-col space-y-10">
+<!-- Table of Contents -->
+<div class="p-6 md:p-8 rounded-2xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-2.5 mb-4">
+<span class="material-symbols-outlined text-primary text-[22px]">segment</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Field Notes &amp; Dispatch Index</h3>
+</div>
+<ul class="space-y-3 font-body-md text-body-md text-on-surface-variant">
+<li>
+<a class="flex items-center justify-between hover:text-primary transition-colors py-1 group" href="#tides-kotka">
+<span class="flex items-center gap-3">
+<span class="font-label-uppercase text-label-uppercase text-tertiary">01</span>
+                  The Tides of Kotka: Dawn in the Brackish Estuary
+                </span>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between hover:text-primary transition-colors py-1 group" href="#ghost-jungle">
+<span class="flex items-center gap-3">
+<span class="font-label-uppercase text-label-uppercase text-tertiary">02</span>
+                  Tracking the Ghost: Pugmarks on Saline Clay
+                </span>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between hover:text-primary transition-colors py-1 group" href="#deer-kingfishers">
+<span class="flex items-center gap-3">
+<span class="font-label-uppercase text-label-uppercase text-tertiary">03</span>
+                  Encounters with Spotted Deer, Otters &amp; Azure Kingfishers
+                </span>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</li>
+<li>
+<a class="flex items-center justify-between hover:text-primary transition-colors py-1 group" href="#logistics-permits">
+<span class="flex items-center gap-3">
+<span class="font-label-uppercase text-label-uppercase text-tertiary">04</span>
+                  Expedition Logistics: Permits, Houseboats &amp; Guard Protocols
+                </span>
+<span class="material-symbols-outlined text-[18px] opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+</a>
+</li>
+</ul>
+</div>
+<!-- Section 1: The Tides of Kotka -->
+<div class="space-y-6 pt-4" id="tides-kotka">
+<h2 class="font-headline-md text-headline-md text-on-surface">The Tides of Kotka: Dawn in the Brackish Estuary</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed first-letter:float-left first-letter:text-5xl first-letter:pr-4 first-letter:font-headline-lg first-letter:text-primary first-letter:font-bold">
+            At four in the morning, the Bay of Bengal exhales. The low diesel rumble of our expedition launch, <em class="font-headline-md">M.V. Chhuti</em>, cuts abruptly, leaving in its wake a profound, primordial silence. We drift into the Katka canal on silent oars. Dense sheets of river mist weave through the vertical breathing roots—the pneumatophores—of thousands of <em class="italic">Heritiera fomes</em> trees, protruding upward like ancient wooden stalagmites waiting for the sea.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            The Sundarbans does not submit to cartographic certainty; it is a geography sculpted exclusively by the astronomical pulse of the moon. Every six hours, millions of cubic meters of salty tide surge inland through tens of thousands of serpentine distributaries, erasing all footpaths and leaving only the canopy visible before receding into shimmering mudflats.
+          </p>
+<!-- Pull Quote Block -->
+<div class="my-8 p-8 rounded-2xl bg-surface-container relative overflow-hidden shadow-sm">
+<span class="material-symbols-outlined text-surface-container-highest text-[96px] absolute -right-4 -bottom-6 select-none opacity-40">format_quote</span>
+<blockquote class="font-headline-md text-headline-md text-on-surface leading-snug relative z-10 italic mb-4">
+              “The forest does not reveal itself to the loud; it whispers only to those who listen to the ebb and flow of the saline tide.”
+            </blockquote>
+<cite class="block font-label-uppercase text-label-uppercase text-tertiary font-semibold tracking-wider relative z-10 not-italic">
+              — Ranger Kabir Hossain, Katka Wildlife Sanctuary Station
+            </cite>
+</div>
+</div>
+<!-- In-Article Photo Mosaic / Side-by-Side Gallery -->
+<div class="space-y-4">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="rounded-xl overflow-hidden shadow-md bg-surface-container-high group relative aspect-[4/3]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Intricate close up of sundari tree aerial breathing roots pneumatophores emerging from glossy wet saline tidal mudflats with early morning sunbeams glowing through dew drops, wild nature texture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_JmOdTkNLQGpsPM-xFCjdAmhjTgQOoYaR1XVlHwJ6qOIjs2Do5oBCNVV2wxGzgN9RKOcrsuJirAAPTbJT-lmpVZBlKogdpf0myDADxuVrWvFWdA2PK53hMWmWIC999ju1CWcOhpj3-o119tIP1OacaFhKoU3XnkxuT3bcyL9QQPRW411EkF4TqkR6YNm-BpDhDzwDPr_cwVOSQa7-UNUE_sHzbswJDL1n8ipjLk-5AdOXm0TRKC0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+<span class="font-label-uppercase text-label-uppercase text-primary-fixed">Botanical Wonder</span>
+<span class="font-body-sm text-body-sm text-inverse-on-surface font-medium">Pneumatophores breathing at ebb tide</span>
+</div>
+</div>
+<div class="rounded-xl overflow-hidden shadow-md bg-surface-container-high group relative aspect-[4/3]">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Expedition crew member poling a silent narrow wooden country rowboat through a tight tunnel formed by overhanging mangrove branches covered in lush orchids, calm jade green water reflection." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbDt7hXmgjxSTgCiQg4rvwsiya0rIR_AankiRpOtXwg20cCDvSYT7edCOtJXnFyIT4lvVTUXzNCbKupJ2ZDncM9zAKao0FqHb2zjqVWktMPwBN_3G5iBTehG52psLGx9uk3mDlVtxFptYq_2MpxtKIvTdTABWRuKc9cPi5HQajIu8b0KMiVB3-Gavdi4WCtbfNAAHawq-NWq0dtRq0pGaScmkKo1DHgsN8pWIlUkcpBkrQznLrk8g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent opacity-90 p-4 flex flex-col justify-end">
+<span class="font-label-uppercase text-label-uppercase text-primary-fixed">Silent Navigation</span>
+<span class="font-body-sm text-body-sm text-inverse-on-surface font-medium">Oar-driven tributary scouting at dawn</span>
+</div>
+</div>
+</div>
+<p class="font-caption-editorial text-caption-editorial text-outline italic text-center">
+            Pneumatophore formations along the riverbank (left); navigating shallow creek inlets unreached by commercial vessels (right).
+          </p>
+</div>
+<!-- Section 2: Tracking the Ghost -->
+<div class="space-y-6 pt-6" id="ghost-jungle">
+<h2 class="font-headline-md text-headline-md text-on-surface">Tracking the Ghost: Pugmarks on Saline Clay</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Landing at Jamtola Beach requires stepping off the tender boat into knee-deep, suction-grip clay. Our two Forest Department guards, armed with vintage Lee-Enfield .303 rifles, chamber their rounds with an echoing metallic click. Here, the Royal Bengal Tiger (<em class="italic">Panthera tigris tigris</em>) is not a museum piece; it is an omnipresent psychic presence. You almost never see the tiger first. It watches you from behind a screen of golpata palms, smelling the salt and sweat on your skin.
+          </p>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Barely forty paces from the water's line, Ranger Kabir freezes. He points his bayonet downward. Fresh, sharp paw prints—measuring 14 centimeters across—are pressed deeply into the wet clay. Water is still slowly pooling into the heel cushion. The tiger crossed this exact clearing less than twenty minutes prior, heading south toward the secluded expanse of Jamtola sea beach.
+          </p>
+</div>
+<!-- Section 3: Deer & Kingfishers -->
+<div class="space-y-6 pt-6" id="deer-kingfishers">
+<h2 class="font-headline-md text-headline-md text-on-surface">Encounters with Spotted Deer, Otters &amp; Azure Kingfishers</h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Further along the meadow behind the Katka watchtower, the tension of tracking predators softens into breathtaking spectacle. A herd of over fifty Chital (spotted deer) grazes lazily alongside troops of Rhesus macaques. The mutualism between these two species is famed throughout Bengal: the monkeys toss fresh tender leaves from high tree branches and deliver shrill warning shrieks the moment a tiger or python stalks into view.
+          </p>
+<!-- Large In-Article Landscape Feature -->
+<div class="w-full rounded-2xl overflow-hidden shadow-lg bg-surface-container my-6 aspect-[16/9]">
+<img class="w-full h-full object-cover" data-alt="A wild herd of spotted axis deer feeding on vibrant golden grasslands bordered by dense Sundarbans mangrove jungle canopy, soft golden hour sunlight with flock of white egrets flying above." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOFUA16xMPEbIDng0OLt9BlWBM1Re_6XxT_DWAIcxTDrt65tgHy5X2E1kPwM5dGVBICzAmgKlLnqx3xz4eKbVfwXN0DPx9pENg1oDMn_uFVCO4IlSGZM_KaxykS72AjGaQzJ_7LfqrAFOqqdiUXWHlXhnuE60S50xjURssTU29vqN4B-uRyLvb9fUNa8rkSqM22zfkjT_nORPfU4VWNzAw8-p04AX7ebZ3l-lr4lyVyHYta-co9sU"/>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Along the silted banks of Kochikhali, we spot a family of smooth-coated otters hunting river crabs in tight sync, followed by the brilliant electric flash of a Black-capped Kingfisher plummeting into the brackish current. Over three hundred avian species call this delta home, turning the afternoon hours into an auditorium of calls, whistles, and the heavy rhythmic wingbeats of giant hornbills.
+          </p>
+</div>
+<!-- Section 4: Deep Travel Tips Callout Box -->
+<div class="p-8 rounded-2xl bg-surface-container-high shadow-md space-y-6" id="logistics-permits">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary text-[28px]">verified_user</span>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Field Guide: Permits, Houseboats &amp; Protocols</h3>
+<p class="font-caption-editorial text-caption-editorial text-outline">Essential guidance compiled with Bangladesh Forest Department officials</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+<div class="flex items-start gap-3.5">
+<span class="material-symbols-outlined text-tertiary text-[22px] shrink-0 mt-0.5">wb_sunny</span>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Optimal Season: Nov to Feb</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Calm sea conditions, minimal rain, and moderate humidity. Avoid monsoon season (June–Sept) when cyclones and severe tidal surges make navigation dangerous.</p>
+</div>
+</div>
+<div class="flex items-start gap-3.5">
+<span class="material-symbols-outlined text-tertiary text-[22px] shrink-0 mt-0.5">security</span>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Armed Guard Mandate</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">By law, every tourist vessel entering the Wildlife Sanctuary zones must employ two armed Forest Department rangers boarded from Mongla or Chandpai.</p>
+</div>
+</div>
+<div class="flex items-start gap-3.5">
+<span class="material-symbols-outlined text-tertiary text-[22px] shrink-0 mt-0.5">receipt_long</span>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Entry Fees &amp; Permits</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Foreign tourists: ৳1,500/day + VAT; Domestic travelers: ৳150/day. Professional camera gear incurs a nominal equipment registration surcharge.</p>
+</div>
+</div>
+<div class="flex items-start gap-3.5">
+<span class="material-symbols-outlined text-tertiary text-[22px] shrink-0 mt-0.5">eco</span>
+<div>
+<h4 class="font-body-md text-body-md font-semibold text-on-surface">Strict Leave-No-Trace</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">No single-use plastics are permitted off-boat. Drone flights require clearance from the Ministry of Environment and are strictly prohibited in core breeding reserves.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Author Bio Box -->
+<div class="p-8 rounded-2xl bg-surface-container shadow-sm flex flex-col md:flex-row items-center md:items-start gap-6">
+<div class="w-24 h-24 rounded-full overflow-hidden shadow-md shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Author Tanvir Ahmed smiling warmly outdoors, surrounded by documentary camera gear in an expedition vest with wilderness landscape." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtLV5eIFQWLadmD3bZ-Cxm-cgknYfwjvBO0p4AkKFnooPo6pKr3OU1t0T0kD1ZjFRdk-HNvoxZ5UzVG1Hzie8joRL8JbGPrf1Ciav3auDhU-Ccj2-LCLmAlPzvGZ09OBYuCCHhns05lF_wreaYkGchyaLYRNJMNIcvkeii_cFuc9wRgJBH9GUU0F50-Y9Xwc5KnJOWJG1V5C2YKs9ofap4Mker_jMLqr4wuPNNP2gtOElm6CUV3b8"/>
+</div>
+<div class="flex-1 text-center md:text-left space-y-3">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-2">
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Written by Tanvir Ahmed</h4>
+<p class="font-caption-editorial text-caption-editorial text-primary">Senior Fellow of Bengal Geographic Society</p>
+</div>
+<button class="px-4 py-1.5 rounded-full bg-primary text-on-primary font-body-sm text-body-sm font-medium hover:bg-primary-container transition-all self-center md:self-start shadow-sm">
+                Follow Journal
+              </button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Tanvir has led over forty expeditions across the Eastern Himalayas, the Bengal Delta, and Southeast Asian rainforests. His writing and photography focus on vanishing wildlife habitats and indigenous forest rights.
+            </p>
+<div class="pt-2">
+<span class="font-label-uppercase text-label-uppercase text-outline block mb-2">More from Tanvir Ahmed:</span>
+<div class="flex flex-wrap gap-3">
+<a class="font-body-sm text-body-sm text-primary hover:underline flex items-center gap-1" href="#">
+<span>Into the Cloud Forests of Keokradong</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+<span class="text-outline-variant">•</span>
+<a class="font-body-sm text-body-sm text-primary hover:underline flex items-center gap-1" href="#">
+<span>The Ancient Salt Caravans of Chittagong</span>
+<span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Comments Section -->
+<section class="space-y-8 pt-8">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Explorer Dispatches &amp; Comments</h3>
+<span class="px-2.5 py-0.5 rounded-full bg-surface-container-high text-on-surface font-label-uppercase text-label-uppercase">38</span>
+</div>
+<button class="font-body-sm text-body-sm text-primary font-medium hover:underline flex items-center gap-1">
+<span>Sort by Most Recent</span>
+<span class="material-symbols-outlined text-[16px]">expand_more</span>
+</button>
+</div>
+<!-- Existing Comments Thread -->
+<div class="space-y-6">
+<!-- Comment 1 -->
+<div class="p-6 rounded-2xl bg-surface-container-low shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-sm">
+                    NA
+                  </div>
+<div>
+<h5 class="font-body-md text-body-md font-semibold text-on-surface">Nusrat Jahan Ara</h5>
+<span class="font-caption-editorial text-caption-editorial text-outline">Oct 15, 2024 at 11:24 AM</span>
+</div>
+</div>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Tanvir, your prose captured the sheer stillness of Kotka so vividly! We took a 3-day catamaran trip last December and spotted a mother deer right along Jamtola beach just like you described. Did you encounter any honey collectors (mouals) during this trip?
+              </p>
+<div class="flex items-center gap-4 text-outline font-body-sm text-body-sm">
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+<span>14</span>
+</button>
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">reply</span>
+<span>Reply</span>
+</button>
+</div>
+<!-- Nested Reply -->
+<div class="ml-6 pl-4 border-l-2 border-outline-variant/50 space-y-3 pt-2">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold text-xs">
+                    TA
+                  </div>
+<div>
+<div class="flex items-center gap-1.5">
+<h6 class="font-body-sm text-body-sm font-semibold text-on-surface">Tanvir Ahmed</h6>
+<span class="px-1.5 py-0.2 rounded text-[10px] font-label-uppercase bg-primary-container text-on-primary font-bold">Author</span>
+</div>
+<span class="font-caption-editorial text-caption-editorial text-outline">Oct 15, 2024 at 2:05 PM</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  Thank you Nusrat! Honey season runs exclusively in April and May, so during this October trip the collectors were off-duty to give the wild hives time to regenerate naturally. A profound sight when active, however!
+                </p>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="p-6 rounded-2xl bg-surface-container-low shadow-sm space-y-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-sm">
+                    DL
+                  </div>
+<div>
+<h5 class="font-body-md text-body-md font-semibold text-on-surface">David Lindqvist</h5>
+<span class="font-caption-editorial text-caption-editorial text-outline">Oct 16, 2024 at 09:12 AM</span>
+</div>
+</div>
+<div class="flex text-tertiary">
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+<span class="material-symbols-outlined text-[18px]">star</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+                Traveling from Stockholm next January. Would you recommend booking the cruise out of Mongla port or Khulna town center? Also wondering about mobile signal coverage for urgent dispatches.
+              </p>
+<div class="flex items-center gap-4 text-outline font-body-sm text-body-sm">
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">thumb_up</span>
+<span>6</span>
+</button>
+<button class="flex items-center gap-1 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[16px]">reply</span>
+<span>Reply</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Post A Comment Form -->
+<div class="p-8 rounded-2xl bg-surface-container shadow-md space-y-6">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Leave an Expedition Dispatch</h4>
+<p class="font-body-sm text-body-sm text-outline">Your email address will not be published. Required fields are marked *</p>
+<form class="space-y-4" onsubmit="event.preventDefault(); alert('Your comment has been submitted for editorial moderation.');">
+<div class="flex items-center gap-2 mb-2">
+<span class="font-body-sm text-body-sm text-on-surface font-medium">Rate your experience:</span>
+<div class="flex text-tertiary cursor-pointer">
+<span class="material-symbols-outlined text-[20px] hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-[20px] hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-[20px] hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-[20px] hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-[20px] hover:scale-110 transition-transform">star</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" placeholder="Your Full Name *" required="" type="text"/>
+<input class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" placeholder="Your Email Address *" required="" type="email"/>
+</div>
+<textarea class="w-full px-4 py-3 rounded-xl bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-sm" placeholder="Share your thoughts, safari queries, or personal field experiences... *" required="" rows="4"></textarea>
+<div class="flex items-center justify-between pt-2">
+<label class="flex items-center gap-2 cursor-pointer font-body-sm text-body-sm text-outline select-none">
+<input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox"/>
+<span>Notify me of editorial replies to my comment</span>
+</label>
+<button class="px-6 py-3 rounded-xl bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container transition-all shadow-md" type="submit">
+                  Publish Comment
+                </button>
+</div>
+</form>
+</div>
+</section>
+</article>
+<!-- RIGHT COLUMN: Sticky Exploration Sidebar (4 cols) -->
+<aside class="lg:col-span-4">
+<div class="sticky top-28 space-y-6">
+<!-- Destination Quick Facts Card -->
+<div class="p-6 rounded-2xl bg-surface-container shadow-md space-y-5">
+<div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+<span class="font-label-uppercase text-label-uppercase text-tertiary font-bold tracking-wider">EXPEDITION DOSSIER</span>
+<span class="material-symbols-outlined text-primary text-[20px]">map</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sundarbans Safari Quick Facts</h3>
+<div class="space-y-4 font-body-sm text-body-sm">
+<div class="flex items-start justify-between">
+<span class="text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">location_on</span>
+                  Territory
+                </span>
+<span class="font-semibold text-on-surface text-right">Khulna Division, BD</span>
+</div>
+<div class="flex items-start justify-between">
+<span class="text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+                  Cruise Budget
+                </span>
+<div class="text-right">
+<span class="font-semibold text-on-surface block">৳12,000 – ৳25,000</span>
+<span class="text-outline font-caption-editorial text-caption-editorial">$110 – $230 USD / person</span>
+</div>
+</div>
+<div class="flex items-start justify-between">
+<span class="text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">hiking</span>
+                  Difficulty
+                </span>
+<span class="font-semibold text-primary">Moderate (Boat Bound)</span>
+</div>
+<div class="flex items-start justify-between">
+<span class="text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">pace</span>
+                  Ideal Duration
+                </span>
+<span class="font-semibold text-on-surface">3 Nights / 4 Days</span>
+</div>
+<div class="flex items-start justify-between">
+<span class="text-outline flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]">anchor</span>
+                  Primary Port
+                </span>
+<span class="font-semibold text-on-surface">Mongla River Port</span>
+</div>
+</div>
+<!-- Download PDF Itinerary Button -->
+<button class="w-full py-3.5 px-4 rounded-xl bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container transition-all flex items-center justify-center gap-2 shadow-md group" onclick="alert('Downloading the comprehensive Sundarbans 4D3N PDF Expedition Guide...');">
+<span class="material-symbols-outlined text-[20px] group-hover:translate-y-0.5 transition-transform">download</span>
+<span>Download Free Field PDF (14 MB)</span>
+</button>
+</div>
+<!-- Live Weather & Tidal Status Widget -->
+<div class="p-6 rounded-2xl bg-surface-container-high shadow-md space-y-4">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase text-outline font-semibold">Tidal &amp; Meteorological Status</span>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse"></span>
+                LIVE
+              </span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[36px] text-tertiary">wb_sunny</span>
+<div>
+<span class="font-headline-md text-headline-md text-on-surface leading-none block">28°C</span>
+<span class="font-caption-editorial text-caption-editorial text-outline">Kotka Station • Sunny &amp; Mild</span>
+</div>
+</div>
+<div class="text-right">
+<span class="font-label-uppercase text-label-uppercase text-outline block">Humidity</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">62%</span>
+</div>
+</div>
+<div class="p-3.5 rounded-xl bg-surface-container-lowest/80 flex items-center justify-between text-body-sm font-body-sm shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[18px]">water</span>
+<span class="text-on-surface font-medium">Next High Tide:</span>
+</div>
+<span class="font-semibold text-primary">14:20 BST (+3.4m)</span>
+</div>
+</div>
+<!-- Related Expeditions & Articles -->
+<div class="p-6 rounded-2xl bg-surface-container shadow-md space-y-4">
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Related Expeditions</h4>
+<div class="space-y-4">
+<!-- Item 1 -->
+<a class="flex items-center gap-3.5 group" href="#">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Misty verdant rolling mountain hills of Sajek Valley with wooden cottages over puffy cloud blankets at sunrise, soft warm colors." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv0fF7JOSKb2acjKEdlzTxrTUdLIo0RYpcNQsD32lVYXQqJHR7d1L8jvR3XgRi_liIKtMpfaEkQ_P5wfPcW_xRIOZ-eVnr6jM6iHGmPap_yBXWBLYdoOcOg33mH5D9WNEphTOD_riTaYQIquxZ_-F0a0hZA1_iqfkxN43u8DqNsQAgiogRgtdIF4oOwwsMwgQtuXH0l4EZM-jvinRW0BpFvJsSU0PQ_Ej2NRcyK840iGn-CQXPxyU"/>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-uppercase text-[10px] text-tertiary block truncate">Chattogram Hill Tracts</span>
+<h5 class="font-body-md text-body-md font-medium text-on-surface group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                    Sajek Valley: Awakening Above the Clouds in the Lush Hills
+                  </h5>
+</div>
+</a>
+<!-- Item 2 -->
+<a class="flex items-center gap-3.5 group" href="#">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Freshwater swamp forest of Ratargul Sylhet with submerged koroch trees under mirror water surface reflections and vintage wooden canoe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiKDb9TOysvC-vhtWMGzE9APACZrGnLAdlVG2H00pw2wJZ2YcrUvw5gRtpTzFxMWXDu8vIG0O6gKHTj77qAnTb9sNDWTL9_C6HaH0TwldfWYr1PlJZ_rH6PE1sGaOv9XR5Cyiufn-uC24QtIPZvuIgGEenrNEr1Au3gpAJ1VLOqraoercMipdlaR7vIEb3mfjCi6D6ANkmej5UZNykNm-9HqP-nZTDpKOeUqV2v91tOGNZ3K_4rpE"/>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-uppercase text-[10px] text-tertiary block truncate">Sylhet Division</span>
+<h5 class="font-body-md text-body-md font-medium text-on-surface group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                    Ratargul: Gliding Across Bangladesh's Living Submerged Forest
+                  </h5>
+</div>
+</a>
+<!-- Item 3 -->
+<a class="flex items-center gap-3.5 group" href="#">
+<div class="w-16 h-16 rounded-xl overflow-hidden bg-surface-container-high shrink-0 shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform" data-alt="Pristine white sand beach with turquoise clear ocean waves and curved coconut palms on Saint Martins Island Bangladesh during tranquil sunset." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwT0026lNd14psYvC1_3SzOcq6o4z4452qVBXLuZw6rPpbAEwodIWMwE2WkOLn6-q0296pbnDC1uTPe5_KwVRurg8J6KLa_3NFmI7Bu3315s9HY00NY0emyLt5-Z_F_cWIbtiH43gj-72Ax6FaZ3qG7aW8GUd_1HvWyfwwn8TTjd5crm8U7AwE0qIcvc3gY-hrMoj0M54cgm-F6qPuH9ou_G0mJ3r5NtJ9oEWzLiRPrYSR4pi96VQ"/>
+</div>
+<div class="flex-1 min-w-0">
+<span class="font-label-uppercase text-[10px] text-tertiary block truncate">Bay of Bengal</span>
+<h5 class="font-body-md text-body-md font-medium text-on-surface group-hover:text-primary transition-colors line-clamp-2 leading-snug">
+                    St. Martin's Sanctuary: Coral Shores and Phosphorescent Nights
+                  </h5>
+</div>
+</a>
+</div>
+</div>
+<!-- Compact Newsletter Card -->
+<div class="p-6 rounded-2xl bg-primary text-on-primary shadow-lg space-y-3 relative overflow-hidden">
+<span class="material-symbols-outlined text-primary-fixed-dim/20 text-[100px] absolute -right-6 -bottom-6 select-none pointer-events-none">mark_email_read</span>
+<span class="font-label-uppercase text-label-uppercase text-on-primary-container font-semibold tracking-wider block">DISPATCH DISPATCHES</span>
+<h4 class="font-headline-sm text-headline-sm text-on-primary leading-tight">Join The Shonar Gazette</h4>
+<p class="font-body-sm text-body-sm text-on-primary/80">
+              Receive confidential field notes, wildlife photography previews, and early expedition announcements.
+            </p>
+<form class="space-y-2 pt-2 relative z-10" onsubmit="event.preventDefault(); alert('Subscribed to The Shonar Gazette.');">
+<input class="w-full px-3.5 py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none" placeholder="Your expedition email..." required="" type="email"/>
+<button class="w-full py-2.5 rounded-lg bg-on-primary text-primary font-body-sm text-body-sm font-semibold hover:bg-surface-container-low transition-all shadow-sm" type="submit">
+                Request Field Dispatch
+              </button>
+</form>
+</div>
+</div>
+</aside>
+</div>
+</section>
+<!-- Interactive Scroll Script for Reading Progress Bar -->
+<script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      const progressBar = document.getElementById('reading-progress-bar');
+      if (progressBar) {
+        progressBar.style.width = scrolled + '%';
+      }
+    });
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface pt-space-xl pb-space-lg"><div class="w-full px-gutter md:px-margin-tablet lg:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter pb-space-xl"><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="ShonarTrail Brand Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vip6dHBEyNRbtlPJ2TmRXITByeFqzrL5Zpg04DL-wGTx5kvtJuajDDtp1jp8rrMk4ioJLYwgtRk8awcaJtFuxfTIr4uQqGk487vf3PvsuJ7VoIfOVQFIuabE8z86ReznetPJTNTaWCAjc5M0McH7meQ57zw5xkdqdVKqzwgzt3nQa3OFVv235TtAclSFOBXLr3HoS0I3_lpjjNY5cU_aQTKJXsdsjaVkeqLzIYL5IV_Eqe82lal81s"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">SHONARTRAIL</span></div><p class="font-lead-paragraph text-lead-paragraph text-on-surface-variant max-w-sm">The definitive luxury travel journal documenting remote sanctuaries, pristine archipelagos, and ancient living heritage.</p><div class="flex flex-col gap-space-xs pt-space-sm"><span class="font-label-uppercase text-label-uppercase text-on-surface tracking-wider">Subscribe to The Shonar Gazette</span><p class="font-body-sm text-body-sm text-outline">Receive curated seasonal itineraries and confidential expedition dossiers.</p><div class="flex items-center gap-space-xs mt-space-xs max-w-md"><input class="w-full px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-[0_2px_8px_rgba(11,31,58,0.03)]" placeholder="Your expedition dispatch email..." type="email"/><button class="px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-medium hover:bg-primary-container shrink-0 transition-all">Join</button></div></div></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><span class="font-label-uppercase text-label-uppercase text-outline">Bangladesh Circuits</span><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Sajek Valley Cloudscapes</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Cox's Bazar Marine Drive &amp; Inani</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Sundarbans Mangrove Safari</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Sreemangal Tea Estates Sanctuary</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Bandarban Cloud Peaks &amp; Trails</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Barishal Floating Estuaries</a></li></ul></div><div class="lg:col-span-2 flex flex-col gap-space-sm"><span class="font-label-uppercase text-label-uppercase text-outline">World Journeys</span><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Bali Private Villas</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Maldives Atolls</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Himalayan Nepal</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Thailand Heritage</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">European Expeditions</a></li></ul></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><span class="font-label-uppercase text-label-uppercase text-outline">Travel Resources &amp; Guides</span><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Editorial Field Protocols</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Bespoke Itinerary Planning</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Monsoon &amp; Seasonal Almanac</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Eco-Conservation Ethics Pledge</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Contributor Submissions</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col md:flex-row items-center gap-space-sm"><span class="font-caption-editorial text-caption-editorial text-outline">Guarding heritage ecosystems and indigenous dignity across Bengal and beyond.</span></div><div class="flex items-center gap-gutter"><span class="font-caption-editorial text-caption-editorial text-outline">© 2025 ShonarTrail Media. All rights reserved.</span></div></div></div></footer></body></html>

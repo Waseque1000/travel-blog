@@ -1,26 +1,208 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-playfair);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  /* ShonarTrail Custom Color Tokens */
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-low: var(--surface-container-low);
+  --color-surface-container-lowest: var(--surface-container-lowest);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  --color-surface-dim: var(--surface-dim);
+  --color-inverse-surface: var(--inverse-surface);
+  --color-inverse-on-surface: var(--inverse-on-surface);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  --color-on-background: var(--on-background);
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary-container: var(--on-primary-container);
+  --color-primary-fixed: var(--primary-fixed);
+  --color-primary-fixed-dim: var(--primary-fixed-dim);
+  --color-on-primary-fixed: var(--on-primary-fixed);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary-container: var(--on-secondary-container);
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+  --color-on-primary: var(--on-primary);
+  --color-surface-tint: var(--surface-tint);
+  --color-on-secondary: var(--on-secondary);
+  
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* ShonarTrail Brand Colors (from Stitch) */
+  --surface: #fcf9f4;
+  --surface-container: #f0ede9;
+  --surface-container-low: #f6f3ee;
+  --surface-container-lowest: #ffffff;
+  --surface-container-high: #ebe8e3;
+  --surface-container-highest: #e5e2dd;
+  --surface-dim: #dcdad5;
+  --surface-bright: #fcf9f4;
+  --background: #fcf9f4;
+  --on-background: #1c1c19;
+  --foreground: #1c1c19;
+  --on-surface: #1c1c19;
+  --on-surface-variant: #3e4947;
+  --inverse-surface: #31302d;
+  --inverse-on-surface: #f3f0eb;
+  --outline: #6e7977;
+  --outline-variant: #bdc9c6;
+
+  /* Primary: Deep Teal */
+  --primary: #005c55;
+  --on-primary: #ffffff;
+  --primary-container: #0f766e;
+  --on-primary-container: #a3faef;
+  --primary-fixed: #9cf2e8;
+  --primary-fixed-dim: #80d5cb;
+  --on-primary-fixed: #00201d;
+  --on-primary-fixed-variant: #00504a;
+  --surface-tint: #006a63;
+  --inverse-primary: #80d5cb;
+
+  /* Secondary: Navy-blue toned */
+  --secondary: #4d5f7d;
+  --on-secondary: #ffffff;
+  --secondary-container: #c8dbfe;
+  --on-secondary-container: #4e607e;
+  --secondary-fixed: #d6e3ff;
+  --secondary-fixed-dim: #b5c7ea;
+
+  /* Tertiary: Warm Orange/Brown */
+  --tertiary: #893a00;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #af4c00;
+  --on-tertiary-container: #ffe6da;
+  --tertiary-fixed: #ffdbca;
+  --tertiary-fixed-dim: #ffb690;
+
+  /* Standard tokens */
+  --card: #ffffff;
+  --card-foreground: #1c1c19;
+  --popover: #ffffff;
+  --popover-foreground: #1c1c19;
+  --muted: #f0ede9;
+  --muted-foreground: #6e7977;
+  --accent: #af4c00;
+  --accent-foreground: #ffffff;
+  --destructive: #ba1a1a;
+  --border: #bdc9c6;
+  --input: #e5e2dd;
+  --ring: #005c55;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --surface: #1a1c19;
+  --surface-container: #21241f;
+  --surface-container-low: #1c1f1c;
+  --surface-container-lowest: #141714;
+  --surface-container-high: #2c2f2b;
+  --surface-container-highest: #373a36;
+  --surface-dim: #121410;
+  --surface-bright: #383b37;
+  --background: #1a1c19;
+  --on-background: #e2e3dc;
+  --foreground: #e2e3dc;
+  --on-surface: #e2e3dc;
+  --on-surface-variant: #c1cbbf;
+  --inverse-surface: #e2e3dc;
+  --inverse-on-surface: #2f3130;
+  --outline: #8b9389;
+  --outline-variant: #404944;
+
+  --primary: #80d5cb;
+  --on-primary: #003733;
+  --primary-container: #005049;
+  --on-primary-container: #9cf2e8;
+  --primary-fixed: #9cf2e8;
+  --primary-fixed-dim: #80d5cb;
+  --on-primary-fixed: #00201d;
+  --on-primary-fixed-variant: #00504a;
+  --surface-tint: #80d5cb;
+  --inverse-primary: #006a63;
+
+  --secondary: #b5c7ea;
+  --on-secondary: #1f3050;
+  --secondary-container: #364764;
+  --on-secondary-container: #d6e3ff;
+
+  --tertiary: #ffb690;
+  --on-tertiary: #4e1d00;
+  --tertiary-container: #912a00;
+  --on-tertiary-container: #ffdbca;
+
+  --card: #21241f;
+  --card-foreground: #e2e3dc;
+  --popover: #21241f;
+  --popover-foreground: #e2e3dc;
+  --muted: #2c2f2b;
+  --muted-foreground: #8b9389;
+  --accent: #912a00;
+  --accent-foreground: #ffdbca;
+  --destructive: #ffb4ab;
+  --border: #404944;
+  --input: #373a36;
+  --ring: #80d5cb;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-[--surface] text-[--on-surface] antialiased;
+    overscroll-behavior: none;
+  }
+  html {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-playfair), Georgia, serif;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }

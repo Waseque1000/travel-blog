@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed": "#d6e3ff", "outline": "#6e7977", "primary-fixed-dim": "#80d5cb", "on-background": "#1c1c19", "surface-container-lowest": "#ffffff", "tertiary-fixed": "#ffdbca", "on-primary-fixed": "#00201d", "on-primary-container": "#a3faef", "on-primary-fixed-variant": "#00504a", "surface-container": "#f0ede9", "surface-container-low": "#f6f3ee", "surface": "#fcf9f4", "on-primary": "#ffffff", "on-secondary-container": "#4e607e", "on-secondary": "#ffffff", "inverse-on-surface": "#f3f0eb", "secondary-container": "#c8dbfe", "surface-container-highest": "#e5e2dd", "inverse-surface": "#31302d", "on-secondary-fixed": "#071c36", "surface-tint": "#006a63", "on-tertiary-fixed": "#341100", "primary-container": "#0f766e", "on-secondary-fixed-variant": "#364764", "outline-variant": "#bdc9c6", "on-tertiary": "#ffffff", "on-tertiary-container": "#ffe6da", "secondary-fixed-dim": "#b5c7ea", "secondary": "#4d5f7d", "on-tertiary-fixed-variant": "#783200", "surface-container-high": "#ebe8e3", "tertiary": "#893a00", "on-error-container": "#93000a", "error": "#ba1a1a", "tertiary-container": "#af4c00", "tertiary-fixed-dim": "#ffb690", "error-container": "#ffdad6", "on-surface": "#1c1c19", "background": "#fcf9f4", "surface-variant": "#e5e2dd", "on-error": "#ffffff", "surface-bright": "#fcf9f4", "primary": "#005c55", "surface-dim": "#dcdad5", "inverse-primary": "#80d5cb", "on-surface-variant": "#3e4947", "primary-fixed": "#9cf2e8" }, "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" }, "spacing": { "gutter": "1.5rem", "gutter-desktop": "2.5rem", "space-md": "1rem", "space-xs": "0.25rem", "margin": "1.25rem", "space-sm": "0.5rem", "margin-tablet": "2.5rem", "space-lg": "1.5rem", "margin-desktop": "5rem", "space-xl": "3rem" }, "fontFamily": { "headline-md": [ "Playfair Display" ], "caption-editorial": [ "Playfair Display" ], "body-sm": [ "Inter" ], "headline-lg-mobile": [ "Playfair Display" ], "headline-lg": [ "Playfair Display" ], "lead-paragraph": [ "Inter" ], "display-hero-mobile": [ "Playfair Display" ], "label-uppercase": [ "Inter" ], "body-lg": [ "Inter" ], "body-md": [ "Inter" ], "display-hero": [ "Playfair Display" ], "headline-sm": [ "Playfair Display" ] }, "fontSize": { "headline-md": [ "2rem", { "lineHeight": "2.5rem", "fontWeight": "500" } ], "caption-editorial": [ "0.875rem", { "lineHeight": "1.25rem", "fontWeight": "400" } ], "body-sm": [ "0.875rem", { "lineHeight": "1.375rem", "fontWeight": "400" } ], "headline-lg-mobile": [ "2rem", { "lineHeight": "2.5rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "headline-lg": [ "3rem", { "lineHeight": "3.5rem", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "lead-paragraph": [ "1.25rem", { "lineHeight": "2rem", "fontWeight": "400" } ], "display-hero-mobile": [ "2.75rem", { "lineHeight": "3.25rem", "letterSpacing": "-0.01em", "fontWeight": "600" } ], "label-uppercase": [ "0.75rem", { "lineHeight": "1rem", "letterSpacing": "0.12em", "fontWeight": "600" } ], "body-lg": [ "1.125rem", { "lineHeight": "1.875rem", "fontWeight": "400" } ], "body-md": [ "1rem", { "lineHeight": "1.625rem", "fontWeight": "400" } ], "display-hero": [ "4.5rem", { "lineHeight": "5rem", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "headline-sm": [ "1.5rem", { "lineHeight": "2rem", "fontWeight": "500" } ] } } } };</script></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-primary-fixed selection:text-on-primary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_12px_rgba(11,31,58,0.06)]"><div class="h-20 w-full px-gutter md:px-margin-tablet lg:px-margin-desktop flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md shrink-0"><img alt="ShonarTrail Brand Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vip6dHBEyNRbtlPJ2TmRXITByeFqzrL5Zpg04DL-wGTx5kvtJuajDDtp1jp8rrMk4ioJLYwgtRk8awcaJtFuxfTIr4uQqGk487vf3PvsuJ7VoIfOVQFIuabE8z86ReznetPJTNTaWCAjc5M0McH7meQ57zw5xkdqdVKqzwgzt3nQa3OFVv235TtAclSFOBXLr3HoS0I3_lpjjNY5cU_aQTKJXsdsjaVkeqLzIYL5IV_Eqe82lal81s"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface leading-none">SHONARTRAIL</span><span class="font-label-uppercase text-label-uppercase text-outline tracking-widest mt-1">Expeditions &amp; Journal</span></div></div><nav class="hidden xl:flex items-center gap-gutter" data-active-classes="text-primary font-bold"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="home" href="#">Home</a><div class="relative group py-space-xs"><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors flex items-center gap-space-xs" data-path="explore-bangladesh" href="#"><span>Explore Bangladesh</span><span class="font-label-uppercase text-label-uppercase px-1.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container">8 Divisions</span></a><div class="absolute top-full left-0 pt-space-xs hidden group-hover:block transition-all"><div class="w-64 p-space-md rounded-xl bg-surface-container-lowest/95 backdrop-blur-xl shadow-[0_12px_32px_-4px_rgba(11,31,58,0.12)] flex flex-col gap-space-xs"><span class="font-label-uppercase text-label-uppercase text-outline px-space-sm">Geographic Divisions</span><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Dhaka</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Chattogram</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Sylhet</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Khulna</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Barishal</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Rajshahi</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Rangpur</a><a class="px-space-sm py-1.5 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-body-sm text-body-sm transition-all" data-path="explore-bangladesh" href="#">Mymensingh</a></div></div></div><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="world-journeys" href="#">World Journeys</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="destinations-map" href="#">Destinations &amp; Map</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="travel-journal" href="#">Travel Journal &amp; Stories</a><a class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="categories" href="#">Categories</a></nav><div class="flex items-center gap-space-sm shrink-0"><button class="px-3 py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md text-on-surface font-label-uppercase text-label-uppercase hover:bg-surface-container-highest transition-all" type="button">EN | বাংলা</button><button class="px-3 py-1.5 rounded-full bg-surface-container-high/80 backdrop-blur-md text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest flex items-center gap-space-xs transition-all" type="button"><span class="material-symbols-outlined text-[16px]">search</span><span class="hidden sm:inline font-body-sm text-body-sm">Search</span></button><button aria-label="Toggle Theme" class="w-8 h-8 rounded-full bg-surface-container-high/80 backdrop-blur-md flex items-center justify-center text-on-surface-variant hover:text-on-surface hover:bg-surface-container-highest transition-all" type="button"><span class="material-symbols-outlined text-[18px]">dark_mode</span></button><a class="hidden md:inline-flex items-center px-4 py-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container transition-all shadow-[0_4px_12px_-2px_rgba(11,31,58,0.08)]" data-path="admin-portal" href="#">Write / Admin</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- Top Editorial Header & Discovery Controls -->
+<section class="w-full px-gutter md:px-margin-tablet lg:px-margin-desktop pt-space-md pb-space-lg bg-surface">
+<div class="flex flex-col gap-space-md max-w-6xl">
+<div class="flex flex-wrap items-center gap-space-xs text-outline font-label-uppercase text-label-uppercase tracking-widest">
+<span>Cartographic Gazette</span>
+<span>/</span>
+<span class="text-primary font-semibold">Territorial Coordinates</span>
+<span>/</span>
+<span>Volume IV · Edition 2025</span>
+</div>
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface max-w-3xl leading-tight">
+          Explore Destinations: From the Hills of Chittagong to the Seven Seas
+        </h1>
+<div class="flex items-center gap-space-xs shrink-0 bg-surface-container px-space-md py-space-xs rounded-full shadow-sm">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
+<span class="font-body-sm text-body-sm font-medium text-on-surface">48 Cartographic Routes Plotted</span>
+</div>
+</div>
+</div>
+<!-- Filter Console Surface -->
+<div class="mt-space-lg p-space-md md:p-space-lg bg-surface-container-low rounded-xl shadow-md flex flex-col gap-space-md">
+<!-- Tier 1: Region Switcher & Budget Gauge -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-md pb-space-sm border-b-0">
+<!-- Region Switcher Tabs -->
+<div class="flex items-center gap-space-xs bg-surface-container-high/80 p-1.5 rounded-full w-fit">
+<button class="scope-tab px-space-md py-2 rounded-full font-body-sm text-body-sm font-semibold transition-all bg-primary text-on-primary shadow-sm" id="tab-all" onclick="switchScope('all')">
+            All Destinations (48)
+          </button>
+<button class="scope-tab px-space-md py-2 rounded-full font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" id="tab-bd" onclick="switchScope('bd')">
+            Bangladesh (32)
+          </button>
+<button class="scope-tab px-space-md py-2 rounded-full font-body-sm text-body-sm font-medium text-on-surface-variant hover:text-on-surface transition-all" id="tab-intl" onclick="switchScope('intl')">
+            International (16)
+          </button>
+</div>
+<!-- Budget Scale Selector -->
+<div class="flex items-center gap-space-md bg-surface-container-lowest px-space-md py-2 rounded-xl shadow-sm self-start lg:self-auto">
+<div class="flex flex-col">
+<span class="font-label-uppercase text-label-uppercase text-outline">Budget Range</span>
+<span class="font-body-sm text-body-sm font-semibold text-primary" id="budget-label">Moderate · ৳৳–৳৳৳</span>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-low p-1 rounded-lg">
+<button class="budget-pill px-2.5 py-1 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:bg-surface-container transition-all" onclick="setBudget(1)">৳</button>
+<button class="budget-pill px-2.5 py-1 rounded font-body-sm text-body-sm font-semibold bg-primary text-on-primary transition-all" onclick="setBudget(2)">৳৳</button>
+<button class="budget-pill px-2.5 py-1 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:bg-surface-container transition-all" onclick="setBudget(3)">৳৳৳</button>
+<button class="budget-pill px-2.5 py-1 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:bg-surface-container transition-all" onclick="setBudget(4)">৳৳৳৳</button>
+</div>
+</div>
+</div>
+<!-- Tier 2: Division Filter Pills -->
+<div class="flex flex-col gap-space-xs transition-opacity duration-300" id="division-wrapper">
+<span class="font-label-uppercase text-label-uppercase text-outline tracking-wider">Eight Divisions of Bangladesh</span>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-semibold bg-on-surface text-surface shrink-0 shadow-sm transition-all" onclick="filterDivision('All')">All</button>
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all" onclick="filterDivision('Dhaka')">Dhaka</button>
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all" onclick="filterDivision('Chattogram')">Chattogram</button>
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all" onclick="filterDivision('Sylhet')">Sylhet</button>
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all" onclick="filterDivision('Khulna')">Khulna</button>
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all" onclick="filterDivision('Barishal')">Barishal</button>
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all" onclick="filterDivision('Rajshahi')">Rajshahi</button>
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all" onclick="filterDivision('Rangpur')">Rangpur</button>
+<button class="division-chip px-3.5 py-1.5 rounded-full font-body-sm text-body-sm font-medium bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all" onclick="filterDivision('Mymensingh')">Mymensingh</button>
+</div>
+</div>
+<!-- Tier 3: Curated Experience Typologies -->
+<div class="flex items-center gap-2 overflow-x-auto pt-space-xs scrollbar-none">
+<span class="font-label-uppercase text-label-uppercase text-outline shrink-0 pr-space-xs">Experience:</span>
+<button class="exp-pill px-3 py-1 rounded-lg font-body-sm text-body-sm bg-primary/10 text-primary font-semibold shrink-0 transition-all" onclick="toggleExp(this, 'all')">All Types</button>
+<button class="exp-pill px-3 py-1 rounded-lg font-body-sm text-body-sm bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all flex items-center gap-1" onclick="toggleExp(this, 'mountain')">
+<span class="material-symbols-outlined text-[16px]">landscape</span>Mountain Trek
+        </button>
+<button class="exp-pill px-3 py-1 rounded-lg font-body-sm text-body-sm bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all flex items-center gap-1" onclick="toggleExp(this, 'beaches')">
+<span class="material-symbols-outlined text-[16px]">beach_access</span>Beaches
+        </button>
+<button class="exp-pill px-3 py-1 rounded-lg font-body-sm text-body-sm bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all flex items-center gap-1" onclick="toggleExp(this, 'mangroves')">
+<span class="material-symbols-outlined text-[16px]">forest</span>Mangroves
+        </button>
+<button class="exp-pill px-3 py-1 rounded-lg font-body-sm text-body-sm bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all flex items-center gap-1" onclick="toggleExp(this, 'historical')">
+<span class="material-symbols-outlined text-[16px]">temple_hindu</span>Historical
+        </button>
+<button class="exp-pill px-3 py-1 rounded-lg font-body-sm text-body-sm bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all flex items-center gap-1" onclick="toggleExp(this, 'culinary')">
+<span class="material-symbols-outlined text-[16px]">restaurant</span>Culinary
+        </button>
+<button class="exp-pill px-3 py-1 rounded-lg font-body-sm text-body-sm bg-surface-container-lowest text-on-surface-variant hover:text-on-surface shrink-0 transition-all flex items-center gap-1" onclick="toggleExp(this, 'luxury')">
+<span class="material-symbols-outlined text-[16px]">spa</span>Luxury Resort
+        </button>
+</div>
+</div>
+</section>
+<!-- Split Interactive Cartography & Curated Directory (60% Map / 40% Directory) -->
+<section class="w-full px-gutter md:px-margin-tablet lg:px-margin-desktop pb-space-xl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
+<!-- Interactive Cartography Canvas (7 Cols on 12-col grid = ~58.3%) -->
+<div class="lg:col-span-7 flex flex-col gap-space-sm sticky top-24">
+<!-- Map Outer Frame with subtle elevation -->
+<div class="relative w-full h-[620px] lg:h-[720px] rounded-2xl overflow-hidden bg-surface-container-highest shadow-xl">
+<!-- Static Editorial Map Base via Google Maps static API integration -->
+<div class="w-full h-full bg-cover bg-center absolute inset-0 opacity-80 mix-blend-multiply" data-location="Bangladesh" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuARYY-d8sXivzb9IxM-ZL8-gqx9SdBqrKJ1HeAVXkm0jt9h1mytaJC-l1DtOjj8pTlr8qQYRuPLRaS_vmWu119EOpD4oMS9Z98FSqlLOd4vgH72_wwvKfdOF1doe8_Z-ich7ZptYJPdTbH7XtR9Mf9FML5RqftYFhSs2PTIvwLnUekF4A6v_PwO96hhl_MkPAmf5F-DFxZ1_RJG8qcGACjXZyP_WSfjCN_oANlRHDCe6JWoPJk-UiA')"></div>
+<!-- Editorial Map Overlay / Paper Shading & Grid Lines -->
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-highest/90 via-transparent to-surface-container-highest/40 pointer-events-none"></div>
+<!-- Subtle Topographic Grid Lines SVG (under 2KB) -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none opacity-25" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<pattern height="60" id="carto-grid" patternunits="userSpaceOnUse" width="60">
+<path class="text-outline" d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" stroke-width="0.5"></path>
+<circle class="text-primary" cx="0" cy="0" fill="currentColor" r="1.5"></circle>
+</pattern>
+</defs>
+<rect fill="url(#carto-grid)" height="100%" width="100%"></rect>
+</svg>
+<!-- Glassmorphic Map Control Island (Top Right) -->
+<div class="absolute top-space-md right-space-md z-30 flex flex-col gap-space-xs bg-surface-container-lowest/85 backdrop-blur-md p-1.5 rounded-xl shadow-md">
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container transition-all" onclick="mapAction('zoom-in')" title="Zoom In">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container transition-all" onclick="mapAction('zoom-out')" title="Zoom Out">
+<span class="material-symbols-outlined text-[20px]">remove</span>
+</button>
+<div class="w-full h-[1px] bg-outline-variant/40 my-0.5"></div>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-primary hover:bg-surface-container transition-all" id="layer-btn" onclick="mapAction('toggle-divisions')" title="Toggle Territorial Divisions">
+<span class="material-symbols-outlined text-[20px]">layers</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all" id="terrain-btn" onclick="mapAction('toggle-satellite')" title="Satellite / Topography">
+<span class="material-symbols-outlined text-[20px]">satellite_alt</span>
+</button>
+<button class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface-variant hover:bg-surface-container transition-all" onclick="mapAction('reset')" title="Recenter Bangladesh">
+<span class="material-symbols-outlined text-[20px]">my_location</span>
+</button>
+</div>
+<!-- Glassmorphic Map Key / Division Legend (Top Left) -->
+<div class="absolute top-space-md left-space-md z-30 bg-surface-container-lowest/90 backdrop-blur-md px-space-md py-2.5 rounded-xl shadow-md hidden sm:flex flex-col gap-1 max-w-[210px]">
+<div class="flex items-center justify-between">
+<span class="font-label-uppercase text-label-uppercase font-bold text-on-surface tracking-wider">Bengal Atlas</span>
+<span class="text-[10px] font-mono text-outline">BGD • WGS84</span>
+</div>
+<p class="font-caption-editorial text-caption-editorial text-outline leading-tight">Click pins to inspect expedition dossiers or toggle highlighted divisions.</p>
+</div>
+<!-- Interactive Pins Layer -->
+<!-- Pin 1: Cox's Bazar & Marine Drive (Chattogram - South East Coast) -->
+<div class="absolute z-20 top-[76%] left-[78%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer" onclick="focusDestination('coxsbazar')">
+<div class="relative flex items-center justify-center">
+<span class="absolute w-8 h-8 rounded-full bg-primary/25 animate-ping"></span>
+<span class="relative w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform duration-300">
+<span class="material-symbols-outlined text-[15px]">beach_access</span>
+</span>
+<div class="absolute bottom-full mb-1 px-2.5 py-1 rounded bg-inverse-surface/90 text-inverse-on-surface font-label-uppercase text-[11px] whitespace-nowrap shadow-md opacity-90 group-hover:opacity-100 transition-opacity">
+                Cox's Bazar · Marine Drive
+              </div>
+</div>
+</div>
+<!-- Pin 2: Sajek Valley (Rangamati Cloudscapes) -->
+<div class="absolute z-20 top-[52%] left-[84%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer" onclick="focusDestination('sajek')">
+<div class="relative flex items-center justify-center">
+<span class="absolute w-8 h-8 rounded-full bg-tertiary/25 animate-ping"></span>
+<span class="relative w-7 h-7 rounded-full bg-tertiary text-on-tertiary flex items-center justify-center shadow-lg group-hover:scale-125 transition-transform duration-300">
+<span class="material-symbols-outlined text-[15px]">cloud</span>
+</span>
+<div class="absolute bottom-full mb-1 px-2.5 py-1 rounded bg-inverse-surface/90 text-inverse-on-surface font-label-uppercase text-[11px] whitespace-nowrap shadow-md opacity-90 group-hover:opacity-100 transition-opacity">
+                Sajek Valley · 2,000 ft
+              </div>
+</div>
+</div>
+<!-- Pin 3: Sreemangal (Sylhet Tea Highlands) -->
+<div class="absolute z-20 top-[38%] left-[72%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer" onclick="focusDestination('sreemangal')">
+<div class="relative flex items-center justify-center">
+<span class="relative w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md group-hover:scale-125 transition-transform duration-300">
+<span class="material-symbols-outlined text-[14px]">local_cafe</span>
+</span>
+<div class="absolute bottom-full mb-1 px-2 py-0.5 rounded bg-inverse-surface/90 text-inverse-on-surface font-label-uppercase text-[10px] whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                Sreemangal · Tea Hills
+              </div>
+</div>
+</div>
+<!-- Pin 4: Sundarbans (Khulna Mangrove Reserve) -->
+<div class="absolute z-20 top-[72%] left-[44%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer" onclick="focusDestination('sundarbans')">
+<div class="relative flex items-center justify-center">
+<span class="w-6 h-6 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-md group-hover:scale-125 transition-transform duration-300">
+<span class="material-symbols-outlined text-[14px]">forest</span>
+</span>
+<div class="absolute bottom-full mb-1 px-2 py-0.5 rounded bg-inverse-surface/90 text-inverse-on-surface font-label-uppercase text-[10px] whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                Sundarbans · UNESCO
+              </div>
+</div>
+</div>
+<!-- Pin 5: Bandarban (Keokradong & Nafakhum) -->
+<div class="absolute z-20 top-[66%] left-[86%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer" onclick="focusDestination('bandarban')">
+<div class="relative flex items-center justify-center">
+<span class="w-6 h-6 rounded-full bg-tertiary-container text-on-tertiary flex items-center justify-center shadow-md group-hover:scale-125 transition-transform duration-300">
+<span class="material-symbols-outlined text-[14px]">terrain</span>
+</span>
+<div class="absolute bottom-full mb-1 px-2 py-0.5 rounded bg-inverse-surface/90 text-inverse-on-surface font-label-uppercase text-[10px] whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                Bandarban · Nilgiri Peaks
+              </div>
+</div>
+</div>
+<!-- Pin 6: Sonargaon & Lalbagh Fort (Dhaka Heritage) -->
+<div class="absolute z-20 top-[49%] left-[58%] -translate-x-1/2 -translate-y-1/2 group cursor-pointer" onclick="focusDestination('dhaka')">
+<div class="relative flex items-center justify-center">
+<span class="w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-md group-hover:scale-125 transition-transform duration-300">
+<span class="material-symbols-outlined text-[14px]">fort</span>
+</span>
+<div class="absolute bottom-full mb-1 px-2 py-0.5 rounded bg-inverse-surface/90 text-inverse-on-surface font-label-uppercase text-[10px] whitespace-nowrap shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+                Dhaka · Sonargaon
+              </div>
+</div>
+</div>
+<!-- Pin 7: International Outposts (Floating Pill at Bottom-Left) -->
+<div class="absolute z-20 bottom-space-md left-space-md flex items-center gap-space-xs">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md px-3 py-2 rounded-xl shadow-md flex items-center gap-space-sm cursor-pointer hover:bg-surface-container transition-all" onclick="focusDestination('bali')">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary"></span>
+<div class="flex flex-col">
+<span class="font-label-uppercase text-[10px] text-outline">Trans-Oceanic Outpost</span>
+<span class="font-body-sm text-body-sm font-semibold text-on-surface">Bali &amp; Ubud · 8°20'S 115°16'E</span>
+</div>
+<span class="material-symbols-outlined text-outline text-[18px]">north_east</span>
+</div>
+</div>
+<!-- Active Marker Interactive Preview Card (Docked Bottom Right inside Map) -->
+<div class="absolute bottom-space-md right-space-md z-30 max-w-xs sm:max-w-sm bg-surface-container-lowest/95 backdrop-blur-xl p-space-md rounded-2xl shadow-xl transition-all duration-300" id="map-preview-card">
+<div class="flex items-start justify-between gap-space-sm pb-space-xs">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-primary"></span>
+<span class="font-label-uppercase text-label-uppercase text-primary font-bold" id="preview-division">Chattogram Division</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface" id="preview-title">Sajek Valley</h4>
+</div>
+<span class="font-body-sm text-body-sm font-bold bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded-full" id="preview-rating">4.9 ★</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1" id="preview-desc">
+              Elevated wooden cottages piercing morning blankets of floating stratocumulus clouds along the Mizoram border ridge.
+            </p>
+<div class="flex items-center justify-between mt-space-sm pt-space-xs border-t-0">
+<div class="flex items-center gap-2 text-outline font-mono text-[11px]">
+<span id="preview-elev">2,000 FT</span>
+<span>•</span>
+<span id="preview-best">Oct–Mar</span>
+</div>
+<button class="font-body-sm text-body-sm font-semibold text-primary hover:text-primary-container flex items-center gap-0.5" onclick="scrollToCard('sajek')">
+                Inspect Dossier <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Compass Rose Decorative Watermark -->
+<div class="absolute bottom-6 right-6 pointer-events-none opacity-20 text-on-surface hidden md:block">
+<svg class="w-24 h-24" fill="currentColor" viewbox="0 0 100 100">
+<polygon points="50,5 58,42 95,50 58,58 50,95 42,58 5,50 42,42"></polygon>
+</svg>
+</div>
+</div>
+<!-- Cartographic Metadata Micro-bar below Map -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm px-space-xs text-outline font-label-uppercase text-label-uppercase">
+<div class="flex items-center gap-space-sm">
+<span>Projection: Mercator BD</span>
+<span>·</span>
+<span>Grid Accuracy: ±0.001°</span>
+</div>
+<div class="flex items-center gap-space-xs text-primary font-medium">
+<span class="material-symbols-outlined text-[14px]">verified</span>
+<span>Ground-Surveyed Itineraries</span>
+</div>
+</div>
+</div>
+<!-- Scrollable Destination Directory Cards (5 Cols on 12-col grid = ~41.7%) -->
+<div class="lg:col-span-5 flex flex-col gap-space-md">
+<div class="flex items-center justify-between pb-space-xs">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Curated Expeditions</h2>
+<span class="font-body-sm text-body-sm text-outline font-medium">6 Selected Field Guides</span>
+</div>
+<!-- Card 1: Sajek Valley -->
+<article class="dest-card group flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-budget="2" data-division="Chattogram" data-exp="mountain" data-scope="bd" id="card-sajek">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Breathtaking morning mist and ocean of clouds covering lush green undulating mountain ridges in Sajek Valley Bangladesh, soft sunrise amber glow, wooden tribal eco-cottage on high stilts in foreground, dramatic tranquil editorial travel photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD591ye9INJTF5Ps6rFDZiru1YqDTMhrjrTTMMD6f7-IpzUPgTmzkd7pWGf2SWPkArqsGNNLQj_hokRPDz6flOWvfzIXQ_P8r0q24Pz2H-_eMs0UwYnoIQXfUqBVTquDNmxA9v55NVGsgDeh8_oyESB48lRxenX6HIzOvq6_JKnP8_h1_qNW4ueatgIW1tiDKKlyiHyQxla71WepYFQZ9y_0FrmGAzcxoxkdZCKCYLu_cZEmpxEijg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-uppercase text-label-uppercase text-primary font-bold">
+                Chattogram · Rangamati
+              </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-body-sm text-body-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">star</span> 4.9
+              </span>
+</div>
+<div class="absolute bottom-space-xs left-space-md right-space-md flex items-center justify-between">
+<span class="font-label-uppercase text-[11px] tracking-wider text-surface bg-inverse-surface/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                23°23'N 92°17'E · 2,000 FT
+              </span>
+<span class="font-body-sm text-body-sm font-semibold text-primary-container bg-surface-container/90 px-2.5 py-0.5 rounded-full">
+                Best: Oct – Mar
+              </span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Sajek Valley — Kingdom of Clouds
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                A remote hill paradise hugging the Mizoram border where sunrise paints a surging sea of low-hanging cumulus around timber stilts.
+              </p>
+</div>
+<!-- Logistics & Weather Snapshot -->
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">directions_car</span>
+<span class="font-body-sm text-body-sm font-medium"><strong class="text-on-surface">Route:</strong> Khagrachhari → Chander Gari military escort convoys (10:30am / 3:30pm)</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[16px]">thermostat</span>
+<span class="font-body-sm text-body-sm">18°C – 24°C Clear</span>
+</div>
+<div class="font-body-sm text-body-sm font-semibold text-primary">
+                  Est: ৳8,000 – ৳15,000 / couple
+                </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="font-body-sm text-body-sm font-medium text-outline hover:text-on-surface flex items-center gap-1 transition-colors" onclick="previewOnMap('sajek')">
+<span class="material-symbols-outlined text-[18px]">map</span> Pinpoint on Map
+              </button>
+<a class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-sm transition-all flex items-center gap-1" href="#">
+                View Itinerary <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 2: Cox's Bazar Marine Drive -->
+<article class="dest-card group flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-budget="3" data-division="Chattogram" data-exp="beaches" data-scope="bd" id="card-coxsbazar">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Dramatic aerial drone view of the 80km Marine Drive road in Coxs Bazar Bangladesh, serpentine asphalt road flanked by golden sand beach and emerald Bay of Bengal waves on one side and towering forested emerald green hills on the other, golden hour cinematic light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJeKkkKT_KJieraPrFL8vEJzssAa9RSJ5c7LTEsoYFxxnTMPLAJYWPi2R1deNR5Ww2c8tAnquXGa2rfoRkPw--gk2-r90Vi4Esff2Fn_8aT7u2XSwKExPaMnbG27mv9b_EHwuTR9mFntUbNmfnV1LcgS6sCaQYoHcN5cDH9RZ8Z55jZlSaNZalIbdB9g0i1UqlfWWZgnhht3uras2CrY7ca6KLEsHTMtTsxF9VXcpdbm4oHBEJjsI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-uppercase text-label-uppercase text-primary font-bold">
+                Chattogram · Bay of Bengal
+              </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-body-sm text-body-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">star</span> 4.8
+              </span>
+</div>
+<div class="absolute bottom-space-xs left-space-md right-space-md flex items-center justify-between">
+<span class="font-label-uppercase text-[11px] tracking-wider text-surface bg-inverse-surface/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                21°26'N 91°59'E · Sea Level
+              </span>
+<span class="font-body-sm text-body-sm font-semibold text-primary-container bg-surface-container/90 px-2.5 py-0.5 rounded-full">
+                Best: Nov – Feb
+              </span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Cox's Bazar Marine Drive &amp; Inani
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                The world's longest unbroken natural sea beach met by 80km of coastal roadway flanked by prehistoric coral reefs and sunset lagoons.
+              </p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">flight</span>
+<span class="font-body-sm text-body-sm font-medium"><strong class="text-on-surface">Route:</strong> Direct flight to CXB → Open top 4x4 or scoot along Inani Marine Drive</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[16px]">air</span>
+<span class="font-body-sm text-body-sm">26°C – Pacific Marine Breeze</span>
+</div>
+<div class="font-body-sm text-body-sm font-semibold text-primary">
+                  Est: ৳10,000 – ৳30,000 / couple
+                </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="font-body-sm text-body-sm font-medium text-outline hover:text-on-surface flex items-center gap-1 transition-colors" onclick="previewOnMap('coxsbazar')">
+<span class="material-symbols-outlined text-[18px]">map</span> Pinpoint on Map
+              </button>
+<a class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-sm transition-all flex items-center gap-1" href="#">
+                View Itinerary <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 3: Sundarbans Mangrove Wilderness -->
+<article class="dest-card group flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-budget="3" data-division="Khulna" data-exp="mangroves" data-scope="bd" id="card-sundarbans">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Serene luxury wooden river expedition cruiser boat sailing through misty narrow tidal canal in the deep Sundarbans mangrove forest, root networks of sundari trees in brackish water, quiet wild atmosphere, morning golden fog reflecting on mirror water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-AMrzNdamdB33BX7nlYQNz29HB0kDu_D5t3hN8aPMs7jdsKv3X6E4nTfSCj3h2AaPtcTNOoH7kp2nfVPY3qLaoO5vA2Gqf9PJ_Ne2_zSk2u5UnYViAWMqc39lJ1Q7g6QI0YGfl36SwVu66z0YYTmdjfaoT3Bq8RqDvLOFUFjSw8s3h7SbUVlxSzmZTDG5dJnrybEr82Y_XJ-Rc6uonk0pVTlQvb35b1H0hXXNy826EZje1LJQBIc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-uppercase text-label-uppercase text-tertiary-container text-on-tertiary font-bold">
+                Khulna · UNESCO Sanctuary
+              </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-body-sm text-body-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">star</span> 4.8
+              </span>
+</div>
+<div class="absolute bottom-space-xs left-space-md right-space-md flex items-center justify-between">
+<span class="font-label-uppercase text-[11px] tracking-wider text-surface bg-inverse-surface/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                21°56'N 89°11'E · Delta Basin
+              </span>
+<span class="font-body-sm text-body-sm font-semibold text-primary-container bg-surface-container/90 px-2.5 py-0.5 rounded-full">
+                Best: Nov – Feb
+              </span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Sundarbans Mangrove Wilderness
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                The world's largest contiguous halophytic mangrove delta. Private cabin river safaris through Royal Bengal tiger habitats and dolphin estuaries.
+              </p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">sailing</span>
+<span class="font-body-sm text-body-sm font-medium"><strong class="text-on-surface">Route:</strong> Khulna / Mongla Port → 3-day full-board chartered riverboat safari</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline text-[16px]">waves</span>
+<span class="font-body-sm text-body-sm">High-tide navigation</span>
+</div>
+<div class="font-body-sm text-body-sm font-semibold text-primary">
+                  Est: ৳14,000 – ৳28,000 / cabin
+                </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="font-body-sm text-body-sm font-medium text-outline hover:text-on-surface flex items-center gap-1 transition-colors" onclick="previewOnMap('sundarbans')">
+<span class="material-symbols-outlined text-[18px]">map</span> Pinpoint on Map
+              </button>
+<a class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-sm transition-all flex items-center gap-1" href="#">
+                View Itinerary <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 4: Sreemangal & Lawachara Rainforest -->
+<article class="dest-card group flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-budget="2" data-division="Sylhet" data-exp="luxury" data-scope="bd" id="card-sreemangal">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Rolling manicured vibrant emerald green tea gardens in Sreemangal Sylhet Bangladesh with tall shade trees and misty morning sunlight, woman tea plucker in traditional attire walking distant path, pristine pastoral editorial photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIAQ7luP3jS0QaBIAbd_PehNtyQx4uEoIsLiE2LI2WQtZhgCc0lX9lgIjgCpk7NWxjuwU0z2aHsHglmJb2fFEedhtdkjJ59UNxvO8H39klfyC_WFfVPbwPg6NPq8xpVLTL4xK6VvBPzdTeFtLRzbZms85OnVEmRjaVDsz74htRpxyEpWwIOqLFsV_9hBTyapCQ98oCVISuWy-3btNPxc385MTBZSydKBCHFEUtGMJrMccNFoTpO6s"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-uppercase text-label-uppercase text-primary font-bold">
+                Sylhet · Tea Capital
+              </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-body-sm text-body-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">star</span> 4.7
+              </span>
+</div>
+<div class="absolute bottom-space-xs left-space-md right-space-md flex items-center justify-between">
+<span class="font-label-uppercase text-[11px] tracking-wider text-surface bg-inverse-surface/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                24°18'N 91°44'E · 450 FT
+              </span>
+<span class="font-body-sm text-body-sm font-semibold text-primary-container bg-surface-container/90 px-2.5 py-0.5 rounded-full">
+                Best: All Seasons
+              </span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Sreemangal &amp; Lawachara Rainforest
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                Centuries-old British tea estates, the legendary 7-layer tea ritual, and trekking under the canopy of endangered Western Hoolock Gibbons.
+              </p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">train</span>
+<span class="font-body-sm text-body-sm font-medium"><strong class="text-on-surface">Route:</strong> Parabat / Kalani Express train from Kamalapur Dhaka (3.5 hrs)</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-primary text-[16px]">eco</span>
+<span class="font-body-sm text-body-sm">Eco-Resort Living</span>
+</div>
+<div class="font-body-sm text-body-sm font-semibold text-primary">
+                  Est: ৳6,000 – ৳12,000 / couple
+                </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="font-body-sm text-body-sm font-medium text-outline hover:text-on-surface flex items-center gap-1 transition-colors" onclick="previewOnMap('sreemangal')">
+<span class="material-symbols-outlined text-[18px]">map</span> Pinpoint on Map
+              </button>
+<a class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-sm transition-all flex items-center gap-1" href="#">
+                View Itinerary <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 5: Bandarban: Nilgiri & Keokradong -->
+<article class="dest-card group flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-budget="2" data-division="Chattogram" data-exp="mountain" data-scope="bd" id="card-bandarban">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="High altitude ridge highway and dramatic cloud observatory at Nilgiri Bandarban Bangladesh, extreme mountain slopes covered in jungle foliage with clouds rolling beneath the summit, spectacular sunset light and indigenous wooden shelters" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCP6yBgq1YI47NP926GarW46aq6_QrVD51T6GrprRTBplRLdo7-nFmBXeM0gUnA6PT7nj5W-Tza4uWeRNlbCzExiqtt0iw9HH4GDK4slNWKgnaFtbLQpPbuMYMG4xU5vkkEeCA7XGgJXAzPe4MPmeJwcItsH4Kv-JYNttFY4QuUCgs5-vBVvrgj-BKnimnbCWGgqrH5xmMOtEGpJHx06TQAXqPBb711DjA7oG5UMImF5lwlw0q9_Bw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-uppercase text-label-uppercase text-primary font-bold">
+                Chattogram · Chittagong Hill Tracts
+              </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-body-sm text-body-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">star</span> 4.9
+              </span>
+</div>
+<div class="absolute bottom-space-xs left-space-md right-space-md flex items-center justify-between">
+<span class="font-label-uppercase text-[11px] tracking-wider text-surface bg-inverse-surface/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                21°58'N 92°30'E · 3,235 FT
+              </span>
+<span class="font-body-sm text-body-sm font-semibold text-primary-container bg-surface-container/90 px-2.5 py-0.5 rounded-full">
+                Best: Nov – Feb
+              </span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Bandarban: Nilgiri &amp; Keokradong
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                The highest trekking summits in Bangladesh, cascading cascades of Nafakhum, and ancient Bawm indigenous hillside hamlets.
+              </p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">hiking</span>
+<span class="font-body-sm text-body-sm font-medium"><strong class="text-on-surface">Route:</strong> Chattogram → Bandarban Town → 4WD Moon Safari to Thanchi / Ruma</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-outline text-[16px]">local_police</span>
+<span class="font-body-sm text-body-sm">Registration &amp; Guide Mandate</span>
+</div>
+<div class="font-body-sm text-body-sm font-semibold text-primary">
+                  Est: ৳9,000 – ৳18,000 / person
+                </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="font-body-sm text-body-sm font-medium text-outline hover:text-on-surface flex items-center gap-1 transition-colors" onclick="previewOnMap('bandarban')">
+<span class="material-symbols-outlined text-[18px]">map</span> Pinpoint on Map
+              </button>
+<a class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-sm transition-all flex items-center gap-1" href="#">
+                View Itinerary <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</article>
+<!-- Card 6: Bali & Ubud Cultural Sanctuary (International) -->
+<article class="dest-card group flex flex-col bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300" data-budget="4" data-division="None" data-exp="luxury" data-scope="intl" id="card-bali">
+<div class="relative h-56 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Traditional Balinese stone sanctuary temple overlooking the lush terraced rice paddies of Tegallalang in Ubud Bali, soft tropical mist with incense smoke curling past frangipani blossoms and infinity jungle pool, opulent editorial sanctuary photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBI4C0M3aGEW4vLy9seYNOpnpwiMK1wqGSScVIGJnJawRonB-q1YKoC5vNhY5WdYm_MSbGPkAXwflL-5f_YhKJxdTW0KCNha1MdD9eCbBygeb8Isu9pU_v64OPpuA5GqtcCNHy5ZNy9D9SJrq29j840Qz-Ddr4PSQRETDOMXMr9RM3j2uztc6F_m35Lsnayxef2GtN5YrroCV8G_hRDuA3JkrUz4o2b3N8bYHKrUCnXTFkkzgaMS5Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-lowest via-transparent to-black/30"></div>
+<div class="absolute top-space-sm left-space-sm flex items-center gap-space-xs">
+<span class="px-2.5 py-1 rounded-full bg-surface-container-lowest/90 backdrop-blur-md font-label-uppercase text-label-uppercase text-tertiary font-bold">
+                Indonesia · On-Arrival Visa
+              </span>
+</div>
+<div class="absolute top-space-sm right-space-sm">
+<span class="px-2 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-body-sm text-body-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">star</span> 4.9
+              </span>
+</div>
+<div class="absolute bottom-space-xs left-space-md right-space-md flex items-center justify-between">
+<span class="font-label-uppercase text-[11px] tracking-wider text-surface bg-inverse-surface/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                8°20'S 115°16'E · Island Archipelago
+              </span>
+<span class="font-body-sm text-body-sm font-semibold text-primary-container bg-surface-container/90 px-2.5 py-0.5 rounded-full">
+                Best: Apr – Oct
+              </span>
+</div>
+</div>
+<div class="p-space-md md:p-space-lg flex flex-col gap-space-sm">
+<div class="flex flex-col">
+<h3 class="font-headline-md text-headline-sm text-on-surface group-hover:text-primary transition-colors">
+                Bali &amp; Ubud Cultural Sanctuary
+              </h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1 leading-relaxed">
+                Sacred moss-draped river ravines, private bamboo pavilions, and ceremonial volcanic sunrise circuits across the Indonesian archipelago.
+              </p>
+</div>
+<div class="bg-surface-container-low p-space-sm rounded-xl flex flex-col gap-space-xs text-on-surface-variant">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-primary text-[18px]">flight_takeoff</span>
+<span class="font-body-sm text-body-sm font-medium"><strong class="text-on-surface">Route:</strong> DAC → DPS (via KL / Singapore, 7.5 hrs transit) → Private Car to Ubud</span>
+</div>
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-tertiary text-[16px]">spa</span>
+<span class="font-body-sm text-body-sm">Boutique Wellness Haven</span>
+</div>
+<div class="font-body-sm text-body-sm font-semibold text-primary">
+                  Est: ৳95,000 – ৳180,000 / week
+                </div>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs">
+<button class="font-body-sm text-body-sm font-medium text-outline hover:text-on-surface flex items-center gap-1 transition-colors" onclick="previewOnMap('bali')">
+<span class="material-symbols-outlined text-[18px]">public</span> Trans-Border Coordinate
+              </button>
+<a class="px-space-md py-2 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-sm transition-all flex items-center gap-1" href="#">
+                View Itinerary <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+</a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- Confidential Expedition Dossier Inscription Strip -->
+<section class="w-full bg-surface-container-high py-space-xl">
+<div class="w-full px-gutter md:px-margin-tablet lg:px-margin-desktop flex flex-col md:flex-row items-center justify-between gap-space-lg">
+<div class="flex flex-col gap-space-xs max-w-xl">
+<span class="font-label-uppercase text-label-uppercase text-primary font-semibold tracking-widest">Unlisted Cartography &amp; Private Escorts</span>
+<h3 class="font-headline-md text-headline-md text-on-surface">Require a Bespoke Territorial Expedition?</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Our senior expedition navigators coordinate private river steamers, military clearance permits, and tribal elder hospitality across remote Bengal.</p>
+</div>
+<div class="flex items-center gap-space-sm shrink-0">
+<button class="px-space-lg py-3 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-semibold hover:bg-primary-container shadow-md transition-all">
+          Request Field Officer Consultation
+        </button>
+</div>
+</div>
+</section>
+</div>
+<script>
+  // State variables
+  let currentScope = 'all';
+  let currentDivision = 'All';
+  let currentExp = 'all';
+  let currentBudgetTier = 2;
+
+  const destinationData = {
+    sajek: {
+      title: "Sajek Valley",
+      division: "Chattogram Division",
+      rating: "4.9 ★",
+      desc: "Elevated wooden cottages piercing morning blankets of floating stratocumulus clouds along the Mizoram border ridge.",
+      elev: "2,000 FT",
+      best: "Oct–Mar"
+    },
+    coxsbazar: {
+      title: "Cox's Bazar & Marine Drive",
+      division: "Chattogram Division",
+      rating: "4.8 ★",
+      desc: "Eighty kilometers of cinematic coastal highway connecting coral headlands to the world's longest golden sands.",
+      elev: "Sea Level",
+      best: "Nov–Feb"
+    },
+    sundarbans: {
+      title: "Sundarbans Wilderness",
+      division: "Khulna Division",
+      rating: "4.8 ★",
+      desc: "Ancient mangrove canopy crisscrossed by tidal streams, home of the Royal Bengal Tiger and Gangetic river dolphins.",
+      elev: "Delta Basin",
+      best: "Nov–Feb"
+    },
+    sreemangal: {
+      title: "Sreemangal & Lawachara",
+      division: "Sylhet Division",
+      rating: "4.7 ★",
+      desc: "Verdant tea highland sanctuaries, British-era plantation culture, and primitive gibbon rainforest canopies.",
+      elev: "450 FT",
+      best: "All Year"
+    },
+    bandarban: {
+      title: "Bandarban & Nilgiri Peaks",
+      division: "Chattogram Division",
+      rating: "4.9 ★",
+      desc: "Precipitous ridge highways, sacred tribal sanctuaries, and the highest trekking summits in the nation.",
+      elev: "3,235 FT",
+      best: "Nov–Feb"
+    },
+    dhaka: {
+      title: "Sonargaon & Old Dhaka",
+      division: "Dhaka Division",
+      rating: "4.6 ★",
+      desc: "The medieval capital of Bengal, 17th-century Panam Nagar ruins, and Mughal riverside architecture.",
+      elev: "120 FT",
+      best: "Oct–Mar"
+    },
+    bali: {
+      title: "Bali & Ubud Sanctuary",
+      division: "Indonesia (International)",
+      rating: "4.9 ★",
+      desc: "Sacred jungle ravines, terraced river basins, artisan heritage, and volcanic island tranquility.",
+      elev: "Island",
+      best: "Apr–Oct"
+    }
+  };
+
+  function switchScope(scope) {
+    currentScope = scope;
+    document.querySelectorAll('.scope-tab').forEach(tab => {
+      tab.classList.remove('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-sm');
+      tab.classList.add('text-on-surface-variant', 'font-medium');
+    });
+    
+    const activeTab = document.getElementById('tab-' + scope);
+    if (activeTab) {
+      activeTab.classList.add('bg-primary', 'text-on-primary', 'font-semibold', 'shadow-sm');
+      activeTab.classList.remove('text-on-surface-variant', 'font-medium');
+    }
+
+    const divisionWrapper = document.getElementById('division-wrapper');
+    if (scope === 'intl') {
+      divisionWrapper.classList.add('opacity-30', 'pointer-events-none');
+    } else {
+      divisionWrapper.classList.remove('opacity-30', 'pointer-events-none');
+    }
+
+    applyFilters();
+  }
+
+  function filterDivision(div) {
+    currentDivision = div;
+    document.querySelectorAll('.division-chip').forEach(chip => {
+      chip.classList.remove('bg-on-surface', 'text-surface', 'font-semibold');
+      chip.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'font-medium');
+    });
+
+    event.target.classList.add('bg-on-surface', 'text-surface', 'font-semibold');
+    event.target.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'font-medium');
+
+    applyFilters();
+  }
+
+  function toggleExp(button, exp) {
+    currentExp = exp;
+    document.querySelectorAll('.exp-pill').forEach(pill => {
+      pill.classList.remove('bg-primary/10', 'text-primary', 'font-semibold');
+      pill.classList.add('bg-surface-container-lowest', 'text-on-surface-variant', 'font-medium');
+    });
+
+    button.classList.add('bg-primary/10', 'text-primary', 'font-semibold');
+    button.classList.remove('bg-surface-container-lowest', 'text-on-surface-variant', 'font-medium');
+
+    applyFilters();
+  }
+
+  function setBudget(tier) {
+    currentBudgetTier = tier;
+    const labels = ["Budget · ৳", "Moderate · ৳৳", "Elevated · ৳৳৳", "Luxury Expedition · ৳৳৳৳"];
+    document.getElementById('budget-label').innerText = labels[tier - 1];
+
+    const pills = document.querySelectorAll('.budget-pill');
+    pills.forEach((p, idx) => {
+      if (idx + 1 === tier) {
+        p.className = 'budget-pill px-2.5 py-1 rounded font-body-sm text-body-sm font-semibold bg-primary text-on-primary transition-all';
+      } else {
+        p.className = 'budget-pill px-2.5 py-1 rounded font-body-sm text-body-sm font-medium text-on-surface-variant hover:bg-surface-container transition-all';
+      }
+    });
+
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const cards = document.querySelectorAll('.dest-card');
+    cards.forEach(card => {
+      const scopeMatch = currentScope === 'all' || card.getAttribute('data-scope') === currentScope;
+      const divisionMatch = currentDivision === 'All' || card.getAttribute('data-division') === currentDivision;
+      const expMatch = currentExp === 'all' || card.getAttribute('data-exp') === currentExp;
+      
+      if (scopeMatch && divisionMatch && expMatch) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  function focusDestination(id) {
+    const data = destinationData[id];
+    if (!data) return;
+
+    const titleEl = document.getElementById('preview-title');
+    const divEl = document.getElementById('preview-division');
+    const rateEl = document.getElementById('preview-rating');
+    const descEl = document.getElementById('preview-desc');
+    const elevEl = document.getElementById('preview-elev');
+    const bestEl = document.getElementById('preview-best');
+
+    if (titleEl) titleEl.innerText = data.title;
+    if (divEl) divEl.innerText = data.division;
+    if (rateEl) rateEl.innerText = data.rating;
+    if (descEl) descEl.innerText = data.desc;
+    if (elevEl) elevEl.innerText = data.elev;
+    if (bestEl) bestEl.innerText = data.best;
+
+    const card = document.getElementById('card-' + id);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      card.classList.add('ring-2', 'ring-primary');
+      setTimeout(() => card.classList.remove('ring-2', 'ring-primary'), 1800);
+    }
+  }
+
+  function previewOnMap(id) {
+    focusDestination(id);
+    const mapPreview = document.getElementById('map-preview-card');
+    if (mapPreview) {
+      mapPreview.classList.add('scale-105');
+      setTimeout(() => mapPreview.classList.remove('scale-105'), 400);
+    }
+  }
+
+  function scrollToCard(id) {
+    const card = document.getElementById('card-' + id);
+    if (card) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      card.classList.add('ring-2', 'ring-primary');
+      setTimeout(() => card.classList.remove('ring-2', 'ring-primary'), 1800);
+    }
+  }
+
+  function mapAction(action) {
+    const preview = document.getElementById('map-preview-card');
+    if (action === 'reset') {
+      focusDestination('sajek');
+    } else if (action === 'toggle-divisions') {
+      const btn = document.getElementById('layer-btn');
+      btn.classList.toggle('text-primary');
+      btn.classList.toggle('text-on-surface-variant');
+    } else if (action === 'toggle-satellite') {
+      const btn = document.getElementById('terrain-btn');
+      btn.classList.toggle('text-primary');
+      btn.classList.toggle('text-on-surface-variant');
+    }
+  }
+</script></main><footer class="w-full bg-surface-container-low text-on-surface pt-space-xl pb-space-lg"><div class="w-full px-gutter md:px-margin-tablet lg:px-margin-desktop"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter pb-space-xl"><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="ShonarTrail Brand Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1Vip6dHBEyNRbtlPJ2TmRXITByeFqzrL5Zpg04DL-wGTx5kvtJuajDDtp1jp8rrMk4ioJLYwgtRk8awcaJtFuxfTIr4uQqGk487vf3PvsuJ7VoIfOVQFIuabE8z86ReznetPJTNTaWCAjc5M0McH7meQ57zw5xkdqdVKqzwgzt3nQa3OFVv235TtAclSFOBXLr3HoS0I3_lpjjNY5cU_aQTKJXsdsjaVkeqLzIYL5IV_Eqe82lal81s"/><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface">SHONARTRAIL</span></div><p class="font-lead-paragraph text-lead-paragraph text-on-surface-variant max-w-sm">The definitive luxury travel journal documenting remote sanctuaries, pristine archipelagos, and ancient living heritage.</p><div class="flex flex-col gap-space-xs pt-space-sm"><span class="font-label-uppercase text-label-uppercase text-on-surface tracking-wider">Subscribe to The Shonar Gazette</span><p class="font-body-sm text-body-sm text-outline">Receive curated seasonal itineraries and confidential expedition dossiers.</p><div class="flex items-center gap-space-xs mt-space-xs max-w-md"><input class="w-full px-space-md py-2.5 rounded-lg bg-surface-container-lowest text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary shadow-[0_2px_8px_rgba(11,31,58,0.03)]" placeholder="Your expedition dispatch email..." type="email"/><button class="px-space-md py-2.5 rounded-lg bg-primary text-on-primary font-body-sm text-body-sm font-medium hover:bg-primary-container shrink-0 transition-all">Join</button></div></div></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><span class="font-label-uppercase text-label-uppercase text-outline">Bangladesh Circuits</span><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Sajek Valley Cloudscapes</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Cox's Bazar Marine Drive &amp; Inani</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Sundarbans Mangrove Safari</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Sreemangal Tea Estates Sanctuary</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Bandarban Cloud Peaks &amp; Trails</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Barishal Floating Estuaries</a></li></ul></div><div class="lg:col-span-2 flex flex-col gap-space-sm"><span class="font-label-uppercase text-label-uppercase text-outline">World Journeys</span><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Bali Private Villas</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Maldives Atolls</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Himalayan Nepal</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Thailand Heritage</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">European Expeditions</a></li></ul></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><span class="font-label-uppercase text-label-uppercase text-outline">Travel Resources &amp; Guides</span><ul class="flex flex-col gap-space-xs"><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Editorial Field Protocols</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Bespoke Itinerary Planning</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Monsoon &amp; Seasonal Almanac</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Eco-Conservation Ethics Pledge</a></li><li class="font-body-sm text-body-sm text-on-surface-variant hover:text-on-surface transition-colors"><a href="#">Contributor Submissions</a></li></ul></div></div><div class="pt-space-lg flex flex-col md:flex-row items-center justify-between gap-space-md"><div class="flex flex-col md:flex-row items-center gap-space-sm"><span class="font-caption-editorial text-caption-editorial text-outline">Guarding heritage ecosystems and indigenous dignity across Bengal and beyond.</span></div><div class="flex items-center gap-gutter"><span class="font-caption-editorial text-caption-editorial text-outline">© 2025 ShonarTrail Media. All rights reserved.</span></div></div></div></footer></body></html>
