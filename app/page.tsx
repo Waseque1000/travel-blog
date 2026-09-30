@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { bangladeshPosts } from "@/lib/data/posts";
+import BangladeshMap from "@/components/BangladeshMap";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
@@ -337,12 +338,49 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="p-6 md:p-8 flex flex-col justify-between flex-1 bg-[--surface-container-lowest]">
-                  <p className="text-[1.125rem] leading-[1.875rem] text-[--on-surface-variant] line-clamp-3" style={{ fontFamily: "var(--font-inter)" }}>
-                    {featuredStories[0].excerpt}
-                  </p>
-                  <div className="mt-6 pt-6 flex items-center justify-between border-t border-[--outline-variant]/30">
+                  <div className="flex flex-col gap-4">
+                    <p className="text-[1.125rem] leading-[1.875rem] text-[--on-surface-variant]">
+                      {featuredStories[0].excerpt}
+                    </p>
+
+                    <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                      Tidal channels wind between dense stands of sundari trees where silence is measured by the ebb of lunar tides. In the world&apos;s largest mangrove forest, water is the only highway—navigated on multi-day wooden launches past deer herds and mudflat tiger pugmarks.
+                    </p>
+
+                    {/* Expedition Field Highlights Box */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-3.5 rounded-xl bg-[--surface-container-low] border border-[--outline-variant]/40 text-xs">
+                      <div>
+                        <span className="text-[10px] uppercase font-bold text-gray-400 block tracking-wider">Coordinates</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-200 font-mono">21°56&apos;N 89°11&apos;E</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] uppercase font-bold text-gray-400 block tracking-wider">Best Window</span>
+                        <span className="font-semibold text-[#005c55]">Nov – Feb</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] uppercase font-bold text-gray-400 block tracking-wider">Access Point</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-200">Khulna / Mongla</span>
+                      </div>
+                      <div>
+                        <span className="text-[10px] uppercase font-bold text-gray-400 block tracking-wider">Permit Status</span>
+                        <span className="font-semibold text-[#893a00]">Armed Escort Req.</span>
+                      </div>
+                    </div>
+
+                    {/* Wildlife Badges */}
+                    <div className="flex flex-wrap items-center gap-1.5 pt-1">
+                      <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mr-1">Fauna:</span>
+                      {["Royal Bengal Tiger", "Spotted Deer", "Estuarine Crocodile", "Kingfisher"].map((fauna) => (
+                        <span key={fauna} className="px-2.5 py-0.5 rounded-full bg-[#005c55]/10 text-[#005c55] dark:text-[#9cf2e8] text-[11px] font-medium">
+                          {fauna}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-5 flex items-center justify-between border-t border-[--outline-variant]/30">
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-full bg-[--primary-container] text-white flex items-center justify-center font-semibold text-sm">
+                      <div className="w-10 h-10 rounded-full bg-[--primary-container] text-white flex items-center justify-center font-semibold text-sm shadow-sm">
                         {featuredStories[0].authorInitials}
                       </div>
                       <div>
@@ -493,6 +531,11 @@ export default function HomePage() {
               <p className="text-[1.25rem] leading-[2rem] text-[--on-surface-variant] max-w-md" style={{ fontFamily: "var(--font-inter)" }}>
                 Eight unique geographical personalities, from the world's longest unbroken natural sea strand to tidal swamp mazes.
               </p>
+            </div>
+
+            {/* Interactive Bangladesh Map with Tourist Places */}
+            <div className="my-10">
+              <BangladeshMap />
             </div>
 
             {/* Division Cards */}

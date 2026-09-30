@@ -2,26 +2,23 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const bangladeshDivisions = [
-  { name: "Dhaka", count: "12 Guides", slug: "dhaka" },
   { name: "Chattogram", count: "42 Guides", slug: "chattogram" },
   { name: "Sylhet", count: "31 Guides", slug: "sylhet" },
   { name: "Khulna", count: "27 Guides", slug: "khulna" },
   { name: "Barishal", count: "22 Guides", slug: "barishal" },
   { name: "Rajshahi", count: "18 Guides", slug: "rajshahi" },
   { name: "Rangpur", count: "14 Guides", slug: "rangpur" },
+  { name: "Dhaka", count: "12 Guides", slug: "dhaka" },
   { name: "Mymensingh", count: "11 Guides", slug: "mymensingh" },
-];
-
-const worldRegions = [
-  "South Asia", "Southeast Asia", "Europe", "Middle East", "Africa", "Americas",
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [banglaMode, setBanglaMode] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -29,36 +26,50 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { label: "Home", href: "/" },
+    { label: "Destinations", href: "/destinations" },
+    { label: "Journal", href: "/blog" },
+    { label: "Categories", href: "/category" },
+  ];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/95 dark:bg-stone-950/95 backdrop-blur-xl border-b border-gray-200/80 dark:border-stone-800 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07)]"
-          : "bg-white/90 dark:bg-stone-950/90 backdrop-blur-xl border-b border-gray-200/50 dark:border-stone-800/50 shadow-sm"
+          ? "bg-white/95 dark:bg-stone-950/95 backdrop-blur-md border-b border-gray-200/80 dark:border-stone-800 shadow-sm"
+          : "bg-white/90 dark:bg-stone-950/90 backdrop-blur-md border-b border-gray-200/40 dark:border-stone-800/40"
       }`}
     >
-      <div className="h-20 w-full px-6 md:px-10 lg:px-20 flex items-center justify-between gap-6">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3.5 shrink-0 group">
-          <div className="w-9 h-9 rounded-lg bg-[#005c55] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-            <span className="material-symbols-outlined text-white text-[20px]">travel_explore</span>
+      <div className="h-18 w-full px-6 md:px-12 lg:px-16 flex items-center justify-between">
+        {/* Brand Logo */}
+        <Link href="/" className="flex items-center gap-3 shrink-0 group">
+          <div className="w-8 h-8 rounded-lg bg-[#005c55] flex items-center justify-center text-white shadow-sm group-hover:scale-105 transition-transform">
+            <span className="material-symbols-outlined text-[19px]">travel_explore</span>
           </div>
           <div className="flex flex-col">
             <span
-              className="text-[1.5rem] leading-none tracking-tight text-gray-900 dark:text-white font-serif font-bold"
+              className="text-xl tracking-tight text-gray-900 dark:text-white font-serif font-bold leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               SHONARTRAIL
             </span>
-            <span className="text-[0.65rem] tracking-[0.16em] font-bold text-gray-500 dark:text-gray-400 mt-1 uppercase" style={{ fontFamily: "var(--font-inter)" }}>
-              Expeditions &amp; Journal
+            <span className="text-[10px] tracking-[0.14em] font-medium text-gray-500 uppercase">
+              Expedition Journal
             </span>
           </div>
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden xl:flex items-center gap-6">
-          <Link href="/" className="text-[#005c55] font-bold text-sm hover:opacity-80 transition-opacity">
+        {/* Clean Center Navigation */}
+        <nav className="hidden lg:flex items-center gap-7">
+          <Link
+            href="/"
+            className={`text-sm font-medium transition-colors ${
+              pathname === "/"
+                ? "text-[#005c55] font-semibold"
+                : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+            }`}
+          >
             Home
           </Link>
 
@@ -66,10 +77,14 @@ export default function Navbar() {
           <div className="relative group py-2">
             <Link
               href="/blog?region=bangladesh"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#005c55] dark:hover:text-[#80d5cb] transition-colors flex items-center gap-1.5"
+              className={`text-sm font-medium transition-colors flex items-center gap-1 ${
+                pathname.includes("bangladesh")
+                  ? "text-[#005c55] font-semibold"
+                  : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+              }`}
             >
-              <span>Explore Bangladesh</span>
-              <span className="text-[0.7rem] tracking-wider font-bold px-2 py-0.5 rounded-full bg-[#005c55]/10 text-[#005c55] dark:bg-[#005c55]/30 dark:text-[#9cf2e8]">
+              <span>Bangladesh</span>
+              <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[#005c55]/10 text-[#005c55]">
                 8 Divisions
               </span>
               <span className="material-symbols-outlined text-[16px] text-gray-400 group-hover:rotate-180 transition-transform">
@@ -77,36 +92,33 @@ export default function Navbar() {
               </span>
             </Link>
 
-            {/* Solid, High-Contrast Popup Card */}
-            <div className="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
-              <div className="w-80 p-4 rounded-2xl bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-800 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex flex-col gap-3">
-                <div className="flex items-center justify-between pb-2 border-b border-gray-100 dark:border-stone-800">
-                  <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                    <span className="material-symbols-outlined text-[15px] text-[#005c55]">map</span>
-                    Geographic Atlas
-                  </div>
-                  <span className="text-[11px] font-semibold text-[#005c55] dark:text-[#9cf2e8] bg-[#005c55]/10 dark:bg-[#005c55]/20 px-2 py-0.5 rounded-full">
-                    8 Divisions
+            {/* Clean Dropdown Card */}
+            <div className="absolute top-full -left-4 pt-2 hidden group-hover:block z-50">
+              <div className="w-72 p-3.5 rounded-2xl bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-800 shadow-xl flex flex-col gap-2">
+                <div className="flex items-center justify-between px-2 pb-2 border-b border-gray-100 dark:border-stone-800">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                    Geographic Divisions
                   </span>
+                  <span className="text-[10px] text-[#005c55] font-semibold">Atlas</span>
                 </div>
 
-                <div className="grid grid-cols-2 gap-1.5">
+                <div className="grid grid-cols-2 gap-1">
                   {bangladeshDivisions.map((div) => (
                     <Link
                       key={div.name}
                       href={`/blog?region=bangladesh&division=${div.slug}`}
-                      className="px-2.5 py-2 rounded-xl text-xs font-medium text-gray-800 dark:text-gray-200 hover:text-[#005c55] hover:bg-[#005c55]/10 dark:hover:bg-[#005c55]/20 transition-all flex flex-col justify-center"
+                      className="px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-200 hover:text-[#005c55] hover:bg-[#005c55]/10 transition-colors flex flex-col"
                     >
                       <span className="font-semibold">{div.name}</span>
-                      <span className="text-[10px] text-gray-400 dark:text-gray-500 font-mono">{div.count}</span>
+                      <span className="text-[10px] text-gray-400">{div.count}</span>
                     </Link>
                   ))}
                 </div>
 
-                <div className="pt-2 border-t border-gray-100 dark:border-stone-800 flex items-center justify-between">
+                <div className="pt-2 border-t border-gray-100 dark:border-stone-800">
                   <Link
                     href="/blog?region=bangladesh"
-                    className="text-xs font-semibold text-[#005c55] dark:text-[#9cf2e8] hover:underline flex items-center gap-1 w-full justify-center py-1 rounded-lg hover:bg-gray-50 dark:hover:bg-stone-800"
+                    className="text-xs font-semibold text-[#005c55] hover:underline flex items-center justify-center gap-1 py-1"
                   >
                     View All 9 Field Guides
                     <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
@@ -116,103 +128,93 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* World Journeys Mega Dropdown */}
-          <div className="relative group py-2">
-            <Link
-              href="/blog?region=international"
-              className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#005c55] dark:hover:text-[#80d5cb] transition-colors flex items-center gap-1"
-            >
-              <span>World Journeys</span>
-              <span className="material-symbols-outlined text-[16px] text-gray-400 group-hover:rotate-180 transition-transform">
-                expand_more
-              </span>
-            </Link>
-
-            <div className="absolute top-full left-0 pt-2 hidden group-hover:block z-50">
-              <div className="w-64 p-4 rounded-2xl bg-white dark:bg-stone-900 border border-gray-200 dark:border-stone-800 shadow-[0_20px_40px_-15px_rgba(0,0,0,0.2)] flex flex-col gap-2">
-                <div className="flex items-center gap-1.5 pb-2 border-b border-gray-100 dark:border-stone-800 text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400">
-                  <span className="material-symbols-outlined text-[15px] text-[#005c55]">public</span>
-                  World Horizons
-                </div>
-                <div className="flex flex-col gap-1">
-                  {worldRegions.map((region) => (
-                    <Link
-                      key={region}
-                      href={`/blog?region=international&area=${region.toLowerCase().replace(/ /g, "-")}`}
-                      className="px-3 py-2 rounded-xl text-xs font-medium text-gray-800 dark:text-gray-200 hover:text-[#005c55] hover:bg-[#005c55]/10 dark:hover:bg-[#005c55]/20 transition-all flex items-center justify-between"
-                    >
-                      <span>{region}</span>
-                      <span className="material-symbols-outlined text-[14px] text-gray-400">arrow_right</span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <Link href="/destinations" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#005c55] dark:hover:text-[#80d5cb] transition-colors">
-            Destinations &amp; Map
+          <Link
+            href="/destinations"
+            className={`text-sm font-medium transition-colors ${
+              pathname === "/destinations"
+                ? "text-[#005c55] font-semibold"
+                : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+            }`}
+          >
+            Destinations
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#005c55] dark:hover:text-[#80d5cb] transition-colors">
-            Travel Journal &amp; Stories
+
+          <Link
+            href="/blog"
+            className={`text-sm font-medium transition-colors ${
+              pathname === "/blog"
+                ? "text-[#005c55] font-semibold"
+                : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+            }`}
+          >
+            Journal
           </Link>
-          <Link href="/category" className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#005c55] dark:hover:text-[#80d5cb] transition-colors">
+
+          <Link
+            href="/category"
+            className={`text-sm font-medium transition-colors ${
+              pathname === "/category"
+                ? "text-[#005c55] font-semibold"
+                : "text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+            }`}
+          >
             Categories
           </Link>
         </nav>
 
-        {/* Right Actions */}
+        {/* Right Clean Actions */}
         <div className="flex items-center gap-3 shrink-0">
-          <button
-            onClick={() => setBanglaMode(!banglaMode)}
-            className="px-3 py-1.5 rounded-full bg-gray-100 dark:bg-stone-800 text-xs font-bold text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-stone-700 transition-colors"
-          >
-            {banglaMode ? "বাংলা | EN" : "EN | বাংলা"}
-          </button>
-
+          {/* Minimalist Search Icon Button */}
           <Link
-            href="/blog"
-            className="px-3 py-1.5 rounded-full bg-gray-100 dark:bg-stone-800 text-xs font-semibold text-gray-700 dark:text-gray-300 hover:text-[#005c55] hover:bg-gray-200 dark:hover:bg-stone-700 flex items-center gap-1.5 transition-colors"
+            href="/search"
+            aria-label="Search dispatches"
+            className="w-9 h-9 rounded-full flex items-center justify-center text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-stone-800 transition-colors"
           >
-            <span className="material-symbols-outlined text-[16px]">search</span>
-            <span className="hidden sm:inline">Search</span>
+            <span className="material-symbols-outlined text-[20px]">search</span>
           </Link>
 
+          {/* Clean Write / Admin Button */}
           <Link
             href="/admin"
-            className="hidden md:inline-flex items-center px-4 py-2 rounded-xl bg-[#005c55] text-white text-xs font-bold hover:bg-[#0f766e] transition-all shadow-md"
+            className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#005c55] hover:bg-[#004842] text-white text-xs font-semibold tracking-wide shadow-sm transition-all"
           >
-            Write / Admin
+            <span className="material-symbols-outlined text-[15px]">edit</span>
+            <span>Admin</span>
           </Link>
 
+          {/* Mobile Menu Button */}
           <button
-            className="w-9 h-9 rounded-xl bg-[#005c55] flex items-center justify-center xl:hidden text-white"
+            className="w-9 h-9 rounded-lg flex items-center justify-center text-gray-700 hover:bg-gray-100 lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
-            <span className="material-symbols-outlined text-[20px]">
+            <span className="material-symbols-outlined text-[22px]">
               {mobileOpen ? "close" : "menu"}
             </span>
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Clean Mobile Menu */}
       {mobileOpen && (
-        <div className="xl:hidden bg-white dark:bg-stone-900 border-t border-gray-200 dark:border-stone-800 px-6 py-6 flex flex-col gap-4 shadow-2xl">
-          <Link href="/" className="text-[#005c55] font-bold text-base" onClick={() => setMobileOpen(false)}>
+        <div className="lg:hidden bg-white dark:bg-stone-900 border-t border-gray-200 dark:border-stone-800 px-6 py-5 flex flex-col gap-3 shadow-lg">
+          <Link
+            href="/"
+            className="text-sm font-semibold text-gray-800 dark:text-white py-1"
+            onClick={() => setMobileOpen(false)}
+          >
             Home
           </Link>
-          <div>
-            <p className="text-[0.7rem] tracking-wider font-bold text-gray-400 dark:text-gray-500 uppercase mb-2">
-              Explore Bangladesh (8 Divisions)
-            </p>
-            <div className="grid grid-cols-2 gap-2">
+          <div className="py-1">
+            <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block mb-2">
+              Bangladesh Divisions
+            </span>
+            <div className="grid grid-cols-2 gap-1.5">
               {bangladeshDivisions.map((div) => (
                 <Link
                   key={div.name}
                   href={`/blog?region=bangladesh&division=${div.slug}`}
-                  className="px-3 py-2 rounded-lg text-xs font-medium text-gray-800 dark:text-gray-200 bg-gray-50 dark:bg-stone-800 hover:bg-[#005c55]/10 hover:text-[#005c55] transition-colors"
+                  className="px-2.5 py-1.5 rounded-lg text-xs font-medium text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-stone-800 hover:text-[#005c55]"
                   onClick={() => setMobileOpen(false)}
                 >
                   {div.name}
@@ -220,17 +222,34 @@ export default function Navbar() {
               ))}
             </div>
           </div>
-          <Link href="/blog?region=international" className="text-sm font-medium text-gray-700 dark:text-gray-300" onClick={() => setMobileOpen(false)}>
-            World Journeys
+          <Link
+            href="/destinations"
+            className="text-sm font-semibold text-gray-800 dark:text-white py-1"
+            onClick={() => setMobileOpen(false)}
+          >
+            Destinations
           </Link>
-          <Link href="/destinations" className="text-sm font-medium text-gray-700 dark:text-gray-300" onClick={() => setMobileOpen(false)}>
-            Destinations &amp; Map
+          <Link
+            href="/blog"
+            className="text-sm font-semibold text-gray-800 dark:text-white py-1"
+            onClick={() => setMobileOpen(false)}
+          >
+            Journal
           </Link>
-          <Link href="/blog" className="text-sm font-medium text-gray-700 dark:text-gray-300" onClick={() => setMobileOpen(false)}>
-            Travel Journal &amp; Stories
+          <Link
+            href="/category"
+            className="text-sm font-semibold text-gray-800 dark:text-white py-1"
+            onClick={() => setMobileOpen(false)}
+          >
+            Categories
           </Link>
-          <Link href="/admin" className="inline-flex items-center justify-center px-4 py-2.5 rounded-xl bg-[#005c55] text-white text-xs font-bold w-full" onClick={() => setMobileOpen(false)}>
-            Write / Admin
+          <Link
+            href="/admin"
+            className="mt-2 inline-flex items-center justify-center gap-1 px-4 py-2.5 rounded-xl bg-[#005c55] text-white text-xs font-bold"
+            onClick={() => setMobileOpen(false)}
+          >
+            <span className="material-symbols-outlined text-[15px]">edit</span>
+            Curator Admin
           </Link>
         </div>
       )}

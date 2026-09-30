@@ -24,6 +24,13 @@ export const metadata: Metadata = {
     description: "Award-winning travel journalism across the 8 primeval divisions of Bangladesh and untamed, soulful horizons across the globe.",
     type: "website",
   },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -35,6 +42,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable} h-full`}
+      suppressHydrationWarning
     >
       <head>
         <link
@@ -42,7 +50,9 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }
