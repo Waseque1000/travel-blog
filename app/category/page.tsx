@@ -56,24 +56,24 @@ export default function CategoryIndexPage() {
     <>
       <Navbar />
       <main className="w-full min-h-screen bg-[--surface] pt-20">
-        <section className="w-full px-6 md:px-12 lg:px-20 py-12">
-          <div className="max-w-4xl mb-12">
+        <section className="w-full px-4 sm:px-8 md:px-12 lg:px-20 py-8 sm:py-12">
+          <div className="max-w-4xl mb-8 sm:mb-12">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#005c55]/10 text-[#005c55] text-xs font-bold uppercase tracking-wider mb-3">
               <span className="material-symbols-outlined text-[15px]">category</span>
               Expedition Disciplines
             </div>
             <h1
-              className="text-3xl md:text-5xl font-serif text-[--on-surface] font-bold leading-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-serif text-[--on-surface] font-bold leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               Curated Travel Archetypes
             </h1>
-            <p className="mt-4 text-base md:text-lg text-[--on-surface-variant]">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-[--on-surface-variant]">
               Explore Bangladesh's geographical richness organized by your preferred style of travel: from sunlit coasts to dense rainforests and ancient monasteries.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {categoryList.map((cat) => (
               <Link key={cat.slug} href={`/blog?category=${cat.slug}`}>
                 <article className="group h-full rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">

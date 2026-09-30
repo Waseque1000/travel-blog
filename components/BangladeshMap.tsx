@@ -354,36 +354,36 @@ export default function BangladeshMap() {
   };
 
   return (
-    <div className="w-full bg-[#00201d] text-white rounded-3xl p-6 sm:p-8 md:p-10 shadow-2xl border border-white/10 overflow-hidden relative">
+    <div className="w-full bg-[#00201d] text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-10 shadow-2xl border border-white/10 overflow-hidden relative">
       {/* Ambient background glows */}
       <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-[#005c55]/20 blur-3xl pointer-events-none" />
       <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-[#80d5cb]/10 blur-3xl pointer-events-none" />
 
       {/* Header Bar */}
-      <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8 pb-6 border-b border-white/10">
+      <div className="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-5 mb-6 sm:mb-8 pb-5 sm:pb-6 border-b border-white/10">
         <div>
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-[#80d5cb] border border-white/20 text-xs font-bold uppercase tracking-wider mb-2.5">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#80d5cb] border border-white/20 text-xs font-bold uppercase tracking-wider mb-2">
             <span className="material-symbols-outlined text-[15px]">explore</span>
             Geographic Expedition Cartography
           </div>
           <h2
-            className="text-2xl sm:text-4xl font-serif text-white font-bold leading-tight"
+            className="text-xl sm:text-3xl md:text-4xl font-serif text-white font-bold leading-tight"
             style={{ fontFamily: "var(--font-playfair)" }}
           >
             Tourist Destinations of Bangladesh
           </h2>
-          <p className="text-sm text-white/70 mt-1 max-w-xl">
+          <p className="text-xs sm:text-sm text-white/70 mt-1 max-w-xl">
             Real GPS geographic map of Bangladesh. Pan, zoom, inspect terrain, and click pins to reveal firsthand field dispatches.
           </p>
         </div>
 
         {/* Category Filter Pills */}
-        <div className="flex flex-wrap items-center gap-1.5 bg-black/40 p-1.5 rounded-2xl border border-white/10">
+        <div className="flex flex-wrap items-center gap-1.5 bg-black/40 p-1.5 rounded-2xl border border-white/10 overflow-x-auto max-w-full">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setCategoryFilter(cat)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all ${
+              className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${
                 categoryFilter === cat
                   ? "bg-[#005c55] text-[#9cf2e8] shadow-md border border-[#80d5cb]/40"
                   : "text-white/70 hover:text-white hover:bg-white/10"
@@ -396,9 +396,9 @@ export default function BangladeshMap() {
       </div>
 
       {/* Main Map + Detail Split View */}
-      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
         {/* Left Side: Real Geographic Leaflet Map */}
-        <div className="lg:col-span-7 flex flex-col bg-black/40 rounded-2xl p-3 sm:p-4 border border-white/10 relative overflow-hidden">
+        <div className="lg:col-span-7 flex flex-col bg-black/40 rounded-2xl p-2.5 sm:p-4 border border-white/10 relative overflow-hidden">
           {/* Custom Dark Tile Styling - 100% Free & No API Key */}
           <style>{`
             .leaflet-tile-dark {
@@ -407,12 +407,12 @@ export default function BangladeshMap() {
           `}</style>
 
           {/* Map Controls Top Bar */}
-          <div className="flex flex-wrap items-center justify-between gap-2 mb-3 px-1 z-20">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 mb-3 px-1 z-20">
             {/* Tile Mode Switchers */}
-            <div className="flex items-center gap-1 bg-black/70 p-1 rounded-xl border border-white/15 backdrop-blur-md">
+            <div className="flex flex-wrap items-center gap-1 bg-black/70 p-1 rounded-xl border border-white/15 backdrop-blur-md">
               <button
                 onClick={() => setTileMode("dark")}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                className={`flex-1 sm:flex-none px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-bold transition-all ${
                   tileMode === "dark"
                     ? "bg-[#005c55] text-[#9cf2e8]"
                     : "text-white/70 hover:text-white"
@@ -422,7 +422,7 @@ export default function BangladeshMap() {
               </button>
               <button
                 onClick={() => setTileMode("topo")}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                className={`flex-1 sm:flex-none px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-bold transition-all ${
                   tileMode === "topo"
                     ? "bg-[#005c55] text-[#9cf2e8]"
                     : "text-white/70 hover:text-white"
@@ -432,7 +432,7 @@ export default function BangladeshMap() {
               </button>
               <button
                 onClick={() => setTileMode("satellite")}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                className={`flex-1 sm:flex-none px-2.5 py-1 rounded-lg text-[10px] sm:text-[11px] font-bold transition-all ${
                   tileMode === "satellite"
                     ? "bg-[#005c55] text-[#9cf2e8]"
                     : "text-white/70 hover:text-white"
@@ -445,7 +445,7 @@ export default function BangladeshMap() {
             {/* Reset View Button */}
             <button
               onClick={handleResetView}
-              className="flex items-center gap-1.5 px-3 py-1 bg-white/10 hover:bg-white/20 text-[#80d5cb] hover:text-white rounded-xl text-[11px] font-bold border border-white/15 transition-all backdrop-blur-md"
+              className="flex items-center justify-center gap-1.5 px-3 py-1 bg-white/10 hover:bg-white/20 text-[#80d5cb] hover:text-white rounded-xl text-[10px] sm:text-[11px] font-bold border border-white/15 transition-all backdrop-blur-md shrink-0"
               title="Reset View to whole Bangladesh"
             >
               <span className="material-symbols-outlined text-[15px]">crop_free</span>
@@ -456,41 +456,41 @@ export default function BangladeshMap() {
           {/* Leaflet Map Div */}
           <div
             ref={mapContainerRef}
-            className="w-full h-[480px] sm:h-[540px] rounded-xl overflow-hidden border border-white/10 relative shadow-inner z-10"
+            className="w-full h-[350px] sm:h-[460px] md:h-[540px] rounded-xl overflow-hidden border border-white/10 relative shadow-inner z-10"
             style={{ background: "#061816" }}
           />
 
           {/* Map Footer Metadata Bar */}
-          <div className="mt-3 flex items-center justify-between text-[11px] text-white/50 px-1 font-mono">
-            <span>Bangladesh Geographic Coordinates: 20°34&apos;N to 26°38&apos;N, 88°01&apos;E to 92°41&apos;E</span>
-            <span className="text-[#80d5cb] font-bold">{filteredPlaces.length} Landmarks Active</span>
+          <div className="mt-2.5 flex flex-col sm:flex-row sm:items-center justify-between gap-1 text-[10px] sm:text-[11px] text-white/50 px-1 font-mono">
+            <span className="truncate">Coordinates: 20°34&apos;N–26°38&apos;N, 88°01&apos;E–92°41&apos;E</span>
+            <span className="text-[#80d5cb] font-bold shrink-0">{filteredPlaces.length} Landmarks Active</span>
           </div>
         </div>
 
         {/* Right Side: Selected Tourist Place Dossier Card */}
         <div className="lg:col-span-5 flex flex-col gap-4 justify-between">
-          <div className="bg-white/95 dark:bg-stone-900 text-gray-900 dark:text-white rounded-3xl p-6 md:p-7 shadow-2xl border border-white/20 relative overflow-hidden flex flex-col justify-between h-full">
+          <div className="bg-white/95 dark:bg-stone-900 text-gray-900 dark:text-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7 shadow-2xl border border-white/20 relative overflow-hidden flex flex-col justify-between h-full">
             <div>
               {/* Image Preview with Badges */}
-              <div className="relative h-56 w-full rounded-2xl overflow-hidden mb-5 shadow-md">
+              <div className="relative h-44 sm:h-56 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 shadow-md">
                 <div
                   className="w-full h-full bg-cover bg-center transition-transform duration-700 hover:scale-105"
                   style={{ backgroundImage: `url('${selectedPlace.image}')` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent" />
                 <div className="absolute top-3 left-3 flex items-center gap-2">
-                  <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[11px] font-bold text-white uppercase tracking-wider border border-white/20">
+                  <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-black/60 backdrop-blur-md text-[10px] sm:text-[11px] font-bold text-white uppercase tracking-wider border border-white/20">
                     {selectedPlace.division} Division
                   </span>
-                  <span className="px-2.5 py-0.5 rounded-full bg-[#005c55] text-[#9cf2e8] text-[11px] font-semibold">
+                  <span className="px-2 py-0.5 sm:px-2.5 rounded-full bg-[#005c55] text-[#9cf2e8] text-[10px] sm:text-[11px] font-semibold">
                     {selectedPlace.category}
                   </span>
                 </div>
-                <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
-                  <span className="font-mono text-[#80d5cb] font-semibold">
+                <div className="absolute bottom-2.5 sm:bottom-3 left-2.5 sm:left-3 right-2.5 sm:right-3 flex items-center justify-between text-white text-xs">
+                  <span className="font-mono text-[#80d5cb] font-semibold text-[11px] sm:text-xs">
                     {selectedPlace.lat.toFixed(4)}°N, {selectedPlace.lng.toFixed(4)}°E
                   </span>
-                  <span className="bg-black/50 px-2 py-0.5 rounded font-mono text-[11px]">
+                  <span className="bg-black/50 px-2 py-0.5 rounded font-mono text-[10px] sm:text-[11px]">
                     {selectedPlace.elevation}
                   </span>
                 </div>
@@ -499,7 +499,7 @@ export default function BangladeshMap() {
               {/* Title & Tagline */}
               <div className="flex items-start justify-between gap-3">
                 <h3
-                  className="text-2xl font-serif font-bold leading-snug text-gray-900 dark:text-white"
+                  className="text-xl sm:text-2xl font-serif font-bold leading-snug text-gray-900 dark:text-white"
                   style={{ fontFamily: "var(--font-playfair)" }}
                 >
                   {selectedPlace.name}

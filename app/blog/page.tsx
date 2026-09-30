@@ -68,7 +68,7 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
       <Navbar />
       <main className="w-full min-h-screen bg-[--surface] pt-20">
         {/* Header Hero */}
-        <section className="relative w-full py-16 px-6 md:px-12 lg:px-24 bg-[--inverse-surface] text-white overflow-hidden">
+        <section className="relative w-full py-10 sm:py-16 px-4 sm:px-8 md:px-12 lg:px-24 bg-[--inverse-surface] text-white overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/70 to-black/50 z-0" />
           <div
             className="absolute inset-0 bg-cover bg-center opacity-30 z-0"
@@ -85,22 +85,22 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
               </span>
             </div>
             <h1
-              className="text-3xl sm:text-5xl lg:text-6xl font-serif text-white leading-tight font-semibold"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-white leading-tight font-semibold"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               Field Dispatches &amp; Route Dossiers
             </h1>
-            <p className="mt-4 text-base sm:text-lg text-white/80 max-w-2xl font-light">
+            <p className="mt-3 sm:mt-4 text-sm sm:text-base md:text-lg text-white/80 max-w-2xl font-light">
               Nine comprehensive guides across Bangladesh—from the unbroken strands of Cox's Bazar and the mist-laden ridges of Sajek, to ancient UNESCO ruins and primeval mangrove waterways.
             </p>
           </div>
         </section>
 
         {/* Filter & Search Bar */}
-        <section className="sticky top-20 z-30 w-full bg-[--surface-container-lowest]/95 backdrop-blur-md border-b border-[--outline-variant]/30 px-6 md:px-12 lg:px-24 py-4 shadow-sm">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <section className="sticky top-20 z-30 w-full bg-[--surface-container-lowest]/95 backdrop-blur-md border-b border-[--outline-variant]/30 px-4 sm:px-8 md:px-12 lg:px-24 py-3 sm:py-4 shadow-sm">
+          <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
             {/* Category Pills */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
               <span className="text-xs font-semibold uppercase tracking-wider text-[--outline] shrink-0 mr-1">
                 Category:
               </span>
@@ -127,7 +127,7 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
             </div>
 
             {/* Division Filters */}
-            <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 scrollbar-none">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
               <span className="text-xs font-semibold uppercase tracking-wider text-[--outline] shrink-0 mr-1">
                 Division:
               </span>
@@ -156,7 +156,7 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
         </section>
 
         {/* Post Grid */}
-        <section className="w-full px-6 md:px-12 lg:px-24 py-12">
+        <section className="w-full px-4 sm:px-8 md:px-12 lg:px-24 py-8 sm:py-12">
           <div className="max-w-7xl mx-auto">
             <div className="flex items-center justify-between mb-8">
               <p className="text-sm text-[--on-surface-variant]">
@@ -168,12 +168,12 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
                   className="text-xs font-semibold text-[--primary] hover:underline flex items-center gap-1"
                 >
                   <span className="material-symbols-outlined text-[14px]">close</span>
-                  Clear filters
+                  Clear Filters
                 </Link>
               )}
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredPosts.map((post) => (
                 <Link key={post.slug} href={`/blog/${post.slug}`}>
                   <article className="group rounded-2xl overflow-hidden bg-[--surface-container-lowest] border border-[--outline-variant]/30 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col h-full">

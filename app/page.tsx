@@ -158,14 +158,14 @@ export default function HomePage() {
           </div>
 
           {/* Live Field Dispatch Pill */}
-          <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 pt-8 flex items-center justify-between">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md shadow-lg text-white border border-white/20">
+          <div className="relative z-10 w-full px-4 sm:px-8 md:px-10 lg:px-20 pt-6 sm:pt-8 flex flex-wrap items-center justify-between gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md shadow-lg text-white border border-white/20 text-xs">
               <span className="w-2 h-2 rounded-full bg-[#80d5cb] animate-ping" />
-              <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-white" style={{ fontFamily: "var(--font-inter)" }}>
+              <span className="text-[0.7rem] sm:text-[0.75rem] tracking-[0.12em] font-semibold text-white" style={{ fontFamily: "var(--font-inter)" }}>
                 FIELD DISPATCH: SAJEK PEAKS
               </span>
               <span className="text-white/50">/</span>
-              <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[#80d5cb]" style={{ fontFamily: "var(--font-inter)" }}>
+              <span className="text-[0.7rem] sm:text-[0.75rem] tracking-[0.12em] font-semibold text-[#80d5cb]" style={{ fontFamily: "var(--font-inter)" }}>
                 23°23'N 92°17'E · 1,800 FT
               </span>
             </div>
@@ -178,22 +178,22 @@ export default function HomePage() {
           </div>
 
           {/* Hero Headlines & Search */}
-          <div className="relative z-10 w-full px-6 md:px-10 lg:px-20 py-10 flex flex-col items-start max-w-5xl">
+          <div className="relative z-10 w-full px-4 sm:px-8 md:px-10 lg:px-20 py-8 sm:py-10 flex flex-col items-start max-w-5xl">
             <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-[#005c55]/40 backdrop-blur-sm border border-[#80d5cb]/30">
               <span className="material-symbols-outlined text-[#80d5cb] text-[16px]">verified</span>
-              <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[#9cf2e8]" style={{ fontFamily: "var(--font-inter)" }}>
+              <span className="text-[0.7rem] sm:text-[0.75rem] tracking-[0.12em] font-semibold text-[#9cf2e8]" style={{ fontFamily: "var(--font-inter)" }}>
                 EXPEDITION JOURNAL · VOLUME XIV
               </span>
             </div>
 
             <h1
-              className="text-[3rem] leading-[3.5rem] md:text-[4.75rem] md:leading-[5.25rem] text-white max-w-4xl tracking-tight drop-shadow-md"
+              className="text-3xl sm:text-5xl md:text-[4rem] lg:text-[4.75rem] leading-tight md:leading-[5.25rem] text-white max-w-4xl tracking-tight drop-shadow-md"
               style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}
             >
               Where the River Sings &amp; the World Beckons.
             </h1>
 
-            <p className="text-[1.25rem] leading-[2rem] text-white/90 max-w-2xl mt-4 font-light drop-shadow-lg" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-base sm:text-lg md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-white/90 max-w-2xl mt-4 font-light drop-shadow-lg" style={{ fontFamily: "var(--font-inter)" }}>
               Award-winning travel journalism across the 8 primeval divisions of Bangladesh and untamed, soulful horizons across the globe.
             </p>
 
@@ -201,7 +201,7 @@ export default function HomePage() {
             <form
               action="/blog"
               method="GET"
-              className="w-full mt-10 p-2 sm:p-3 rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-stretch lg:items-center gap-2"
+              className="w-full mt-8 sm:mt-10 p-2 sm:p-3 rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-stretch lg:items-center gap-2.5"
             >
               {/* Destination input */}
               <div className="flex-1 flex items-center px-4 py-3 rounded-xl bg-gray-50 gap-3">
@@ -221,7 +221,7 @@ export default function HomePage() {
               </div>
 
               {/* Filters */}
-              <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                 <div className="flex-1 sm:w-48 px-4 py-3 rounded-xl bg-gray-50 flex flex-col text-left">
                   <label className="text-[0.75rem] tracking-[0.12em] font-semibold text-gray-500 leading-none" style={{ fontFamily: "var(--font-inter)" }}>
                     Division / Realm
@@ -250,8 +250,8 @@ export default function HomePage() {
                 </div>
               </div>
 
-              <button type="submit" className="px-8 py-4 rounded-xl bg-[--tertiary-container] hover:bg-[--tertiary] text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-lg group">
-                <span className="font-semibold tracking-wide" style={{ fontFamily: "var(--font-inter)" }}>Explore Expeditions</span>
+              <button type="submit" className="w-full lg:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[--tertiary-container] hover:bg-[--tertiary] text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-lg group">
+                <span className="font-semibold tracking-wide text-sm sm:text-base" style={{ fontFamily: "var(--font-inter)" }}>Explore Expeditions</span>
                 <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>
             </form>
@@ -288,7 +288,7 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════
             COVER STORY BENTO EDITORIAL GRID
         ══════════════════════════════════════ */}
-        <section className="w-full px-6 md:px-10 lg:px-20 py-12 md:py-16">
+        <section className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
@@ -297,11 +297,11 @@ export default function HomePage() {
                   CURATED FIELD JOURNAL
                 </span>
               </div>
-              <h2 className="text-[3rem] leading-[3.5rem] text-[--on-surface]" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
+              <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-[--on-surface]" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
                 Dispatch from the Frontiers
               </h2>
             </div>
-            <p className="text-[1.25rem] leading-[2rem] text-[--on-surface-variant] max-w-md" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-sm sm:text-base md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-[--on-surface-variant] max-w-md" style={{ fontFamily: "var(--font-inter)" }}>
               Investigative wilderness prose, firsthand route logs, and photographic explorations captured on location.
             </p>
           </div>
@@ -314,7 +314,7 @@ export default function HomePage() {
               className="lg:col-span-7 group rounded-2xl overflow-hidden bg-[--surface-container-lowest] shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl"
             >
               <article className="flex flex-col justify-between h-full">
-                <div className="relative h-96 sm:h-[420px] w-full overflow-hidden">
+                <div className="relative h-64 sm:h-80 md:h-[420px] w-full overflow-hidden">
                   <div
                     className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
                     style={{ backgroundImage: `url('${featuredStories[0].image}')` }}
@@ -332,7 +332,7 @@ export default function HomePage() {
                     <span className="text-[0.875rem] leading-[1.25rem] text-[--primary-fixed-dim]" style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}>
                       {featuredStories[0].label}
                     </span>
-                    <h3 className="text-[2rem] leading-[2.5rem] text-white group-hover:text-[--primary-fixed] transition-colors mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 500 }}>
+                    <h3 className="text-xl sm:text-2xl md:text-[2rem] leading-snug md:leading-[2.5rem] text-white group-hover:text-[--primary-fixed] transition-colors mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 500 }}>
                       {featuredStories[0].title}
                     </h3>
                   </div>
@@ -438,8 +438,8 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════
             BANGLADESH POST CONTENT BANK (9 EXPEDITIONS)
         ══════════════════════════════════════ */}
-        <section className="w-full px-6 md:px-10 lg:px-20 py-12 md:py-16 bg-[--surface-container-low]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <section className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16 bg-[--surface-container-low]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-6 h-0.5 bg-[--primary]" />
@@ -447,13 +447,13 @@ export default function HomePage() {
                   BANGLADESH POST CONTENT BANK
                 </span>
               </div>
-              <h2 className="text-[3rem] leading-[3.5rem] text-[--on-surface]" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
+              <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-[--on-surface]" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
                 Nine Signature Expeditions
               </h2>
             </div>
             <Link
               href="/blog?region=bangladesh"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[--primary] hover:bg-[--primary-container] text-white text-sm font-semibold transition-colors shadow-md"
+              className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[--primary] hover:bg-[--primary-container] text-white text-sm font-semibold transition-colors shadow-md w-full sm:w-auto"
             >
               Explore Full Archive (9 Guides)
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -519,16 +519,16 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════
             EXPLORE BANGLADESH BY DIVISION
         ══════════════════════════════════════ */}
-        <section className="w-full bg-[--surface-container-low] py-12 md:py-16" id="divisions">
-          <div className="w-full px-6 md:px-10 lg:px-20">
+        <section className="w-full bg-[--surface-container-low] py-10 sm:py-12 md:py-16" id="divisions">
+          <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
               <div>
                 <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary]" style={{ fontFamily: "var(--font-inter)" }}>TERRITORIAL ATLAS</span>
-                <h2 className="text-[3rem] leading-[3.5rem] text-[--on-surface] mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
+                <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-[--on-surface] mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
                   Explore Bangladesh by Division
                 </h2>
               </div>
-              <p className="text-[1.25rem] leading-[2rem] text-[--on-surface-variant] max-w-md" style={{ fontFamily: "var(--font-inter)" }}>
+              <p className="text-sm sm:text-base md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-[--on-surface-variant] max-w-md" style={{ fontFamily: "var(--font-inter)" }}>
                 Eight unique geographical personalities, from the world's longest unbroken natural sea strand to tidal swamp mazes.
               </p>
             </div>
@@ -594,31 +594,31 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════
             TRAVEL CATEGORIES
         ══════════════════════════════════════ */}
-        <section className="w-full px-6 md:px-10 lg:px-20 py-12 md:py-16">
-          <div className="text-center max-w-2xl mx-auto mb-12">
+        <section className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16">
+          <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
             <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--tertiary]" style={{ fontFamily: "var(--font-inter)" }}>EXPEDITION DISCIPLINES</span>
-            <h2 className="text-[3rem] leading-[3.5rem] text-[--on-surface] mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
+            <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-[--on-surface] mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
               Curated Travel Archetypes
             </h2>
-            <p className="text-[1.25rem] leading-[2rem] text-[--on-surface-variant] mt-2" style={{ fontFamily: "var(--font-inter)" }}>
+            <p className="text-sm sm:text-base md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-[--on-surface-variant] mt-2" style={{ fontFamily: "var(--font-inter)" }}>
               Whether tracking predators through primeval swamps or finding solace in hill tribe bamboo sanctuaries.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
             {categories.map((cat) => (
               <Link
                 key={cat.label}
                 href={`/category/${cat.label.toLowerCase().replace(/ &? /g, "-")}`}
-                className="group p-5 rounded-2xl bg-[--surface-container-low] hover:bg-[--primary] transition-all duration-300 text-center flex flex-col items-center justify-between"
+                className="group p-4 sm:p-5 rounded-2xl bg-[--surface-container-low] hover:bg-[--primary] transition-all duration-300 text-center flex flex-col items-center justify-between"
               >
-                <div className="w-14 h-14 rounded-full bg-[--surface-container-lowest] group-hover:bg-[--primary-fixed] flex items-center justify-center transition-colors shadow-sm">
-                  <span className="material-symbols-outlined text-[--primary] group-hover:text-[--on-primary-fixed] text-2xl">{cat.icon}</span>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[--surface-container-lowest] group-hover:bg-[--primary-fixed] flex items-center justify-center transition-colors shadow-sm">
+                  <span className="material-symbols-outlined text-[--primary] group-hover:text-[--on-primary-fixed] text-xl sm:text-2xl">{cat.icon}</span>
                 </div>
-                <div className="mt-4">
-                  <h4 className="text-base font-semibold text-[--on-surface] group-hover:text-white transition-colors" style={{ fontFamily: "var(--font-inter)" }}>
+                <div className="mt-3 sm:mt-4">
+                  <h4 className="text-sm sm:text-base font-semibold text-[--on-surface] group-hover:text-white transition-colors" style={{ fontFamily: "var(--font-inter)" }}>
                     {cat.label}
                   </h4>
-                  <span className="text-[0.875rem] text-[--outline] group-hover:text-[--primary-fixed-dim] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}>
+                  <span className="text-xs sm:text-[0.875rem] text-[--outline] group-hover:text-[--primary-fixed-dim] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}>
                     {cat.count} Journals
                   </span>
                 </div>
@@ -630,19 +630,19 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════
             WORLD JOURNEYS
         ══════════════════════════════════════ */}
-        <section className="w-full bg-[--inverse-surface] text-[--surface] py-12 md:py-16" id="world">
-          <div className="w-full px-6 md:px-10 lg:px-20">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <section className="w-full bg-[--inverse-surface] text-[--surface] py-10 sm:py-12 md:py-16" id="world">
+          <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="material-symbols-outlined text-[--primary-fixed] text-lg">public</span>
                   <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary-fixed]" style={{ fontFamily: "var(--font-inter)" }}>WORLD JOURNEYS</span>
                 </div>
-                <h2 className="text-[3rem] leading-[3.5rem] text-white" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
+                <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-white" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
                   Untamed Global Horizons
                 </h2>
               </div>
-              <Link href="/blog?region=international" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-white/20 text-sm text-white/70 hover:text-white hover:border-white/40 transition-all">
+              <Link href="/blog?region=international" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-sm text-white/70 hover:text-white hover:border-white/40 transition-all w-full sm:w-auto">
                 All World Stories <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
               </Link>
             </div>

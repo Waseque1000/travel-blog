@@ -4,28 +4,28 @@ export default function Footer() {
   return (
     <footer className="bg-[--inverse-surface] text-[--inverse-on-surface]">
       {/* Newsletter */}
-      <div className="w-full px-6 md:px-10 lg:px-20 py-16 border-b border-white/10">
+      <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-16 border-b border-white/10">
         <div className="max-w-2xl">
           <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary-fixed-dim] uppercase" style={{ fontFamily: "var(--font-inter)" }}>
             Field Dispatch Newsletter
           </span>
           <h2
-            className="text-3xl md:text-4xl text-white mt-2 mb-4"
+            className="text-2xl sm:text-3xl md:text-4xl text-white mt-2 mb-3 sm:mb-4 leading-tight"
             style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}
           >
             Join the Expedition Circle
           </h2>
-          <p className="text-[--surface-container-high]/80 mb-8">
+          <p className="text-sm sm:text-base text-[--surface-container-high]/80 mb-6 sm:mb-8 leading-relaxed">
             Curated dispatches from the field, route intelligence, hidden waypoints, and season-sensitive expedition reports — every fortnight.
           </p>
           <form className="flex flex-col sm:flex-row gap-3 max-w-lg">
             <input
               type="email"
               placeholder="Your email address"
-              className="flex-1 px-5 py-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 outline-none focus:border-[--primary-fixed-dim] transition-colors"
+              className="flex-1 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 outline-none focus:border-[--primary-fixed-dim] transition-colors text-sm"
               required
             />
-            <button className="px-6 py-3.5 rounded-xl bg-[--tertiary-container] hover:bg-[--tertiary] text-white font-semibold transition-all duration-300 shadow-lg whitespace-nowrap">
+            <button className="px-6 py-3 sm:py-3.5 rounded-xl bg-[--tertiary-container] hover:bg-[--tertiary] text-white text-sm font-semibold transition-all duration-300 shadow-lg whitespace-nowrap">
               Join the Circle
             </button>
           </form>
@@ -33,8 +33,8 @@ export default function Footer() {
       </div>
 
       {/* Footer Links */}
-      <div className="w-full px-6 md:px-10 lg:px-20 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12">
           <div>
             <div className="flex flex-col mb-6">
               <span

@@ -51,7 +51,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
         {/* ═══════════════════════════════════════
             ARTICLE HERO
         ══════════════════════════════════════ */}
-        <section className="relative w-full min-h-[60vh] md:min-h-[70vh] flex flex-col justify-end -mt-20 pt-32 pb-14 px-6 md:px-12 lg:px-24 overflow-hidden bg-[--inverse-surface]">
+        <section className="relative w-full min-h-[55vh] md:min-h-[70vh] flex flex-col justify-end -mt-20 pt-28 sm:pt-32 pb-10 sm:pb-14 px-4 sm:px-8 md:px-12 lg:px-24 overflow-hidden bg-[--inverse-surface]">
           {/* Background Image & Atmospheric Gradients */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 scale-105"
@@ -89,7 +89,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
             {/* Title */}
             <h1
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-serif leading-[1.15] tracking-tight drop-shadow-md"
+              className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white font-serif leading-[1.15] tracking-tight drop-shadow-md"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               {post.title}
@@ -97,16 +97,16 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
             {/* Excerpt */}
             <p
-              className="mt-5 text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-3xl drop-shadow"
+              className="mt-3 sm:mt-5 text-base sm:text-lg md:text-xl text-white/90 font-light leading-relaxed max-w-3xl drop-shadow"
               style={{ fontFamily: "var(--font-inter)" }}
             >
               {post.excerpt}
             </p>
 
             {/* Author & Meta Bar */}
-            <div className="mt-8 pt-6 border-t border-white/20 flex flex-wrap items-center justify-between gap-4 text-white">
+            <div className="mt-6 sm:mt-8 pt-5 sm:pt-6 border-t border-white/20 flex flex-wrap items-center justify-between gap-4 text-white">
               <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-full bg-[#005c55] border border-[#80d5cb]/40 flex items-center justify-center font-semibold text-white shadow-md">
+                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#005c55] border border-[#80d5cb]/40 flex items-center justify-center font-semibold text-white shadow-md text-sm">
                   {post.author.initials}
                 </div>
                 <div>
@@ -119,17 +119,17 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 </div>
               </div>
 
-              <div className="flex items-center gap-6 text-sm text-white/80">
+              <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-white/80">
                 <span className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[16px] text-[#80d5cb]">calendar_today</span>
+                  <span className="material-symbols-outlined text-[15px] sm:text-[16px] text-[#80d5cb]">calendar_today</span>
                   {post.publishedAt}
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[16px] text-[#80d5cb]">timer</span>
+                  <span className="material-symbols-outlined text-[15px] sm:text-[16px] text-[#80d5cb]">timer</span>
                   {post.readingTime} min read
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <span className="material-symbols-outlined text-[16px] text-[#80d5cb]">visibility</span>
+                  <span className="material-symbols-outlined text-[15px] sm:text-[16px] text-[#80d5cb]">visibility</span>
                   {post.views.toLocaleString()} views
                 </span>
               </div>
@@ -140,8 +140,8 @@ export default async function PostDetailPage({ params }: PostPageProps) {
         {/* ═══════════════════════════════════════
             MAIN ARTICLE BODY & SIDEBAR
         ══════════════════════════════════════ */}
-        <section className="w-full px-6 md:px-12 lg:px-24 py-12 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-7xl mx-auto">
+        <section className="w-full px-4 sm:px-8 md:px-12 lg:px-24 py-8 sm:py-12 md:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 max-w-7xl mx-auto">
             {/* Main Content Column */}
             <article className="lg:col-span-8 flex flex-col">
               {/* Back Link */}

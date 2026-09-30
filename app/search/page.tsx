@@ -37,43 +37,45 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     <>
       <Navbar />
       <main className="w-full min-h-screen bg-[--surface] pt-20">
-        <section className="w-full px-6 md:px-12 lg:px-20 py-12 max-w-5xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto mb-8">
+        <section className="w-full px-4 sm:px-8 md:px-12 lg:px-20 py-8 sm:py-12 max-w-5xl mx-auto">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
             <span className="text-xs uppercase font-bold tracking-widest text-[#005c55] bg-[#005c55]/10 px-3 py-1 rounded-full">
               Field Gazette Search
             </span>
             <h1
-              className="text-3xl md:text-5xl font-serif text-[--on-surface] font-bold mt-3"
+              className="text-2xl sm:text-4xl md:text-5xl font-serif text-[--on-surface] font-bold mt-3 leading-tight"
               style={{ fontFamily: "var(--font-playfair)" }}
             >
               Search Expeditions &amp; Dossiers
             </h1>
-            <p className="text-sm md:text-base text-[--on-surface-variant] mt-2">
+            <p className="text-xs sm:text-sm md:text-base text-[--on-surface-variant] mt-2">
               Query by destination, district, activity, or keyword to retrieve route logs and practical advisories.
             </p>
           </div>
 
           {/* Search Form */}
           <form method="GET" action="/search" className="relative w-full max-w-2xl mx-auto mb-8">
-            <div className="flex items-center rounded-2xl bg-white border border-gray-200 shadow-lg px-4 py-3 focus-within:border-[#005c55] transition-all">
-              <span className="material-symbols-outlined text-gray-400 text-2xl mr-3">search</span>
-              <input
-                type="text"
-                name="q"
-                defaultValue={q || ""}
-                placeholder="Search Cox's Bazar, Sajek, tiger, tea, trekking, permits..."
-                className="w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none text-base"
-              />
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center rounded-2xl bg-white border border-gray-200 shadow-lg p-2.5 sm:px-4 sm:py-3 focus-within:border-[#005c55] transition-all gap-2 sm:gap-0">
+              <div className="flex items-center flex-1">
+                <span className="material-symbols-outlined text-gray-400 text-2xl mr-2 sm:mr-3">search</span>
+                <input
+                  type="text"
+                  name="q"
+                  defaultValue={q || ""}
+                  placeholder="Search Cox's Bazar, Sajek, tiger, tea..."
+                  className="w-full bg-transparent text-gray-900 placeholder:text-gray-400 focus:outline-none text-sm sm:text-base"
+                />
+              </div>
               <button
                 type="submit"
-                className="px-5 py-2 rounded-xl bg-[#005c55] text-white text-xs font-bold hover:bg-[#0f766e] transition-colors ml-2 shrink-0"
+                className="w-full sm:w-auto px-5 py-2.5 sm:py-2 rounded-xl bg-[#005c55] text-white text-xs font-bold hover:bg-[#0f766e] transition-colors sm:ml-2 shrink-0"
               >
                 Search
               </button>
             </div>
 
             {/* Popular Suggestion Chips */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mt-4 text-xs">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 mt-4 text-xs">
               <span className="text-gray-400 font-medium">Quick suggestions:</span>
               {popularTags.map((tag) => (
                 <Link
@@ -88,9 +90,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           </form>
 
           {/* Results Summary */}
-          <div className="border-t border-gray-200 pt-8">
+          <div className="border-t border-gray-200 pt-6 sm:pt-8">
             <div className="flex items-center justify-between mb-6">
-              <p className="text-sm text-gray-600">
+              <p className="text-xs sm:text-sm text-gray-600">
                 {query ? (
                   <>Showing <strong>{results.length}</strong> results for &ldquo;<strong>{q}</strong>&rdquo;</>
                 ) : (
@@ -113,7 +115,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 </p>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {results.map((post) => (
                   <Link key={post.slug} href={`/blog/${post.slug}`}>
                     <article className="group h-full rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">

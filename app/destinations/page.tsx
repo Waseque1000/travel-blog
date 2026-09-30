@@ -142,9 +142,9 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
       <Navbar />
       <main className="w-full min-h-screen bg-[--surface] pt-20">
         {/* Header Section */}
-        <section className="w-full px-6 md:px-12 lg:px-20 pt-10 pb-8 bg-[--surface]">
+        <section className="w-full px-4 sm:px-8 md:px-12 lg:px-20 pt-8 sm:pt-10 pb-6 sm:pb-8 bg-[--surface]">
           <div className="max-w-6xl">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-widest text-[--outline] mb-3">
+            <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-[--outline] mb-3">
               <span>Cartographic Gazette</span>
               <span>/</span>
               <span className="text-[--primary] font-semibold">Territorial Coordinates</span>
@@ -153,14 +153,14 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
             </div>
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
               <h1
-                className="text-3xl md:text-5xl font-serif text-[--on-surface] max-w-3xl leading-tight font-semibold"
+                className="text-2xl sm:text-4xl md:text-5xl font-serif text-[--on-surface] max-w-3xl leading-tight font-semibold"
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
                 Territorial Atlas: Explore Destinations Across Bangladesh
               </h1>
-              <div className="flex items-center gap-2 shrink-0 bg-[--surface-container] px-4 py-2 rounded-full shadow-sm">
+              <div className="self-start md:self-auto flex items-center gap-2 shrink-0 bg-[--surface-container] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-sm text-xs">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#005c55] animate-pulse" />
-                <span className="text-xs font-semibold text-[--on-surface]">
+                <span className="font-semibold text-[--on-surface]">
                   {allDestinations.length} Key Coordinates Mapped
                 </span>
               </div>
@@ -168,12 +168,12 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
           </div>
 
           {/* Interactive Bangladesh Map with Tourist Places */}
-          <div className="mt-8">
+          <div className="mt-6 sm:mt-8">
             <BangladeshMap />
           </div>
 
           {/* Division Filter Bar */}
-          <div className="mt-8 p-4 rounded-2xl bg-[--surface-container-low] border border-[--outline-variant]/40 flex flex-col gap-3">
+          <div className="mt-6 sm:mt-8 p-3 sm:p-4 rounded-2xl bg-[--surface-container-low] border border-[--outline-variant]/40 flex flex-col gap-2.5 sm:gap-3">
             <span className="text-xs uppercase font-bold tracking-wider text-[--outline]">
               Filter by Geographic Division:
             </span>
@@ -184,7 +184,7 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
                   <Link
                     key={divName}
                     href={divName === "All" ? "/destinations" : `/destinations?division=${divName.toLowerCase()}`}
-                    className={`px-4 py-1.5 rounded-full text-xs font-semibold shrink-0 transition-all ${
+                    className={`px-3.5 sm:px-4 py-1.5 rounded-full text-xs font-semibold shrink-0 transition-all ${
                       isSelected
                         ? "bg-[#005c55] text-white shadow-sm"
                         : "bg-white text-gray-700 hover:bg-gray-100 hover:text-black border border-gray-200"
@@ -199,8 +199,8 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
         </section>
 
         {/* Destination Cards Grid */}
-        <section className="w-full px-6 md:px-12 lg:px-20 py-8 pb-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="w-full px-4 sm:px-8 md:px-12 lg:px-20 py-8 pb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filtered.map((dest) => (
               <Link key={dest.name} href={`/blog/${dest.slug}`}>
                 <article className="group h-full rounded-2xl overflow-hidden bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
