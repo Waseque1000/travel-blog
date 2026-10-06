@@ -2,94 +2,97 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { bangladeshPosts } from "@/lib/data/posts";
-import BangladeshMap from "@/components/BangladeshMap";
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
 const featuredStories = [
   {
     id: 1,
-    category: "KHULNA · UNESCO MANGROVE",
-    label: "WILDLIFE EXPEDITION",
-    title: "The Sundarbans: Into the World's Largest Mangrove Forest",
-    excerpt: "A UNESCO World Heritage Site and the home of the Royal Bengal tiger. How a Sundarbans boat trip works and what you can realistically see.",
-    author: "Tanvir Ahmed",
-    authorRole: "Lead Conservation Correspondent",
-    authorInitials: "TA",
-    readTime: "5 min read",
-    views: "31.2k",
-    slug: "sundarbans-mangrove-forest-guide",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDbVvMpUKP9P7jxNatdf7qmOGFl8uw-yIJs_sa9c6tbYr3iOvRUtzTZ51GvPFjpxkMmRKYfIfaB3QSHHGW3d87IQ1qbYCUfclLHGkyl9g2y8WCRatnqDb_Q7wjR-9zVhLQcQVe9dpcwo0vzt3Tj4jt2jlGtgXQSxG0sEiR_AljIct3E1YhL1swNqkSykyeG7C912aTHAY2zC-MbAaHHZkBiWOaI3m6QCeka-r5Oj8tHw539c9IY37Q",
+    category: "JAPAN · ASIA PACIFIC",
+    label: "CULTURE & HIGH-SPEED RAIL",
+    title: "Ultimate 10-Day Japan Itinerary for First-Timers",
+    excerpt: "From bullet trains and neon-lit Shibuya crossings to ancient Zen shrines and bamboo groves in Kyoto, here is the ultimate roadmap.",
+    author: "Wasee Arafat",
+    authorRole: "Editorial Director",
+    authorInitials: "WA",
+    readTime: "6 min read",
+    views: "34.8k",
+    slug: "10-day-japan-itinerary",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/japan-kyoto-temple-guide.jpg",
     span: "large",
   },
   {
     id: 2,
-    category: "CHATTOGRAM · RANGAMATI",
-    label: "CLOUD ASCENTS",
-    title: "Sajek Valley: Clouds, Hills and Tribal Villages in Rangamati",
-    excerpt: "A hill ridge above the clouds, home to Lushai, Pangkhua and Chakma communities. What to expect on the road and in the villages.",
-    author: "Nabila Rahman",
-    authorInitials: "NR",
-    readTime: "4 min read",
-    slug: "sajek-valley-travel-guide",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBId_INVaDFA0n9xplmGUmZvmTX726opQZqHo1dY8O6oipc5lUcIHwSBfbg0OTfTushYP865EgBcGvF76c7_AQuYa7u50wDzPXwOQCYdwWVhtYNPeen52HWqxgcGvXLsxanSWuXQvuzMwdNX3t_PrM6lzTul6cKaW81goGobjtRzi7Ly-1ZRG11YE4lL792MKLoaEBTkeeUByxE2dMXUQPQ9XamYujP6LiU70S8Ja4_pyNNkojHgEU",
+    category: "ICELAND · SCANDINAVIA",
+    label: "VOLCANIC ROAD TRIP",
+    title: "Iceland Ring Road: Complete 7-Day Self-Drive Guide",
+    excerpt: "Volcanic landscapes, thundering glacial waterfalls, black sand coastlines, and geothermal hot springs along Route 1.",
+    author: "Wasee Arafat",
+    authorInitials: "WA",
+    readTime: "7 min read",
+    slug: "iceland-ring-road-guide",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/iceland-ring-road-waterfall.jpg",
     span: "small",
   },
   {
     id: 3,
-    category: "SYLHET · MOULVIBAZAR",
-    label: "BOTANICAL HERITAGE",
-    title: "Srimangal: Tea Gardens and Rainforest in the Tea Capital",
-    excerpt: "Rolling tea estates, a rainforest with hoolock gibbons, and the famous seven-layer tea. A slow weekend from Dhaka.",
-    author: "Dr. Rafiqul Karim",
-    authorInitials: "RK",
-    readTime: "4 min read",
-    slug: "srimangal-tea-capital-guide",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtGYPg9s8__7Ze0oncrPUz5NRp-4HFMQpaI_6UCXSUTEUCpShZLP7hDyQfh2Bu5phu6xsibq1pWIzV97JEqRry94cEVpxCwO9y4yRa6382bXfVF4PO-4yaeVFCxeTEXUotvYPAHCfihBpZ9ml7aLUQjmZLQ0H6Xv777Wkf4OA_X9kGlYdcnUeX9MvMnWifTVQpaCgXASgXS6rMKbQO_DIGt2QX1cuPQAaBTttjRjiMnWfPA0bryDg",
+    category: "SWITZERLAND · ALPS",
+    label: "ALPINE TREKKING",
+    title: "Swiss Alps Hiking: 8 Most Scenic Mountain Trails",
+    excerpt: "World-class mountain trekking trails, turquoise glacier lakes, and scenic panoramic rail passes under the Matterhorn.",
+    author: "Wasee Arafat",
+    authorInitials: "WA",
+    readTime: "6 min read",
+    slug: "swiss-alps-hiking-trails",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/swiss-alps-hiking-matterhorn.jpg",
     span: "small",
   },
 ];
 
-const divisions = [
+const globalDestinations = [
   {
-    name: "Chattogram",
-    slug: "chattogram",
-    subtext: "Bandarban, Inani & Sajek",
-    weather: "28°C",
+    name: "Japan",
+    slug: "japan",
+    postSlug: "10-day-japan-itinerary",
+    subtext: "Tokyo, Kyoto & Osaka",
+    weather: "22°C",
     weatherIcon: "sunny",
     routes: 42,
-    description: "Home to the highest peaks of Bangladesh, untamed tribal valleys, and 120km of golden sand beaches.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5L-2aKDmvpKbN1FtVhzYWzzC4_hcpUj-t1FBGitSIxvAYY5buhtTR7GRgNqspjjLX4AnzcTRczKDF1hmOA39fQ4PY7b85zOGseOJ-mQ13-TACCVo-gIXQwZl2IKm6ySZFRHSCJ5YKlYfyNRWCXhzN9E4tfMfND9zk5ODNaiYSKYdJLBpJExDRcx-R2x06Bhaa2LuqQMgBloc07n1pYdAWhTRRo02QMrcm_FSz2LhBQUc7VeeGt5w",
+    description: "From bullet trains and neon-lit Shibuya crossings to ancient Zen shrines and bamboo groves in Kyoto.",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/japan-kyoto-temple-guide.jpg",
   },
   {
-    name: "Sylhet",
-    slug: "sylhet",
-    subtext: "Ratargul, Jaflong & Tea Estates",
-    weather: "24°C",
-    weatherIcon: "rainy",
-    routes: 31,
-    description: "The emerald realm of freshwater swamp sanctuaries, torrential monsoon cascades, and heirloom tea gardens.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCEwzasUKPLVDarjCmOo8IpGHSP7zxhfimyjliZJuZiX60vll9uJKB4KhoNp71C_h4g6gT-KpzLrL9wOgiqeslP00seVImazu7RED1_PJNW6nv5oGg5xXOULKay8lmapnHFrjJZu85eIki8lD9yTp8072hfKw5-6B2sA1CaM51waOK4fCNRnMe0hHgSduG3JcU6QAQ7qK-N7DhFdF3IgnHBy8-yBQLLGoavzCfwm8V9mQzzBSeAg0Y",
+    name: "Europe",
+    slug: "europe",
+    postSlug: "travel-europe-on-a-budget",
+    subtext: "Scenic Rail & Capitals",
+    weather: "19°C",
+    weatherIcon: "train",
+    routes: 38,
+    description: "Budget rail journeys, historic cobblestone capitals, alpine vistas, and Mediterranean market culture.",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/travel-europe-budget-guide.jpg",
   },
   {
-    name: "Khulna",
-    slug: "khulna",
-    subtext: "Sundarbans & Shat Gombuj",
-    weather: "26°C",
+    name: "Iceland",
+    slug: "iceland",
+    postSlug: "iceland-ring-road-guide",
+    subtext: "Ring Road & Waterfalls",
+    weather: "12°C",
     weatherIcon: "foggy",
-    routes: 27,
-    description: "Tidal labyrinth of the Royal Bengal Tiger, UNESCO medieval brick mosques, and quiet delta estuary life.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCsrB2Vf0d1u8M9uM3yOtXzmFL-ZMgxryItjYLj5YgrFY8HwhwdOqXtixA7L17jio1ruPMNcUMNy-boVyP6B7Wxyd_sOof6TyprSjw_bvQWdcJQEkOdllMNqrw2ldhc0DeXqyT8LEkN8kTIawYOYvAmrVcYtgjf5vFj3QeiJfCz399HGT6Tv00krcbCzQLm03ZoGPcvcUsn8un4XUDaqjcVM_XJTu2eFeSk6w5_gk2BQTB2qOXXUtQ",
+    routes: 25,
+    description: "Volcanic landscapes, thundering glacial waterfalls, black sand coastlines, and geothermal hot springs.",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/iceland-ring-road-waterfall.jpg",
   },
   {
-    name: "Barishal",
-    slug: "barishal",
-    subtext: "Floating Markets & Kuakata",
-    weather: "27°C",
-    weatherIcon: "water",
-    routes: 22,
-    description: "The Venice of the East: floating fruit bazaars, water lilies of Satla, and Kuakata's dawn & dusk horizon.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCkWSUBpy-9m2ugmNBatAuyMD03wsNPuyjfRJLclqxWrHd0sQTXNFm7UWidbOMdqymLqb4zUgXpN2Sz-gFxCTSigu2Fly6UbQiBbtvSZR6ayLch4orHSGODGqV15Bfeko37cp8nYTmS4EaRFzDi6lfkHOWJW5XPDV2zUycyutVERKMWZq5MIJmGlaATmx4RqwOjjwMPawnVqv_AksfT3OV5YFiA42NOcH3AesGe8ryRMYZHPxjztN4",
+    name: "Swiss Alps",
+    slug: "swiss-alps",
+    postSlug: "swiss-alps-hiking-trails",
+    subtext: "Matterhorn & Alpine Lakes",
+    weather: "16°C",
+    weatherIcon: "landscape",
+    routes: 30,
+    description: "World-class mountain trekking trails, turquoise glacier lakes, and scenic panoramic rail passes.",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/swiss-alps-hiking-matterhorn.jpg",
   },
 ];
 
@@ -101,38 +104,6 @@ const categories = [
   { icon: "backpack", label: "Solo Wayfarer", count: 25 },
   { icon: "forest", label: "Off-Grid Biosphere", count: 16 },
 ];
-
-const worldStories = [
-  {
-    country: "MALDIVES · INDIAN OCEAN",
-    label: "PRIVATE ATOLL ODYSSEY",
-    title: "Beneath the Turquoise Skin: A Week in the Maldivian Atolls",
-    author: "Priya Chowdhury",
-    readTime: "7 min read",
-    slug: "maldives-atoll-odyssey",
-    image: "https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=800&q=80",
-  },
-  {
-    country: "NEPAL · HIMALAYAN FOOTHILLS",
-    label: "HIGH ALTITUDE DISPATCH",
-    title: "Annapurna Circuit: A 21-Day Solitude of Snowfields",
-    author: "Kabir Hossain",
-    readTime: "12 min read",
-    slug: "annapurna-circuit-solitude",
-    image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
-  },
-  {
-    country: "THAILAND · NORTHERN HIGHLANDS",
-    label: "HILL TRIBE IMMERSION",
-    title: "Chiang Rai's Golden Triangle: Opium Fields Turned Rice Terraces",
-    author: "Afrin Sultana",
-    readTime: "9 min read",
-    slug: "chiang-rai-golden-triangle",
-    image: "https://images.unsplash.com/photo-1528360983277-13d401cdc186?w=800&q=80",
-  },
-];
-
-// ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
   return (
@@ -162,17 +133,17 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/50 backdrop-blur-md shadow-lg text-white border border-white/20 text-xs">
               <span className="w-2 h-2 rounded-full bg-[#80d5cb] animate-ping" />
               <span className="text-[0.7rem] sm:text-[0.75rem] tracking-[0.12em] font-semibold text-white" style={{ fontFamily: "var(--font-inter)" }}>
-                FIELD DISPATCH: SAJEK PEAKS
+                FIELD DISPATCH: KYOTO ZEN SANCTUARIES
               </span>
               <span className="text-white/50">/</span>
               <span className="text-[0.7rem] sm:text-[0.75rem] tracking-[0.12em] font-semibold text-[#80d5cb]" style={{ fontFamily: "var(--font-inter)" }}>
-                23°23'N 92°17'E · 1,800 FT
+                35°00'N 135°46'E · JAPAN
               </span>
             </div>
             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-md text-white border border-white/20">
               <span className="material-symbols-outlined text-[16px] text-white">graphic_eq</span>
               <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-white" style={{ fontFamily: "var(--font-inter)" }}>
-                Soundscape: Dawn Chorus (Live)
+                Soundscape: Temple Bell &amp; Stream (Live)
               </span>
             </div>
           </div>
@@ -190,30 +161,30 @@ export default function HomePage() {
               className="text-3xl sm:text-5xl md:text-[4rem] lg:text-[4.75rem] leading-tight md:leading-[5.25rem] text-white max-w-4xl tracking-tight drop-shadow-md"
               style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}
             >
-              Where the River Sings &amp; the World Beckons.
+              Where Ancient Paths Meet &amp; the World Beckons.
             </h1>
 
             <p className="text-base sm:text-lg md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-white/90 max-w-2xl mt-4 font-light drop-shadow-lg" style={{ fontFamily: "var(--font-inter)" }}>
-              Award-winning travel journalism across the 8 primeval divisions of Bangladesh and untamed, soulful horizons across the globe.
+              Award-winning travel journalism across scenic rail routes, alpine trails, cultural sanctuaries, and untamed soulful horizons across the globe.
             </p>
 
             {/* Glassmorphism Search Console */}
             <form
               action="/blog"
               method="GET"
-              className="w-full mt-8 sm:mt-10 p-2 sm:p-3 rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-stretch lg:items-center gap-2.5"
+              className="w-full mt-8 sm:mt-10 p-2.5 sm:p-3.5 rounded-2xl bg-white/95 backdrop-blur-xl shadow-2xl flex flex-col lg:flex-row items-stretch lg:items-center gap-2.5"
             >
               {/* Destination input */}
               <div className="flex-1 flex items-center px-4 py-3 rounded-xl bg-gray-50 gap-3">
-                <span className="material-symbols-outlined text-[#005c55] text-[22px]">explore</span>
-                <div className="flex flex-col w-full text-left">
-                  <label className="text-[0.75rem] tracking-[0.12em] font-semibold text-gray-500 leading-none" style={{ fontFamily: "var(--font-inter)" }}>
+                <span className="material-symbols-outlined text-[#005c55] text-[22px] shrink-0">explore</span>
+                <div className="flex flex-col w-full text-left min-w-0">
+                  <label className="text-[0.7rem] sm:text-[0.75rem] tracking-[0.12em] font-semibold text-gray-500 leading-none" style={{ fontFamily: "var(--font-inter)" }}>
                     Destination
                   </label>
                   <input
                     name="q"
-                    className="bg-transparent text-gray-900 text-sm font-medium focus:outline-none placeholder:text-gray-400 w-full mt-0.5"
-                    placeholder="Where do your boots wish to step? (e.g. Inani, Sajek, Sundarbans)"
+                    className="bg-transparent text-gray-900 text-sm font-medium focus:outline-none placeholder:text-gray-400 w-full mt-0.5 truncate"
+                    placeholder="Where do your boots wish to step? (e.g. Japan, Iceland, Swiss Alps)"
                     type="text"
                     style={{ fontFamily: "var(--font-inter)" }}
                   />
@@ -221,37 +192,37 @@ export default function HomePage() {
               </div>
 
               {/* Filters */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
-                <div className="flex-1 sm:w-48 px-4 py-3 rounded-xl bg-gray-50 flex flex-col text-left">
-                  <label className="text-[0.75rem] tracking-[0.12em] font-semibold text-gray-500 leading-none" style={{ fontFamily: "var(--font-inter)" }}>
-                    Division / Realm
+              <div className="w-full lg:w-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                <div className="flex-1 lg:w-48 px-4 py-3 rounded-xl bg-gray-50 flex flex-col text-left">
+                  <label className="text-[0.7rem] sm:text-[0.75rem] tracking-[0.12em] font-semibold text-gray-500 leading-none" style={{ fontFamily: "var(--font-inter)" }}>
+                    Region / Continent
                   </label>
-                  <select name="division" className="bg-transparent text-gray-900 text-sm font-medium focus:outline-none cursor-pointer mt-0.5 pr-2" style={{ fontFamily: "var(--font-inter)" }}>
-                    <option value="">All 8 Divisions</option>
-                    <option value="chattogram">Chattogram Hills</option>
-                    <option value="sylhet">Sylhet Wet Rainforest</option>
-                    <option value="khulna">Khulna Tidal Wilds</option>
-                    <option value="barishal">Barishal Backwaters</option>
-                    <option value="rajshahi">Rajshahi Living Relics</option>
+                  <select name="division" className="bg-transparent text-gray-900 text-sm font-medium focus:outline-none cursor-pointer mt-0.5 pr-2 w-full" style={{ fontFamily: "var(--font-inter)" }}>
+                    <option value="">All Regions</option>
+                    <option value="asia">Asia &amp; Pacific</option>
+                    <option value="europe">Europe</option>
+                    <option value="scandinavia">Scandinavia</option>
+                    <option value="americas">Americas</option>
+                    <option value="africa">North Africa</option>
                   </select>
                 </div>
-                <div className="flex-1 sm:w-44 px-4 py-3 rounded-xl bg-gray-50 flex flex-col text-left">
-                  <label className="text-[0.75rem] tracking-[0.12em] font-semibold text-gray-500 leading-none" style={{ fontFamily: "var(--font-inter)" }}>
+                <div className="flex-1 lg:w-44 px-4 py-3 rounded-xl bg-gray-50 flex flex-col text-left">
+                  <label className="text-[0.7rem] sm:text-[0.75rem] tracking-[0.12em] font-semibold text-gray-500 leading-none" style={{ fontFamily: "var(--font-inter)" }}>
                     Category
                   </label>
-                  <select name="category" className="bg-transparent text-gray-900 text-sm font-medium focus:outline-none cursor-pointer mt-0.5 pr-2" style={{ fontFamily: "var(--font-inter)" }}>
+                  <select name="category" className="bg-transparent text-gray-900 text-sm font-medium focus:outline-none cursor-pointer mt-0.5 pr-2 w-full" style={{ fontFamily: "var(--font-inter)" }}>
                     <option value="">All Disciplines</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="mountain">Mountain</option>
-                    <option value="beach">Beach</option>
-                    <option value="nature">Nature</option>
-                    <option value="heritage">Heritage</option>
+                    <option value="destinations-itineraries">Destinations</option>
+                    <option value="solo-budget-travel">Solo &amp; Budget</option>
+                    <option value="adventure-outdoor">Adventure</option>
+                    <option value="culture-food">Culture &amp; Food</option>
+                    <option value="travel-tips-gear">Travel Tips</option>
                   </select>
                 </div>
               </div>
 
-              <button type="submit" className="w-full lg:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[--tertiary-container] hover:bg-[--tertiary] text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-lg group">
-                <span className="font-semibold tracking-wide text-sm sm:text-base" style={{ fontFamily: "var(--font-inter)" }}>Explore Expeditions</span>
+              <button type="submit" className="w-full lg:w-auto px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl bg-[--tertiary-container] hover:bg-[--tertiary] text-white transition-all duration-300 flex items-center justify-center gap-2 shadow-lg group shrink-0">
+                <span className="font-semibold tracking-wide text-sm sm:text-base whitespace-nowrap" style={{ fontFamily: "var(--font-inter)" }}>Explore Expeditions</span>
                 <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
               </button>
             </form>
@@ -262,10 +233,10 @@ export default function HomePage() {
                 TRENDING DOSSIERS:
               </span>
               {[
-                { tag: "#CoxsBazar", slug: "coxs-bazar-beach-guide" },
-                { tag: "#SajekValley", slug: "sajek-valley-travel-guide" },
-                { tag: "#SundarbansTigerTrail", slug: "sundarbans-mangrove-forest-guide" },
-                { tag: "#SrimangalTea", slug: "srimangal-tea-capital-guide" },
+                { tag: "#JapanItinerary", slug: "10-day-japan-itinerary" },
+                { tag: "#SwissAlps", slug: "swiss-alps-hiking-trails" },
+                { tag: "#IcelandRingRoad", slug: "iceland-ring-road-guide" },
+                { tag: "#EuropeBudget", slug: "travel-europe-on-a-budget" },
               ].map(({ tag, slug }) => (
                 <Link
                   key={tag}
@@ -302,7 +273,7 @@ export default function HomePage() {
               </h2>
             </div>
             <p className="text-sm sm:text-base md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-[--on-surface-variant] max-w-md" style={{ fontFamily: "var(--font-inter)" }}>
-              Investigative wilderness prose, firsthand route logs, and photographic explorations captured on location.
+              Investigative wilderness prose, firsthand route logs, and photographic explorations captured on location worldwide.
             </p>
           </div>
 
@@ -311,16 +282,16 @@ export default function HomePage() {
             {/* Large Hero Card - col 7 */}
             <Link
               href={`/blog/${featuredStories[0].slug}`}
-              className="lg:col-span-7 group rounded-2xl overflow-hidden bg-[--surface-container-lowest] shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl"
+              className="lg:col-span-7 group rounded-2xl overflow-hidden bg-[--surface-container-lowest] shadow-xl flex flex-col justify-between transition-all duration-300 hover:shadow-2xl cursor-pointer block select-none text-inherit no-underline"
             >
-              <article className="flex flex-col justify-between h-full">
-                <div className="relative h-64 sm:h-80 md:h-[420px] w-full overflow-hidden">
+              <article className="flex flex-col justify-between h-full cursor-pointer">
+                <div className="relative h-64 sm:h-80 md:h-[420px] w-full overflow-hidden cursor-pointer">
                   <div
-                    className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                    className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                     style={{ backgroundImage: `url('${featuredStories[0].image}')` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[--inverse-surface] via-[--inverse-surface]/30 to-transparent" />
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[--inverse-surface] via-[--inverse-surface]/30 to-transparent pointer-events-none" />
+                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
                     <span className="px-3 py-1 rounded-full bg-[--surface-container-lowest]/80 backdrop-blur-md text-[0.75rem] tracking-[0.12em] font-semibold text-[--on-surface]" style={{ fontFamily: "var(--font-inter)" }}>
                       {featuredStories[0].category}
                     </span>
@@ -328,7 +299,7 @@ export default function HomePage() {
                       <span className="material-symbols-outlined text-[18px]">bookmark</span>
                     </span>
                   </div>
-                  <div className="absolute bottom-4 left-4 right-4">
+                  <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
                     <span className="text-[0.875rem] leading-[1.25rem] text-[--primary-fixed-dim]" style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}>
                       {featuredStories[0].label}
                     </span>
@@ -337,48 +308,48 @@ export default function HomePage() {
                     </h3>
                   </div>
                 </div>
-                <div className="p-6 md:p-8 flex flex-col justify-between flex-1 bg-[--surface-container-lowest]">
-                  <div className="flex flex-col gap-4">
+                <div className="p-6 md:p-8 flex flex-col justify-between flex-1 bg-[--surface-container-lowest] cursor-pointer">
+                  <div className="flex flex-col gap-4 pointer-events-none">
                     <p className="text-[1.125rem] leading-[1.875rem] text-[--on-surface-variant]">
                       {featuredStories[0].excerpt}
                     </p>
 
                     <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
-                      Tidal channels wind between dense stands of sundari trees where silence is measured by the ebb of lunar tides. In the world&apos;s largest mangrove forest, water is the only highway—navigated on multi-day wooden launches past deer herds and mudflat tiger pugmarks.
+                      From riding the Tokaido Shinkansen at 300 km/h past Mount Fuji to early dawn walks through the vermilion torii corridors of Fushimi Inari in Kyoto, this guide covers logistics, temple etiquette, and culinary highlights.
                     </p>
 
                     {/* Expedition Field Highlights Box */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-3.5 rounded-xl bg-[--surface-container-low] border border-[--outline-variant]/40 text-xs">
                       <div>
                         <span className="text-[10px] uppercase font-bold text-gray-400 block tracking-wider">Coordinates</span>
-                        <span className="font-semibold text-gray-800 dark:text-gray-200 font-mono">21°56&apos;N 89°11&apos;E</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-200 font-mono">35°41'N 139°41'E</span>
                       </div>
                       <div>
                         <span className="text-[10px] uppercase font-bold text-gray-400 block tracking-wider">Best Window</span>
-                        <span className="font-semibold text-[#005c55]">Nov – Feb</span>
+                        <span className="font-semibold text-[#005c55]">Mar–May / Oct–Nov</span>
                       </div>
                       <div>
                         <span className="text-[10px] uppercase font-bold text-gray-400 block tracking-wider">Access Point</span>
-                        <span className="font-semibold text-gray-800 dark:text-gray-200">Khulna / Mongla</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-200">Tokyo / HND &amp; NRT</span>
                       </div>
                       <div>
                         <span className="text-[10px] uppercase font-bold text-gray-400 block tracking-wider">Permit Status</span>
-                        <span className="font-semibold text-[#893a00]">Armed Escort Req.</span>
+                        <span className="font-semibold text-[#005c55]">Digital IC / JR Pass</span>
                       </div>
                     </div>
 
-                    {/* Wildlife Badges */}
+                    {/* Highlights Badges */}
                     <div className="flex flex-wrap items-center gap-1.5 pt-1">
-                      <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mr-1">Fauna:</span>
-                      {["Royal Bengal Tiger", "Spotted Deer", "Estuarine Crocodile", "Kingfisher"].map((fauna) => (
-                        <span key={fauna} className="px-2.5 py-0.5 rounded-full bg-[#005c55]/10 text-[#005c55] dark:text-[#9cf2e8] text-[11px] font-medium">
-                          {fauna}
+                      <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider mr-1">Highlights:</span>
+                      {["Shinkansen Rail", "Zen Temples", "Bamboo Groves", "Shibuya Crossing"].map((item) => (
+                        <span key={item} className="px-2.5 py-0.5 rounded-full bg-[#005c55]/10 text-[#005c55] dark:text-[#9cf2e8] text-[11px] font-medium">
+                          {item}
                         </span>
                       ))}
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-5 flex items-center justify-between border-t border-[--outline-variant]/30">
+                  <div className="mt-6 pt-5 flex items-center justify-between border-t border-[--outline-variant]/30 pointer-events-none">
                     <div className="flex items-center gap-3">
                       <div className="w-10 h-10 rounded-full bg-[--primary-container] text-white flex items-center justify-center font-semibold text-sm shadow-sm">
                         {featuredStories[0].authorInitials}
@@ -400,19 +371,23 @@ export default function HomePage() {
             {/* Secondary Cards — col 5 */}
             <div className="lg:col-span-5 flex flex-col gap-6">
               {featuredStories.slice(1).map((story) => (
-                <Link key={story.id} href={`/blog/${story.slug}`} className="group rounded-2xl overflow-hidden bg-[--surface-container-lowest] shadow-xl flex flex-col sm:flex-row lg:flex-col transition-all duration-300 hover:shadow-2xl">
-                  <article className="flex flex-col sm:flex-row lg:flex-col h-full w-full">
-                    <div className="relative h-56 sm:h-auto sm:w-1/2 lg:w-full lg:h-52 overflow-hidden shrink-0">
+                <Link
+                  key={story.id}
+                  href={`/blog/${story.slug}`}
+                  className="group rounded-2xl overflow-hidden bg-[--surface-container-lowest] shadow-xl flex flex-col sm:flex-row lg:flex-col transition-all duration-300 hover:shadow-2xl cursor-pointer block select-none text-inherit no-underline"
+                >
+                  <article className="flex flex-col sm:flex-row lg:flex-col h-full w-full cursor-pointer">
+                    <div className="relative h-56 sm:h-auto sm:w-1/2 lg:w-full lg:h-52 overflow-hidden shrink-0 cursor-pointer">
                       <div
-                        className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                         style={{ backgroundImage: `url('${story.image}')` }}
                       />
-                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[--surface-container-lowest]/80 backdrop-blur-md text-[0.75rem] tracking-[0.12em] font-semibold text-[--on-surface]" style={{ fontFamily: "var(--font-inter)" }}>
+                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[--surface-container-lowest]/80 backdrop-blur-md text-[0.75rem] tracking-[0.12em] font-semibold text-[--on-surface] pointer-events-none" style={{ fontFamily: "var(--font-inter)" }}>
                         {story.category}
                       </span>
                     </div>
-                    <div className="p-5 flex flex-col justify-between flex-1">
-                      <div>
+                    <div className="p-5 flex flex-col justify-between flex-1 cursor-pointer">
+                      <div className="pointer-events-none">
                         <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--tertiary]" style={{ fontFamily: "var(--font-inter)" }}>{story.label}</span>
                         <h3 className="text-[1.5rem] leading-[2rem] text-[--on-surface] mt-1 group-hover:text-[--primary] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontWeight: 500 }}>
                           {story.title}
@@ -421,7 +396,7 @@ export default function HomePage() {
                           {story.excerpt}
                         </p>
                       </div>
-                      <div className="flex items-center justify-between mt-4 pt-3 border-t border-[--outline-variant]/30">
+                      <div className="flex items-center justify-between mt-4 pt-3 border-t border-[--outline-variant]/30 pointer-events-none">
                         <span className="text-[0.875rem] text-[--outline]" style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}>By {story.author}</span>
                         <span className="text-sm text-[--outline] flex items-center gap-1" style={{ fontFamily: "var(--font-inter)" }}>
                           <span className="material-symbols-outlined text-[14px]">schedule</span> {story.readTime}
@@ -436,7 +411,7 @@ export default function HomePage() {
         </section>
 
         {/* ═══════════════════════════════════════
-            BANGLADESH POST CONTENT BANK (9 EXPEDITIONS)
+            GLOBAL POST CONTENT BANK (SIGNATURE EXPEDITIONS)
         ══════════════════════════════════════ */}
         <section className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16 bg-[--surface-container-low]">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
@@ -444,39 +419,39 @@ export default function HomePage() {
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-6 h-0.5 bg-[--primary]" />
                 <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary]" style={{ fontFamily: "var(--font-inter)" }}>
-                  BANGLADESH POST CONTENT BANK
+                  GLOBAL EXPEDITION DOSSIERS
                 </span>
               </div>
               <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-[--on-surface]" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
-                Nine Signature Expeditions
+                Signature Field Guides
               </h2>
             </div>
             <Link
-              href="/blog?region=bangladesh"
+              href="/blog"
               className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[--primary] hover:bg-[--primary-container] text-white text-sm font-semibold transition-colors shadow-md w-full sm:w-auto"
             >
-              Explore Full Archive (9 Guides)
+              Explore Full Archive ({bangladeshPosts.length} Guides)
               <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {bangladeshPosts.map((post) => (
-              <Link key={post.slug} href={`/blog/${post.slug}`}>
-                <article className="group h-full rounded-2xl overflow-hidden bg-[--surface-container-lowest] border border-[--outline-variant]/30 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between">
-                  <div>
-                    <div className="relative h-56 w-full overflow-hidden">
+            {bangladeshPosts.slice(0, 9).map((post) => (
+              <Link key={post.slug} href={`/blog/${post.slug}`} className="cursor-pointer block text-inherit no-underline select-none">
+                <article className="group h-full rounded-2xl overflow-hidden bg-[--surface-container-lowest] border border-[--outline-variant]/30 shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between cursor-pointer">
+                  <div className="cursor-pointer">
+                    <div className="relative h-56 w-full overflow-hidden cursor-pointer">
                       <div
-                        className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                        className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105 pointer-events-none"
                         style={{ backgroundImage: `url('${post.coverImage}')` }}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                      <div className="absolute top-3 left-3 flex items-center gap-2">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                      <div className="absolute top-3 left-3 flex items-center gap-2 pointer-events-none">
                         <span className="px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-[0.75rem] tracking-[0.12em] font-semibold text-white border border-white/20">
                           {post.category.name}
                         </span>
                       </div>
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs pointer-events-none">
                         <span className="flex items-center gap-1">
                           <span className="material-symbols-outlined text-[14px] text-[#80d5cb]">location_on</span>
                           {post.location}
@@ -486,19 +461,21 @@ export default function HomePage() {
                         </span>
                       </div>
                     </div>
-                    <div className="p-6">
-                      <h3
-                        className="text-xl font-serif text-[--on-surface] group-hover:text-[--primary] transition-colors font-semibold leading-snug"
-                        style={{ fontFamily: "var(--font-playfair)" }}
-                      >
-                        {post.title}
-                      </h3>
-                      <p className="text-sm text-[--on-surface-variant] mt-2.5 line-clamp-3 leading-relaxed">
-                        {post.excerpt}
-                      </p>
+                    <div className="p-6 cursor-pointer">
+                      <div className="pointer-events-none">
+                        <h3
+                          className="text-xl font-serif text-[--on-surface] group-hover:text-[--primary] transition-colors font-semibold leading-snug"
+                          style={{ fontFamily: "var(--font-playfair)" }}
+                        >
+                          {post.title}
+                        </h3>
+                        <p className="text-sm text-[--on-surface-variant] mt-2.5 line-clamp-3 leading-relaxed">
+                          {post.excerpt}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                  <div className="px-6 pb-6 pt-3 border-t border-[--outline-variant]/20 flex items-center justify-between">
+                  <div className="px-6 pb-6 pt-3 border-t border-[--outline-variant]/20 flex items-center justify-between pointer-events-none">
                     <div className="flex flex-wrap gap-1">
                       {post.tags.slice(0, 2).map((t) => (
                         <span key={t} className="text-[11px] text-[--outline] bg-[--surface-container-low] px-2 py-0.5 rounded">
@@ -517,31 +494,30 @@ export default function HomePage() {
         </section>
 
         {/* ═══════════════════════════════════════
-            EXPLORE BANGLADESH BY DIVISION
+            FEATURED GLOBAL DESTINATIONS
         ══════════════════════════════════════ */}
-        <section className="w-full bg-[--surface-container-low] py-10 sm:py-12 md:py-16" id="divisions">
+        <section className="w-full bg-[--surface-container-low] py-10 sm:py-12 md:py-16" id="destinations">
           <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
               <div>
-                <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary]" style={{ fontFamily: "var(--font-inter)" }}>TERRITORIAL ATLAS</span>
+                <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary]" style={{ fontFamily: "var(--font-inter)" }}>GLOBAL TRAVEL ATLAS</span>
                 <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-[--on-surface] mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
-                  Explore Bangladesh by Division
+                  Featured Global Destinations
                 </h2>
               </div>
               <p className="text-sm sm:text-base md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-[--on-surface-variant] max-w-md" style={{ fontFamily: "var(--font-inter)" }}>
-                Eight unique geographical personalities, from the world's longest unbroken natural sea strand to tidal swamp mazes.
+                Explore hand-crafted itineraries, scenic rail routes, and comprehensive field guides across premier international travel regions.
               </p>
             </div>
 
-            {/* Interactive Bangladesh Map with Tourist Places */}
-            <div className="my-10">
-              <BangladeshMap />
-            </div>
-
-            {/* Division Cards */}
+            {/* Division Cards — Full Click Directly to Blog Post */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
-              {divisions.map((div) => (
-                <div key={div.name} className="group rounded-xl overflow-hidden bg-[--surface-container-lowest] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
+              {globalDestinations.map((div) => (
+                <Link
+                  key={div.name}
+                  href={`/blog/${div.postSlug}`}
+                  className="group rounded-xl overflow-hidden bg-[--surface-container-lowest] shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col hover:-translate-y-1.5 cursor-pointer text-inherit no-underline"
+                >
                   <div className="relative h-60 w-full overflow-hidden">
                     <div
                       className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -565,16 +541,15 @@ export default function HomePage() {
                       <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary]" style={{ fontFamily: "var(--font-inter)" }}>
                         {div.routes} Expedition Routes
                       </span>
-                      <Link
-                        href={`/blog?region=bangladesh&division=${div.slug}`}
-                        className="text-[--on-surface] group-hover:text-[--primary] transition-colors flex items-center gap-1 text-sm font-medium"
+                      <span
+                        className="text-[--primary] font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1 text-sm"
                         style={{ fontFamily: "var(--font-inter)" }}
                       >
-                        Atlas <span className="material-symbols-outlined text-[16px]">arrow_right_alt</span>
-                      </Link>
+                        Read Guide <span className="material-symbols-outlined text-[16px]">arrow_right_alt</span>
+                      </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -584,7 +559,7 @@ export default function HomePage() {
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-[--outline-variant] text-[--on-surface-variant] hover:bg-[--surface-container] hover:text-[--on-surface] transition-all font-medium"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
-                View All 8 Divisions
+                View All Global Destinations
                 <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
               </Link>
             </div>
@@ -600,86 +575,31 @@ export default function HomePage() {
             <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-[--on-surface] mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
               Curated Travel Archetypes
             </h2>
-            <p className="text-sm sm:text-base md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-[--on-surface-variant] mt-2" style={{ fontFamily: "var(--font-inter)" }}>
-              Whether tracking predators through primeval swamps or finding solace in hill tribe bamboo sanctuaries.
+            <p className="text-sm sm:text-base md:text-[1.25rem] leading-relaxed md:leading-[2rem] text-[--on-surface-variant] mt-3" style={{ fontFamily: "var(--font-inter)" }}>
+              Whether trekking high alpine ridges, cycling ancient European capitals, or resting in quiet island sanctuaries.
             </p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {categories.map((cat) => (
               <Link
                 key={cat.label}
-                href={`/category/${cat.label.toLowerCase().replace(/ &? /g, "-")}`}
-                className="group p-4 sm:p-5 rounded-2xl bg-[--surface-container-low] hover:bg-[--primary] transition-all duration-300 text-center flex flex-col items-center justify-between"
+                href="/blog"
+                className="group p-5 rounded-2xl bg-[--surface-container-low] hover:bg-[--primary-container] border border-[--outline-variant]/30 hover:border-transparent transition-all duration-300 flex flex-col items-center text-center hover:-translate-y-1 shadow-sm hover:shadow-lg cursor-pointer text-inherit no-underline"
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[--surface-container-lowest] group-hover:bg-[--primary-fixed] flex items-center justify-center transition-colors shadow-sm">
-                  <span className="material-symbols-outlined text-[--primary] group-hover:text-[--on-primary-fixed] text-xl sm:text-2xl">{cat.icon}</span>
+                <div className="w-12 h-12 rounded-xl bg-[--surface-container-lowest] group-hover:bg-white/20 flex items-center justify-center text-[--primary] group-hover:text-white mb-3 transition-colors shadow-sm">
+                  <span className="material-symbols-outlined text-[24px]">{cat.icon}</span>
                 </div>
-                <div className="mt-3 sm:mt-4">
-                  <h4 className="text-sm sm:text-base font-semibold text-[--on-surface] group-hover:text-white transition-colors" style={{ fontFamily: "var(--font-inter)" }}>
-                    {cat.label}
-                  </h4>
-                  <span className="text-xs sm:text-[0.875rem] text-[--outline] group-hover:text-[--primary-fixed-dim] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontStyle: "italic" }}>
-                    {cat.count} Journals
-                  </span>
-                </div>
+                <h3 className="font-semibold text-sm text-[--on-surface] group-hover:text-white transition-colors" style={{ fontFamily: "var(--font-inter)" }}>
+                  {cat.label}
+                </h3>
+                <span className="text-xs text-[--outline] group-hover:text-white/80 mt-1 transition-colors">
+                  {cat.count} Routes
+                </span>
               </Link>
             ))}
           </div>
         </section>
-
-        {/* ═══════════════════════════════════════
-            WORLD JOURNEYS
-        ══════════════════════════════════════ */}
-        <section className="w-full bg-[--inverse-surface] text-[--surface] py-10 sm:py-12 md:py-16" id="world">
-          <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
-              <div>
-                <div className="flex items-center gap-2 mb-2">
-                  <span className="material-symbols-outlined text-[--primary-fixed] text-lg">public</span>
-                  <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary-fixed]" style={{ fontFamily: "var(--font-inter)" }}>WORLD JOURNEYS</span>
-                </div>
-                <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-white" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
-                  Untamed Global Horizons
-                </h2>
-              </div>
-              <Link href="/blog?region=international" className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg border border-white/20 text-sm text-white/70 hover:text-white hover:border-white/40 transition-all w-full sm:w-auto">
-                All World Stories <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {worldStories.map((story) => (
-                <Link key={story.slug} href={`/blog/${story.slug}`}>
-                  <article className="group rounded-2xl overflow-hidden bg-[--surface-container-highest]/10 border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl cursor-pointer">
-                    <div className="relative h-56 overflow-hidden">
-                      <div
-                        className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                        style={{ backgroundImage: `url('${story.image}')` }}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[--inverse-surface]/80 via-transparent to-transparent" />
-                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[--surface-container-lowest]/80 backdrop-blur-md text-[0.75rem] tracking-[0.12em] font-semibold text-[--on-surface]" style={{ fontFamily: "var(--font-inter)" }}>
-                        {story.country}
-                      </span>
-                    </div>
-                    <div className="p-5">
-                      <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary-fixed-dim]" style={{ fontFamily: "var(--font-inter)" }}>{story.label}</span>
-                      <h3 className="text-[1.5rem] leading-[2rem] text-white mt-1 group-hover:text-[--primary-fixed] transition-colors" style={{ fontFamily: "var(--font-playfair)", fontWeight: 500 }}>
-                        {story.title}
-                      </h3>
-                      <div className="flex items-center justify-between mt-4 pt-3 border-t border-white/10">
-                        <span className="text-sm text-white/60" style={{ fontFamily: "var(--font-inter)" }}>By {story.author}</span>
-                        <span className="text-sm text-white/60 flex items-center gap-1" style={{ fontFamily: "var(--font-inter)" }}>
-                          <span className="material-symbols-outlined text-[14px]">schedule</span> {story.readTime}
-                        </span>
-                      </div>
-                    </div>
-                  </article>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
       </main>
       <Footer />
     </>

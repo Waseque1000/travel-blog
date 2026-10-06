@@ -1,100 +1,73 @@
+"use client";
+
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-[--inverse-surface] text-[--inverse-on-surface]">
-      {/* Newsletter */}
-      <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-16 border-b border-white/10">
-        <div className="max-w-2xl">
-          <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary-fixed-dim] uppercase" style={{ fontFamily: "var(--font-inter)" }}>
-            Field Dispatch Newsletter
-          </span>
-          <h2
-            className="text-2xl sm:text-3xl md:text-4xl text-white mt-2 mb-3 sm:mb-4 leading-tight"
-            style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}
-          >
-            Join the Expedition Circle
-          </h2>
-          <p className="text-sm sm:text-base text-[--surface-container-high]/80 mb-6 sm:mb-8 leading-relaxed">
-            Curated dispatches from the field, route intelligence, hidden waypoints, and season-sensitive expedition reports — every fortnight.
-          </p>
-          <form className="flex flex-col sm:flex-row gap-3 max-w-lg">
-            <input
-              type="email"
-              placeholder="Your email address"
-              className="flex-1 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white placeholder:text-white/50 outline-none focus:border-[--primary-fixed-dim] transition-colors text-sm"
-              required
-            />
-            <button className="px-6 py-3 sm:py-3.5 rounded-xl bg-[--tertiary-container] hover:bg-[--tertiary] text-white text-sm font-semibold transition-all duration-300 shadow-lg whitespace-nowrap">
-              Join the Circle
-            </button>
-          </form>
-        </div>
-      </div>
-
-      {/* Footer Links */}
-      <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 mb-10 sm:mb-12">
+    <footer className="w-full bg-[#0c1815] text-white font-sans border-t border-white/10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 md:px-12 lg:px-24 py-10 sm:py-12">
+        {/* Top Tier: Brand & Minimal Navigation */}
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 pb-7 border-b border-white/10">
           <div>
-            <div className="flex flex-col mb-6">
+            <Link href="/" className="inline-flex items-center gap-3 group">
+              <img
+                src="/logo-icon.png"
+                alt="Wasee On The Go"
+                className="h-8 sm:h-9 w-auto object-contain shrink-0 group-hover:scale-105 transition-transform"
+              />
               <span
-                className="text-xl text-white tracking-tight"
-                style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}
+                className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide"
+                style={{ fontFamily: "var(--font-playfair)" }}
               >
-                SHONARTRAIL
+                WASEE ON THE GO
               </span>
-              <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--outline] mt-1 uppercase" style={{ fontFamily: "var(--font-inter)" }}>
-                Expeditions &amp; Journal
+              <span className="bg-[#005c55]/40 border border-[#80d5cb]/30 text-[#80d5cb] text-[10px] font-bold tracking-wider px-2 py-0.5 rounded-full uppercase">
+                EXPEDITIONS
               </span>
-            </div>
-            <p className="text-sm text-[--inverse-on-surface]/60">
-              Award-winning travel journalism across Bangladesh and the world.
+            </Link>
+            <p className="text-xs sm:text-sm text-white/60 mt-2 font-light leading-relaxed">
+              Ground-verified route dossiers &amp; unvarnished field dispatches across global horizons.
             </p>
           </div>
-          <div>
-            <h4 className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--outline] uppercase mb-4">Bangladesh</h4>
-            <ul className="flex flex-col gap-2">
-              {["Chattogram", "Sylhet", "Khulna", "Barishal", "Dhaka"].map((d) => (
-                <li key={d}>
-                  <Link href={`/blog?region=bangladesh&division=${d.toLowerCase()}`} className="text-sm text-[--inverse-on-surface]/70 hover:text-white transition-colors">
-                    {d}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--outline] uppercase mb-4">Explore</h4>
-            <ul className="flex flex-col gap-2">
-              {[["Destinations", "/destinations"], ["Blog", "/blog"], ["Categories", "/category"], ["Search", "/search"], ["About", "/about"]].map(([label, href]) => (
-                <li key={label}>
-                  <Link href={href} className="text-sm text-[--inverse-on-surface]/70 hover:text-white transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--outline] uppercase mb-4">Connect</h4>
-            <ul className="flex flex-col gap-2">
-              {[["Contact", "/contact"], ["Newsletter", "#newsletter"], ["Write for Us", "/contact"]].map(([label, href]) => (
-                <li key={label}>
-                  <Link href={href} className="text-sm text-[--inverse-on-surface]/70 hover:text-white transition-colors">
-                    {label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+
+          {/* Minimal Nav Links */}
+          <nav className="flex items-center gap-5 sm:gap-6 flex-wrap text-xs sm:text-sm font-medium">
+            <Link href="/" className="text-white/75 hover:text-[#80d5cb] transition-colors">
+              Home
+            </Link>
+            <Link href="/blog" className="text-white/75 hover:text-[#80d5cb] transition-colors">
+              Blog
+            </Link>
+            <Link href="/blog/10-day-japan-itinerary" className="text-white/75 hover:text-[#80d5cb] transition-colors">
+              Japan Itinerary
+            </Link>
+            <Link href="/blog/swiss-alps-hiking-trails" className="text-white/75 hover:text-[#80d5cb] transition-colors">
+              Swiss Alps
+            </Link>
+            <Link href="/destinations" className="text-white/75 hover:text-[#80d5cb] transition-colors">
+              Destinations
+            </Link>
+            <Link href="/contact" className="text-white/75 hover:text-[#80d5cb] transition-colors">
+              Contact
+            </Link>
+          </nav>
         </div>
-        <div className="flex flex-col md:flex-row items-center justify-between pt-8 border-t border-white/10 gap-4">
-          <p className="text-sm text-[--inverse-on-surface]/50">
-            © 2026 ShonarTrail. All expedition rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="text-sm text-[--inverse-on-surface]/50 hover:text-white transition-colors">Privacy</Link>
-            <Link href="/sitemap.xml" className="text-sm text-[--inverse-on-surface]/50 hover:text-white transition-colors">Sitemap</Link>
+
+        {/* Bottom Tier: Copyright, Waypoint, Back to Top */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-6 text-xs text-white/50">
+          <div>
+            © 2026 Wasee On The Go · All rights reserved.
+          </div>
+          <div className="flex items-center gap-4">
+            <span className="font-mono text-white/40 tracking-wider">23°42&apos;N 90°22&apos;E</span>
+            <span className="text-white/20">|</span>
+            <button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="text-white/70 hover:text-white transition-colors inline-flex items-center gap-1 cursor-pointer"
+            >
+              <span>Back to Top</span>
+              <span className="material-symbols-outlined text-[14px]">arrow_upward</span>
+            </button>
           </div>
         </div>
       </div>

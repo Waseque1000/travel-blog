@@ -1,122 +1,132 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { bangladeshPosts } from "@/lib/data/posts";
-import BangladeshMap from "@/components/BangladeshMap";
 
 export const metadata = {
-  title: "Destinations & Territorial Atlas | SHONAR TRAIL",
-  description: "Explore 48 cartographic routes plotted across the 8 primeval divisions of Bangladesh and international horizons.",
+  title: "Global Destinations & Territorial Atlas | WASEE ON THE GO",
+  description: "Explore hand-crafted itineraries, scenic rail routes, and comprehensive field guides across premier international travel regions.",
 };
 
 const allDestinations = [
   {
-    name: "Sajek Valley",
-    division: "Chattogram",
-    region: "bangladesh",
-    elevation: "1,800 FT",
-    coordinates: "23°23'N 92°17'E",
-    tagline: "The sovereign mist of the Lushei peaks",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBId_INVaDFA0n9xplmGUmZvmTX726opQZqHo1dY8O6oipc5lUcIHwSBfbg0OTfTushYP865EgBcGvF76c7_AQuYa7u50wDzPXwOQCYdwWVhtYNPeen52HWqxgcGvXLsxanSWuXQvuzMwdNX3t_PrM6lzTul6cKaW81goGobjtRzi7Ly-1ZRG11YE4lL792MKLoaEBTkeeUByxE2dMXUQPQ9XamYujP6LiU70S8Ja4_pyNNkojHgEU",
-    budget: "৳৳",
-    slug: "sajek-valley-travel-guide",
+    name: "Tokyo & Kyoto",
+    division: "Asia",
+    region: "international",
+    elevation: "40 m",
+    coordinates: "35°41'N 139°41'E",
+    tagline: "Bullet trains, neon Shibuya and ancient Zen shrines in Kyoto",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/japan-kyoto-temple-guide.jpg",
+    budget: "$$$",
+    slug: "10-day-japan-itinerary",
+    category: "Culture",
+  },
+  {
+    name: "Swiss Alps",
+    division: "Europe",
+    region: "international",
+    elevation: "4,478 m",
+    coordinates: "45°58'N 7°39'E",
+    tagline: "Matterhorn peaks, panoramic railways and alpine glacier lakes",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/swiss-alps-hiking-matterhorn.jpg",
+    budget: "$$$",
+    slug: "swiss-alps-hiking-trails",
     category: "Mountain",
   },
   {
-    name: "Sundarbans Biome",
-    division: "Khulna",
-    region: "bangladesh",
+    name: "Iceland Ring Road",
+    division: "Europe",
+    region: "international",
     elevation: "Sea Level",
-    coordinates: "21°56'N 89°11'E",
-    tagline: "World's largest mangrove forest & Royal Bengal tiger kingdom",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDbVvMpUKP9P7jxNatdf7qmOGFl8uw-yIJs_sa9c6tbYr3iOvRUtzTZ51GvPFjpxkMmRKYfIfaB3QSHHGW3d87IQ1qbYCUfclLHGkyl9g2y8WCRatnqDb_Q7wjR-9zVhLQcQVe9dpcwo0vzt3Tj4jt2jlGtgXQSxG0sEiR_AljIct3E1YhL1swNqkSykyeG7C912aTHAY2zC-MbAaHHZkBiWOaI3m6QCeka-r5Oj8tHw539c9IY37Q",
-    budget: "৳৳৳",
-    slug: "sundarbans-mangrove-forest-guide",
+    coordinates: "64°08'N 21°56'W",
+    tagline: "Route 1 volcanic landscapes, glacial waterfalls & black sands",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/iceland-ring-road-waterfall.jpg",
+    budget: "$$$",
+    slug: "iceland-ring-road-guide",
     category: "Adventure",
   },
   {
-    name: "Srimangal Estates",
-    division: "Sylhet",
-    region: "bangladesh",
-    elevation: "65 FT",
-    coordinates: "24°18'N 91°44'E",
-    tagline: "Rolling tea slopes, seven-layer brews & gibbon rainforests",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDtGYPg9s8__7Ze0oncrPUz5NRp-4HFMQpaI_6UCXSUTEUCpShZLP7hDyQfh2Bu5phu6xsibq1pWIzV97JEqRry94cEVpxCwO9y4yRa6382bXfVF4PO-4yaeVFCxeTEXUotvYPAHCfihBpZ9ml7aLUQjmZLQ0H6Xv777Wkf4OA_X9kGlYdcnUeX9MvMnWifTVQpaCgXASgXS6rMKbQO_DIGt2QX1cuPQAaBTttjRjiMnWfPA0bryDg",
-    budget: "৳৳",
-    slug: "srimangal-tea-capital-guide",
-    category: "Nature",
-  },
-  {
-    name: "Cox's Bazar Strand",
-    division: "Chattogram",
-    region: "bangladesh",
-    elevation: "Sea Level",
-    coordinates: "21°26'N 91°59'E",
-    tagline: "120 km of unbroken natural sand beach along Bay of Bengal",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuB5L-2aKDmvpKbN1FtVhzYWzzC4_hcpUj-t1FBGitSIxvAYY5buhtTR7GRgNqspjjLX4AnzcTRczKDF1hmOA39fQ4PY7b85zOGseOJ-mQ13-TACCVo-gIXQwZl2IKm6ySZFRHSCJ5YKlYfyNRWCXhzN9E4tfMfND9zk5ODNaiYSKYdJLBpJExDRcx-R2x06Bhaa2LuqQMgBloc07n1pYdAWhTRRo02QMrcm_FSz2LhBQUc7VeeGt5w",
-    budget: "৳৳",
-    slug: "coxs-bazar-beach-guide",
-    category: "Beach",
-  },
-  {
-    name: "Bandarban Peaks",
-    division: "Chattogram",
-    region: "bangladesh",
-    elevation: "3,172 FT",
-    coordinates: "22°11'N 92°13'E",
-    tagline: "Keokradong ascents, Boga Lake crater & tribal valleys",
-    image: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
-    budget: "৳৳",
-    slug: "bandarban-hill-trekking-guide",
+    name: "Morocco Sahara",
+    division: "Africa",
+    region: "international",
+    elevation: "450 m",
+    coordinates: "31°37'N 7°59'W",
+    tagline: "Marrakech souks, Atlas mountain passes & Sahara dunes",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/morocco-sahara-desert-road-trip.jpg",
+    budget: "$$",
+    slug: "morocco-10-day-itinerary",
     category: "Adventure",
   },
   {
-    name: "Saint Martin's Coral",
-    division: "Chattogram",
-    region: "bangladesh",
+    name: "Greek Cyclades",
+    division: "Europe",
+    region: "international",
     elevation: "Sea Level",
-    coordinates: "20°37'N 92°19'E",
-    tagline: "Narikel Jinjira: Bangladesh's only coral island & Chhera Dwip",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-    budget: "৳৳৳",
-    slug: "saint-martins-island-guide",
-    category: "Beach",
+    coordinates: "36°25'N 25°26'E",
+    tagline: "Santorini caldera cliffs, whitewashed villages & Aegean sea",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/greece-santorini-7-days-itinerary.jpg",
+    budget: "$$",
+    slug: "7-days-in-greece-itinerary",
+    category: "Coastal",
   },
   {
-    name: "Ratargul & Jaflong",
-    division: "Sylhet",
-    region: "bangladesh",
-    elevation: "115 FT",
-    coordinates: "25°00'N 91°58'E",
-    tagline: "Freshwater swamp canopies & Meghalaya border rivers",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCEwzasUKPLVDarjCmOo8IpGHSP7zxhfimyjliZJuZiX60vll9uJKB4KhoNp71C_h4g6gT-KpzLrL9wOgiqeslP00seVImazu7RED1_PJNW6nv5oGg5xXOULKay8lmapnHFrjJZu85eIki8lD9yTp8072hfKw5-6B2sA1CaM51waOK4fCNRnMe0hHgSduG3JcU6QAQ7qK-N7DhFdF3IgnHBy8-yBQLLGoavzCfwm8V9mQzzBSeAg0Y",
-    budget: "৳৳",
-    slug: "sylhet-ratargul-jaflong-bisnakandi",
+    name: "Bali Terraces",
+    division: "Asia",
+    region: "international",
+    elevation: "350 m",
+    coordinates: "8°20'S 115°09'E",
+    tagline: "Sidemen emerald rice terraces, sacred water temples & quiet culture",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/bali-hidden-gems-cultural-temples.jpg",
+    budget: "$$",
+    slug: "bali-hidden-gems-cultural-guide",
+    category: "Culture",
+  },
+  {
+    name: "Norway Fjords",
+    division: "Europe",
+    region: "international",
+    elevation: "Sea Level",
+    coordinates: "62°06'N 7°00'E",
+    tagline: "Geirangerfjord & Nærøyfjord dramatic glacial fjords and switchbacks",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/norway-fjords-cruises-roadtrip.jpg",
+    budget: "$$$",
+    slug: "norway-fjords-travel-guide",
     category: "Nature",
   },
   {
-    name: "Kuakata Shore",
-    division: "Barishal",
-    region: "bangladesh",
-    elevation: "Sea Level",
-    coordinates: "21°49'N 90°07'E",
-    tagline: "Daughter of the Sea: sunrise and sunset over the open ocean",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCkWSUBpy-9m2ugmNBatAuyMD03wsNPuyjfRJLclqxWrHd0sQTXNFm7UWidbOMdqymLqb4zUgXpN2Sz-gFxCTSigu2Fly6UbQiBbtvSZR6ayLch4orHSGODGqV15Bfeko37cp8nYTmS4EaRFzDi6lfkHOWJW5XPDV2zUycyutVERKMWZq5MIJmGlaATmx4RqwOjjwMPawnVqv_AksfT3OV5YFiA42NOcH3AesGe8ryRMYZHPxjztN4",
-    budget: "৳৳",
-    slug: "kuakata-sunrise-sunset-guide",
-    category: "Beach",
+    name: "New Zealand South Island",
+    division: "Oceania",
+    region: "international",
+    elevation: "3,724 m",
+    coordinates: "44°24'S 168°44'E",
+    tagline: "Milford Sound fjords, Mount Cook peaks and glacial highway",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/new-zealand-south-island-roadtrip.jpg",
+    budget: "$$$",
+    slug: "new-zealand-south-island-road-trip",
+    category: "Adventure",
   },
   {
-    name: "Paharpur & Bagerhat",
-    division: "Rajshahi",
-    region: "bangladesh",
-    elevation: "55 FT",
-    coordinates: "25°01'N 88°58'E",
-    tagline: "8th-century Somapura Mahavihara & 77-domed medieval mosque city",
-    image: "https://images.unsplash.com/photo-1544644181-1484b3fdfc62?w=800&q=80",
-    budget: "৳",
-    slug: "paharpur-bagerhat-heritage-guide",
-    category: "Heritage",
+    name: "Costa Rica Rainforest",
+    division: "Americas",
+    region: "international",
+    elevation: "1,633 m",
+    coordinates: "10°27'N 84°42'W",
+    tagline: "Monteverde cloud forests, Arenal volcano & Pacific coast",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/costa-rica-rainforest-eco-adventure.jpg",
+    budget: "$$",
+    slug: "costa-rica-2-week-itinerary",
+    category: "Nature",
+  },
+  {
+    name: "Italian Riviera & Cinque Terre",
+    division: "Europe",
+    region: "international",
+    elevation: "Sea Level",
+    coordinates: "44°08'N 9°42'E",
+    tagline: "Hidden cliffside villages, vineyard terraces & Mediterranean coves",
+    image: "https://waseeonthego.com/wp-content/uploads/2026/10/hidden-gems-italy-cinque-terre.jpg",
+    budget: "$$",
+    slug: "hidden-gems-in-italy",
+    category: "Culture",
   },
 ];
 
@@ -133,9 +143,7 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
     ? allDestinations.filter((d) => d.division.toLowerCase() === division.toLowerCase())
     : allDestinations;
 
-  const divisionsList = [
-    "All", "Chattogram", "Sylhet", "Khulna", "Barishal", "Rajshahi", "Rangpur", "Mymensingh", "Dhaka"
-  ];
+  const divisionsList = ["All", "Asia", "Europe", "Africa", "Americas", "Oceania"];
 
   return (
     <>
@@ -147,7 +155,7 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
             <div className="flex flex-wrap items-center gap-2 text-xs uppercase tracking-widest text-[--outline] mb-3">
               <span>Cartographic Gazette</span>
               <span>/</span>
-              <span className="text-[--primary] font-semibold">Territorial Coordinates</span>
+              <span className="text-[--primary] font-semibold">Global Atlas</span>
               <span>/</span>
               <span>Volume IV · 2026</span>
             </div>
@@ -156,26 +164,21 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
                 className="text-2xl sm:text-4xl md:text-5xl font-serif text-[--on-surface] max-w-3xl leading-tight font-semibold"
                 style={{ fontFamily: "var(--font-playfair)" }}
               >
-                Territorial Atlas: Explore Destinations Across Bangladesh
+                Global Atlas: Explore International Travel Destinations
               </h1>
               <div className="self-start md:self-auto flex items-center gap-2 shrink-0 bg-[--surface-container] px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-sm text-xs">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#005c55] animate-pulse" />
                 <span className="font-semibold text-[--on-surface]">
-                  {allDestinations.length} Key Coordinates Mapped
+                  {allDestinations.length} Global Territories Mapped
                 </span>
               </div>
             </div>
           </div>
 
-          {/* Interactive Bangladesh Map with Tourist Places */}
-          <div className="mt-6 sm:mt-8">
-            <BangladeshMap />
-          </div>
-
-          {/* Division Filter Bar */}
+          {/* Region Filter Bar */}
           <div className="mt-6 sm:mt-8 p-3 sm:p-4 rounded-2xl bg-[--surface-container-low] border border-[--outline-variant]/40 flex flex-col gap-2.5 sm:gap-3">
             <span className="text-xs uppercase font-bold tracking-wider text-[--outline]">
-              Filter by Geographic Division:
+              Filter by Geographic Region:
             </span>
             <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
               {divisionsList.map((divName) => {
@@ -222,32 +225,35 @@ export default async function DestinationsPage({ searchParams }: DestinationsPag
                       </div>
 
                       <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
-                        <span className="font-mono text-[#80d5cb]">{dest.coordinates}</span>
-                        <span className="bg-black/40 px-2 py-0.5 rounded text-[11px]">{dest.elevation}</span>
+                        <span className="flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[14px] text-[#80d5cb]">explore</span>
+                          {dest.coordinates}
+                        </span>
+                        <span className="font-mono text-[#80d5cb]">
+                          {dest.elevation}
+                        </span>
                       </div>
                     </div>
 
-                    <div className="p-6">
-                      <div className="flex items-center justify-between text-xs text-gray-500 mb-1">
-                        <span>Budget: <strong className="text-[#005c55]">{dest.budget}</strong></span>
-                        <span>Route Log Available</span>
-                      </div>
+                    <div className="p-5 sm:p-6">
                       <h3
-                        className="text-2xl font-serif font-bold text-gray-900 group-hover:text-[#005c55] transition-colors leading-snug"
+                        className="text-xl font-serif text-gray-900 group-hover:text-[#005c55] transition-colors font-bold mb-2"
                         style={{ fontFamily: "var(--font-playfair)" }}
                       >
                         {dest.name}
                       </h3>
-                      <p className="text-sm text-gray-600 mt-2 leading-relaxed">
+                      <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed">
                         {dest.tagline}
                       </p>
                     </div>
                   </div>
 
-                  <div className="px-6 pb-6 pt-3 border-t border-gray-100 flex items-center justify-between text-xs font-semibold text-[#005c55]">
-                    <span>Read Field Guide</span>
-                    <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
-                      arrow_forward
+                  <div className="px-5 sm:px-6 pb-5 pt-3 border-t border-gray-100 flex items-center justify-between">
+                    <span className="text-xs text-gray-500 font-medium">
+                      Budget Scale: <strong className="text-gray-800">{dest.budget}</strong>
+                    </span>
+                    <span className="text-xs font-semibold text-[#005c55] flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                      Read Guide <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                     </span>
                   </div>
                 </article>

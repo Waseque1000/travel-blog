@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+import './Category';
+import './User';
 
 const PostSchema = new mongoose.Schema(
   {

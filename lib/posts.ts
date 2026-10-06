@@ -3,8 +3,20 @@ import Post from '@/models/Post';
 import Category from '@/models/Category';
 import User from '@/models/User';
 import { bangladeshPosts, BlogPost } from './data/posts';
+import { fetchWordPressPosts, fetchWordPressPostBySlug } from './wordpress';
 
 export async function fetchAllPosts(): Promise<BlogPost[]> {
+  // 1. Try WordPress REST API if configured
+  try {
+    const wpPosts = await fetchWordPressPosts();
+    if (wpPosts && wpPosts.length > 0) {
+      return wpPosts;
+    }
+  } catch (err) {
+    console.warn('WordPress fetch failed, trying database/fallback:', err);
+  }
+
+  // 2. Try MongoDB
   try {
     const conn = await dbConnect();
     if (!conn) {
@@ -57,6 +69,17 @@ export async function fetchAllPosts(): Promise<BlogPost[]> {
 }
 
 export async function fetchPostBySlug(slug: string): Promise<BlogPost | null> {
+  // 1. Try WordPress REST API if configured
+  try {
+    const wpPost = await fetchWordPressPostBySlug(slug);
+    if (wpPost) {
+      return wpPost;
+    }
+  } catch (err) {
+    console.warn('WordPress fetch by slug failed, checking database:', err);
+  }
+
+  // 2. Try MongoDB
   try {
     const conn = await dbConnect();
     if (!conn) {

@@ -16,20 +16,20 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "ShonarTrail — Expeditions & Journal",
-  description: "Award-winning travel journalism across the 8 primeval divisions of Bangladesh and untamed, soulful horizons across the globe.",
-  keywords: ["Bangladesh travel", "travel blog", "Sundarbans", "Sajek Valley", "Cox's Bazar", "travel journal"],
+  title: "Wasee On The Go — Expeditions & Travel Journal",
+  description: "Award-winning international travel journalism across scenic rail routes, alpine trails, cultural sanctuaries, and untamed horizons worldwide.",
+  keywords: ["Wasee On The Go", "international travel", "travel blog", "Japan itinerary", "Swiss Alps", "Iceland Ring Road", "travel journal"],
   openGraph: {
-    title: "ShonarTrail — Expeditions & Journal",
-    description: "Award-winning travel journalism across the 8 primeval divisions of Bangladesh and untamed, soulful horizons across the globe.",
+    title: "Wasee On The Go — Expeditions & Travel Journal",
+    description: "Award-winning international travel journalism across scenic rail routes, alpine trails, cultural sanctuaries, and untamed horizons worldwide.",
     type: "website",
   },
   icons: {
     icon: [
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/logo-icon.png", type: "image/png" },
       { url: "/favicon.ico" },
     ],
-    apple: "/icon.svg",
+    apple: "/logo-icon.png",
   },
 };
 
