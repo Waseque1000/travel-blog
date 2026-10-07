@@ -31,7 +31,7 @@ export default function Navbar() {
           : "bg-white/90 dark:bg-stone-950/90 backdrop-blur-md border-b border-gray-200/40 dark:border-stone-800/40"
       }`}
     >
-      <div className="h-18 w-full px-4 sm:px-6 md:px-12 lg:px-16 flex items-center justify-between">
+      <div className="h-18 w-full max-w-[1440px] mx-auto px-4 sm:px-6 md:px-12 lg:px-16 flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="/" className="flex items-center gap-2.5 sm:gap-3 shrink-0 group">
           {/* Official Wasee On The Go Airplane Emblem */}

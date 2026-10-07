@@ -259,7 +259,7 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════
             COVER STORY BENTO EDITORIAL GRID
         ══════════════════════════════════════ */}
-        <section className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16">
+        <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
@@ -413,8 +413,9 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════
             GLOBAL POST CONTENT BANK (SIGNATURE EXPEDITIONS)
         ══════════════════════════════════════ */}
-        <section className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16 bg-[--surface-container-low]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
+        <section className="w-full bg-[--surface-container-low] py-10 sm:py-12 md:py-16">
+          <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-10 lg:px-20">
+            <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-10 gap-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-6 h-0.5 bg-[--primary]" />
@@ -490,6 +491,7 @@ export default function HomePage() {
                 </article>
               </Link>
             ))}
+            </div>
           </div>
         </section>
 
@@ -497,7 +499,7 @@ export default function HomePage() {
             FEATURED GLOBAL DESTINATIONS
         ══════════════════════════════════════ */}
         <section className="w-full bg-[--surface-container-low] py-10 sm:py-12 md:py-16" id="destinations">
-          <div className="w-full px-4 sm:px-8 md:px-10 lg:px-20">
+          <div className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-10 lg:px-20">
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
               <div>
                 <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--primary]" style={{ fontFamily: "var(--font-inter)" }}>GLOBAL TRAVEL ATLAS</span>
@@ -569,7 +571,7 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════
             TRAVEL CATEGORIES
         ══════════════════════════════════════ */}
-        <section className="w-full px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16">
+        <section className="w-full max-w-[1440px] mx-auto px-4 sm:px-8 md:px-10 lg:px-20 py-10 sm:py-12 md:py-16">
           <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-12">
             <span className="text-[0.75rem] tracking-[0.12em] font-semibold text-[--tertiary]" style={{ fontFamily: "var(--font-inter)" }}>EXPEDITION DISCIPLINES</span>
             <h2 className="text-2xl sm:text-4xl md:text-[3rem] leading-tight md:leading-[3.5rem] text-[--on-surface] mt-1" style={{ fontFamily: "var(--font-playfair)", fontWeight: 600 }}>
