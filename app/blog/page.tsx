@@ -13,8 +13,18 @@ interface BlogPageProps {
 }
 
 export const metadata = {
-  title: "Field Dispatches & Territorial Archive | Wasee On The Go",
-  description: "Comprehensive travel guides, field dispatches, and logistical dossiers across Bangladesh and global frontiers.",
+  title: "Field Dispatches, Scenic Routes & Travel Guides | Wasee On The Go",
+  description: "Comprehensive travel guides, multi-day itineraries, flight hacks, and logistical dossiers across international frontiers.",
+  alternates: {
+    canonical: "https://waseeonthego.com/blog",
+  },
+  openGraph: {
+    title: "Field Dispatches & Travel Guides | Wasee On The Go",
+    description: "Comprehensive travel guides, multi-day itineraries, flight hacks, and logistical dossiers across international frontiers.",
+    url: "https://waseeonthego.com/blog",
+    siteName: "Wasee On The Go",
+    type: "website",
+  },
 };
 
 export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
@@ -46,21 +56,21 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
   });
 
   const categories = [
-    { label: "All Dossiers (9)", slug: "" },
-    { label: "Adventure & Wilds", slug: "adventure" },
-    { label: "Coastal & Coral", slug: "beach" },
-    { label: "High Ridges", slug: "mountain" },
-    { label: "Tea & Swamps", slug: "nature" },
-    { label: "UNESCO Heritage", slug: "heritage" },
+    { label: "All Dossiers (30)", slug: "" },
+    { label: "Destinations & Itineraries", slug: "destinations-itineraries" },
+    { label: "Solo & Budget Travel", slug: "solo-budget-travel" },
+    { label: "Adventure & Wilds", slug: "adventure-outdoor" },
+    { label: "Travel Planning & Gear", slug: "travel-planning-gear" },
+    { label: "Food & Culture", slug: "food-culture" },
+    { label: "Travel Style", slug: "travel-style" },
   ];
 
   const divisions = [
-    { label: "All (20)", slug: "", count: 20 },
-    { label: "Asia & Pacific", slug: "asia", count: 6 },
-    { label: "Europe", slug: "europe", count: 6 },
-    { label: "Scandinavia", slug: "scandinavia", count: 3 },
-    { label: "Americas", slug: "americas", count: 3 },
-    { label: "North Africa", slug: "africa", count: 2 },
+    { label: "All (30)", slug: "", count: 30 },
+    { label: "Asia & Pacific", slug: "asia", count: 9 },
+    { label: "Europe", slug: "europe", count: 10 },
+    { label: "Americas", slug: "americas", count: 7 },
+    { label: "Africa & Middle East", slug: "africa", count: 4 },
   ];
 
   const leadPost = allPosts.find((p) => p.slug === "10-day-japan-itinerary") || allPosts[0];
@@ -84,7 +94,7 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#005c55]/40 border border-[#80d5cb]/30 backdrop-blur-md shadow-lg mb-5">
               <span className="w-2 h-2 rounded-full bg-[#80d5cb] shadow-[0_0_10px_#80d5cb]" />
               <span className="text-[11px] font-bold tracking-[1.5px] text-[#9cf2e8] uppercase">
-                THE OFFICIAL WAYFARER ARCHIVE · 20 VERIFIED EXPEDITIONS
+                THE OFFICIAL WAYFARER ARCHIVE · 30 VERIFIED EXPEDITIONS
               </span>
             </div>
 
@@ -342,7 +352,7 @@ export default async function BlogIndexPage({ searchParams }: BlogPageProps) {
                 <h4 className="text-xl font-serif font-bold text-[#1c1c19] mb-2" style={{ fontFamily: "var(--font-playfair)" }}>
                   No Corresponding Dossiers Found
                 </h4>
-                <p className="text-sm text-[#6e7977] mb-4">Try broadening your search term or reset filters to display all 9 verified routes.</p>
+                <p className="text-sm text-[#6e7977] mb-4">Try broadening your search term or reset filters to display all 30 verified routes.</p>
                 <Link
                   href="/blog"
                   className="inline-block bg-[#005c55] text-white px-5 py-2.5 rounded-lg text-xs font-semibold"

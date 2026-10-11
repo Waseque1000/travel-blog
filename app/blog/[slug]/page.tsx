@@ -15,18 +15,62 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
   if (!post) {
     return {
-      title: "Expedition Not Found | SHONAR TRAIL",
+      title: "Expedition Not Found | Wasee On The Go",
+      description: "The requested expedition dossier could not be located.",
     };
   }
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://waseeonthego.com";
+  const canonicalUrl = `${siteUrl}/blog/${post.slug}`;
+  const keywords = [
+    ...(post.tags || []),
+    post.country,
+    post.location,
+    post.category.name,
+    "travel guide",
+    "itinerary",
+    "travel tips",
+    "Wasee On The Go",
+  ].filter(Boolean);
+
   return {
-    title: `${post.title} | SHONAR TRAIL Journal`,
+    title: `${post.title} — Travel Guide | Wasee On The Go`,
     description: post.excerpt,
+    keywords,
+    alternates: {
+      canonical: canonicalUrl,
+    },
     openGraph: {
+      title: `${post.title} — Comprehensive Expedition Guide`,
+      description: post.excerpt,
+      url: canonicalUrl,
+      siteName: "Wasee On The Go",
+      type: "article",
+      publishedTime: post.publishedAt,
+      authors: [post.author?.name || "Wasee Arafat"],
+      tags: post.tags,
+      images: [
+        {
+          url: post.coverImage,
+          width: 1200,
+          height: 800,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
       title: post.title,
       description: post.excerpt,
       images: [post.coverImage],
-      type: "article",
+      creator: "@waseeonthego",
+    },
+    robots: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
     },
   };
 }
@@ -42,16 +86,99 @@ export default async function PostDetailPage({ params }: PostPageProps) {
   const allPosts = await fetchAllPosts();
   const relatedPosts = allPosts
     .filter((p) => p.slug !== post.slug)
+    .sort((a, b) => {
+      // Prioritize same category or same country
+      const scoreA = (a.category.slug === post.category.slug ? 2 : 0) + (a.country === post.country ? 2 : 0);
+      const scoreB = (b.category.slug === post.category.slug ? 2 : 0) + (b.country === post.country ? 2 : 0);
+      return scoreB - scoreA;
+    })
     .slice(0, 3);
+
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://waseeonthego.com";
+  const postUrl = `${siteUrl}/blog/${post.slug}`;
+
+  // JSON-LD Schema: BlogPosting & BreadcrumbList for Google/Bing Rich Results
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": [post.coverImage, ...(post.gallery || [])],
+    "datePublished": post.publishedAt,
+    "dateModified": post.publishedAt,
+    "author": {
+      "@type": "Person",
+      "name": post.author.name || "Wasee Arafat",
+      "jobTitle": post.author.role || "Editorial Director",
+      "url": `${siteUrl}/about`,
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Wasee On The Go",
+      "url": siteUrl,
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${siteUrl}/logo-icon.png`,
+      },
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": postUrl,
+    },
+    "keywords": (post.tags || []).join(", "),
+    "articleSection": post.category.name,
+    "inLanguage": "en-US",
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": siteUrl,
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Dispatches & Guides",
+        "item": `${siteUrl}/blog`,
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.category.name,
+        "item": `${siteUrl}/blog?category=${post.category.slug}`,
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": post.title,
+        "item": postUrl,
+      },
+    ],
+  };
 
   return (
     <>
+      {/* Inject JSON-LD Structured Data for Search Engine Crawlers */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <Navbar />
       <main className="w-full min-h-screen bg-[--surface] pt-20">
         {/* ═══════════════════════════════════════
             ARTICLE HERO
         ══════════════════════════════════════ */}
-        <section className="relative w-full min-h-[55vh] md:min-h-[70vh] flex flex-col justify-end -mt-20 pt-28 sm:pt-32 pb-10 sm:pb-14 px-4 sm:px-8 md:px-12 lg:px-24 overflow-hidden bg-[--inverse-surface]">
+        <section className="relative w-full min-h-[55vh] md:min-h-[70vh] flex flex-col justify-end -mt-20 pt-28 sm:pt-32 pb-10 sm:pb-14 px-4 sm:px-8 md:px-12 lg:px-24 overflow-hidden bg-[#0c1815]">
           {/* Background Image & Atmospheric Gradients */}
           <div
             className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 scale-105"
@@ -64,28 +191,29 @@ export default async function PostDetailPage({ params }: PostPageProps) {
           {/* Hero Content */}
           <div className="relative z-10 max-w-4xl">
             {/* Breadcrumb & Badges */}
-            <div className="flex flex-wrap items-center gap-2 mb-4">
+            <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 mb-4">
               <Link
-                href="/blog?region=bangladesh"
-                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#80d5cb] border border-white/20 text-xs font-semibold uppercase tracking-wider"
+                href="/blog"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#80d5cb] border border-white/20 text-xs font-semibold uppercase tracking-wider hover:bg-black/80 transition-colors"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
-                <span className="material-symbols-outlined text-[14px]">flag</span>
-                Bangladesh
+                <span className="material-symbols-outlined text-[14px]">public</span>
+                {post.country || post.division || "Global"}
               </Link>
               <span className="text-white/40">/</span>
-              <span
-                className="px-3 py-1 rounded-full bg-[#005c55]/70 text-[#9cf2e8] border border-[#80d5cb]/30 text-xs font-semibold uppercase tracking-wider"
+              <Link
+                href={`/blog?category=${post.category.slug}`}
+                className="px-3 py-1 rounded-full bg-[#005c55]/70 text-[#9cf2e8] border border-[#80d5cb]/30 text-xs font-semibold uppercase tracking-wider hover:bg-[#005c55] transition-colors"
                 style={{ fontFamily: "var(--font-inter)" }}
               >
                 {post.category.name}
-              </span>
+              </Link>
               <span className="text-white/40">/</span>
               <span className="text-white/80 text-xs font-medium flex items-center gap-1">
                 <span className="material-symbols-outlined text-[14px]">location_on</span>
                 {post.location}
               </span>
-            </div>
+            </nav>
 
             {/* Title */}
             <h1
@@ -122,7 +250,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
               <div className="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-white/80">
                 <span className="flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[15px] sm:text-[16px] text-[#80d5cb]">calendar_today</span>
-                  {post.publishedAt}
+                  <time dateTime={post.publishedAt}>{post.publishedAt}</time>
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[15px] sm:text-[16px] text-[#80d5cb]">timer</span>
@@ -130,7 +258,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 </span>
                 <span className="flex items-center gap-1.5">
                   <span className="material-symbols-outlined text-[15px] sm:text-[16px] text-[#80d5cb]">visibility</span>
-                  {post.views.toLocaleString()} views
+                  {post.views.toLocaleString()} reads
                 </span>
               </div>
             </div>
@@ -150,7 +278,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                 className="inline-flex items-center gap-2 text-sm font-semibold text-[--primary] hover:text-[--tertiary] transition-colors mb-8"
               >
                 <span className="material-symbols-outlined text-[18px]">arrow_back</span>
-                Back to All Expeditions
+                Back to All Expeditions &amp; Field Guides
               </Link>
 
               {/* Formatted Content */}
@@ -173,20 +301,23 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   <div className="flex items-center gap-2 mb-6">
                     <span className="material-symbols-outlined text-[--primary] text-xl">photo_library</span>
                     <h3 className="text-2xl font-serif text-[--on-surface]" style={{ fontFamily: "var(--font-playfair)" }}>
-                      Field Photography &amp; Coordinates
+                      High-Definition Field Photography
                     </h3>
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
                     {post.gallery.map((img, idx) => (
                       <div
                         key={idx}
-                        className="group relative h-48 rounded-xl overflow-hidden shadow-md"
+                        className="group relative h-52 rounded-xl overflow-hidden shadow-md bg-[--surface-container-low]"
                       >
-                        <div
-                          className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                          style={{ backgroundImage: `url('${img}')` }}
+                        <img
+                          src={img}
+                          alt={`${post.title} scene ${idx + 1}`}
+                          loading="lazy"
+                          decoding="async"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+                        <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors pointer-events-none" />
                       </div>
                     ))}
                   </div>
@@ -199,12 +330,13 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   Dossier Tags:
                 </span>
                 {post.tags.map((tag) => (
-                  <span
+                  <Link
                     key={tag}
-                    className="px-3 py-1 rounded-full bg-[--surface-container-low] border border-[--outline-variant]/40 text-xs font-medium text-[--on-surface-variant]"
+                    href={`/blog?q=${encodeURIComponent(tag)}`}
+                    className="px-3 py-1 rounded-full bg-[--surface-container-low] border border-[--outline-variant]/40 text-xs font-medium text-[--on-surface-variant] hover:border-[--primary] hover:text-[--primary] transition-colors"
                   >
                     #{tag}
-                  </span>
+                  </Link>
                 ))}
               </div>
             </article>
@@ -225,8 +357,12 @@ export default async function PostDetailPage({ params }: PostPageProps) {
 
                 <dl className="space-y-4 text-sm">
                   <div>
-                    <dt className="text-xs uppercase tracking-wider font-semibold text-[--outline]">Region &amp; Division</dt>
+                    <dt className="text-xs uppercase tracking-wider font-semibold text-[--outline]">Territory &amp; Sector</dt>
                     <dd className="font-medium text-[--on-surface] mt-0.5">{post.location}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs uppercase tracking-wider font-semibold text-[--outline]">Country</dt>
+                    <dd className="font-medium text-[--on-surface] mt-0.5">{post.country}</dd>
                   </div>
                   <div>
                     <dt className="text-xs uppercase tracking-wider font-semibold text-[--outline]">Category Archetype</dt>
@@ -240,7 +376,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   )}
                   {post.elevation && (
                     <div>
-                      <dt className="text-xs uppercase tracking-wider font-semibold text-[--outline]">Elevation</dt>
+                      <dt className="text-xs uppercase tracking-wider font-semibold text-[--outline]">Elevation Profile</dt>
                       <dd className="font-medium text-[--on-surface] mt-0.5">{post.elevation}</dd>
                     </div>
                   )}
@@ -252,7 +388,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   )}
                   {post.permits && (
                     <div>
-                      <dt className="text-xs uppercase tracking-wider font-semibold text-[--outline]">Access &amp; Permits</dt>
+                      <dt className="text-xs uppercase tracking-wider font-semibold text-[--outline]">Access &amp; Entry Requirements</dt>
                       <dd className="font-medium text-[--tertiary] mt-0.5">{post.permits}</dd>
                     </div>
                   )}
@@ -262,34 +398,34 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   </div>
                 </dl>
 
-                {/* Important notice */}
+                {/* Field Advisory notice */}
                 <div className="mt-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs leading-relaxed">
-                  <strong className="block font-semibold mb-1">Field Advisory:</strong>
-                  Fees, permits, ferry timings and access rules change often. Always confirm current details with local authorities before setting out.
+                  <strong className="block font-semibold mb-1">Wayfarer Advisory:</strong>
+                  Permit slots, shuttle passes, entry fees, and mountain weather windows adjust seasonally. Always verify current conditions with official park authorities before departure.
                 </div>
               </div>
 
               {/* Newsletter / Dispatch Subscribe */}
-              <div className="p-6 rounded-2xl bg-[--inverse-surface] text-white shadow-xl flex flex-col justify-between">
+              <div className="p-6 rounded-2xl bg-[#0c1815] text-white shadow-xl flex flex-col justify-between">
                 <div>
                   <span className="text-xs font-semibold tracking-widest text-[#80d5cb] uppercase">
-                    Field Dispatches
+                    Expedition Gazette
                   </span>
                   <h4 className="text-xl font-serif font-medium mt-1 text-white" style={{ fontFamily: "var(--font-playfair)" }}>
-                    Never miss a Bangladesh route log.
+                    Never miss a route log or hidden trail.
                   </h4>
                   <p className="text-xs text-white/80 mt-2 leading-relaxed">
-                    Get authentic field notes, permit updates, and hidden trails delivered directly to your inbox every fortnight.
+                    Receive confidential itinerary dossiers, flight deals, and verified trail logs directly in your inbox twice a month.
                   </p>
                 </div>
                 <div className="mt-5 flex flex-col gap-2">
                   <input
                     type="email"
-                    placeholder="Enter your email"
+                    placeholder="Your expedition dispatch email..."
                     className="w-full px-3.5 py-2.5 rounded-xl bg-white/10 border border-white/20 text-white placeholder:text-white/50 text-sm focus:outline-none focus:border-[#80d5cb]"
                   />
-                  <button className="w-full py-2.5 rounded-xl bg-[--tertiary-container] hover:bg-[--tertiary] text-white font-semibold text-sm transition-colors shadow">
-                    Subscribe to Journal
+                  <button className="w-full py-2.5 rounded-xl bg-[--primary-container] hover:bg-[#005c55] text-white font-semibold text-sm transition-colors shadow">
+                    Join The Expedition Circle
                   </button>
                 </div>
               </div>
@@ -308,14 +444,14 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                   Continue The Journey
                 </span>
                 <h3 className="text-3xl font-serif text-[--on-surface] mt-1" style={{ fontFamily: "var(--font-playfair)" }}>
-                  Related Bangladesh Field Dispatches
+                  Related Expedition Dossiers
                 </h3>
               </div>
               <Link
-                href="/blog?region=bangladesh"
+                href="/blog"
                 className="hidden sm:inline-flex items-center gap-1 text-sm font-semibold text-[--primary] hover:text-[--tertiary]"
               >
-                All 9 Guides <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                All 30 Guides <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
               </Link>
             </div>
 
@@ -323,12 +459,15 @@ export default async function PostDetailPage({ params }: PostPageProps) {
               {relatedPosts.map((rel) => (
                 <Link key={rel.slug} href={`/blog/${rel.slug}`}>
                   <article className="group rounded-2xl overflow-hidden bg-[--surface-container-lowest] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col h-full">
-                    <div className="relative h-48 overflow-hidden">
-                      <div
-                        className="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                        style={{ backgroundImage: `url('${rel.coverImage}')` }}
+                    <div className="relative h-48 overflow-hidden bg-[--surface-container-low]">
+                      <img
+                        src={rel.coverImage}
+                        alt={rel.title}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[--surface-container-lowest]/80 backdrop-blur-md text-[0.75rem] tracking-[0.12em] font-semibold text-[--on-surface]">
+                      <span className="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-[--surface-container-lowest]/85 backdrop-blur-md text-[0.75rem] tracking-[0.12em] font-semibold text-[--on-surface]">
                         {rel.category.name}
                       </span>
                     </div>
@@ -348,7 +487,7 @@ export default async function PostDetailPage({ params }: PostPageProps) {
                       <div className="mt-4 pt-3 border-t border-[--outline-variant]/30 flex items-center justify-between text-xs text-[--outline]">
                         <span>{rel.readingTime} min read</span>
                         <span className="flex items-center gap-1 font-medium text-[--primary]">
-                          Read Log <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                          Read Dossier <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
                         </span>
                       </div>
                     </div>

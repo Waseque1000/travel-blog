@@ -13,7 +13,7 @@ export async function GET() {
         {
           success: false,
           message:
-            'MongoDB connection not configured. Using static/in-memory data bank.',
+            'MongoDB connection not configured. Using static in-memory data bank.',
           count: bangladeshPosts.length,
           posts: bangladeshPosts.map((p) => ({ title: p.title, slug: p.slug })),
         },
@@ -22,24 +22,25 @@ export async function GET() {
     }
 
     // 1. Ensure default author
-    let author = await User.findOne({ email: 'editorial@shonartrail.com' });
+    let author = await User.findOne({ email: 'wasee@waseeonthego.com' });
     if (!author) {
       author = await User.create({
-        name: 'Tanvir Ahmed',
-        email: 'editorial@shonartrail.com',
+        name: 'Wasee Arafat',
+        email: 'wasee@waseeonthego.com',
         password: 'demo_password_hash_only',
         role: 'admin',
-        bio: 'Lead Conservation & Expedition Correspondent covering Bangladesh and global frontiers.',
+        bio: 'Editorial Director & Expedition Chronicler covering global frontiers, rail routes, and alpine trails.',
       });
     }
 
     // 2. Ensure Categories
     const categoryData = [
-      { name: 'Beach', slug: 'beach', description: 'Coasts, sand strands & coral islands', icon: 'surfing' },
-      { name: 'Mountain', slug: 'mountain', description: 'Cloud ridges, high trails & indigenous villages', icon: 'landscape' },
-      { name: 'Adventure', slug: 'adventure', description: 'Deep mangrove safaris & hill treks', icon: 'explore' },
-      { name: 'Nature', slug: 'nature', description: 'Rainforests, freshwater swamps & tea estates', icon: 'forest' },
-      { name: 'Heritage', slug: 'heritage', description: 'UNESCO world heritage sites, viharas & medieval mosques', icon: 'temple_buddhist' },
+      { name: 'Destinations & Itineraries', slug: 'destinations-itineraries', description: 'Actionable multi-day roadmaps & city guides', icon: 'map' },
+      { name: 'Solo & Budget Travel', slug: 'solo-budget-travel', description: 'Backpacking, hostels, flight hacks & wallet-friendly routes', icon: 'savings' },
+      { name: 'Travel Planning & Gear', slug: 'travel-planning-gear', description: 'Packing lists, travel credit cards, apps & logistics', icon: 'backpack' },
+      { name: 'Adventure & Wilds', slug: 'adventure-outdoor', description: 'Alpine treks, road trips, wilderness camping & national parks', icon: 'landscape' },
+      { name: 'Food & Culture', slug: 'food-culture', description: 'Street eats, culinary rituals, ancient heritage & markets', icon: 'restaurant' },
+      { name: 'Travel Philosophy', slug: 'travel-style', description: 'Slow travel, digital nomad life & mindful expeditions', icon: 'menu_book' },
     ];
 
     const categoryMap = new Map();
@@ -51,7 +52,7 @@ export async function GET() {
       categoryMap.set(cat.slug, existing._id);
     }
 
-    // 3. Upsert each of the 9 posts
+    // 3. Upsert each of the 30 posts
     const seeded = [];
     for (const post of bangladeshPosts) {
       const catId = categoryMap.get(post.category.slug) || null;
@@ -82,7 +83,7 @@ export async function GET() {
 
     return NextResponse.json({
       success: true,
-      message: `Successfully seeded ${seeded.length} Bangladesh travel posts into MongoDB`,
+      message: `Successfully seeded ${seeded.length} travel posts into MongoDB`,
       seededSlugs: seeded,
     });
   } catch (error: any) {
